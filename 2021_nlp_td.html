@@ -75,10 +75,10 @@
           <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
               <div class="text" style="z-index:1;position:relative">
                 <h3 style="margin-bottom:0em">
-                  Prompt-tuning: Prompt based fine-tuning for NLU tasks
+                  Prompt-tuning: Prompt-based Fine-tuning for NLU Tasks
                 </h3>
                 <br/>
-                  Since prompting introduced in GPT-3, providing prompts during fine-tuning for any pretrained models becomes a hot topic. Prompts provide auxiliary information about what information to extract from pretrained models for specific tasks. It also often turns a classification task with labels into a token prediction task (i.e., more MLM like) where tokens are associated with labels. Before the debut of prompt-tuning, there are already some works in aspect-based sentiment analysis (ABSA) by turing a single sequence classification task into a dual sequence classification by using the second sentence as an auxiliary sentence to query information from the pretrained models with the primary sentence. I don't think it is a suprise to me that prompt-tuning often out-performance classic fine-tuning given that more information or localized context are provided during fine-tuning.
+                  Since prompting was introduced in GPT-3, providing prompts during fine-tuning for any pretrained models becomes a hot topic. Prompts provide auxiliary information about what information to extract from pretrained models for specific tasks. It also often turns a classification task with labels into a token prediction task (i.e., more MLM like) where tokens are associated with labels. Before the debut of prompt-tuning, there are already some works in aspect-based sentiment analysis (ABSA) by turning a single sequence classification task into a dual sequence classification by using the second sentence as an auxiliary sentence to query information from the pretrained models with the primary sentence. I don't think it is a surprise to me that prompt-tuning often out-performance classic fine-tuning given that more information or localized context is provided during fine-tuning.
               </div>
 
               <br/><br/>
@@ -136,7 +136,7 @@
                   Dynamic Benchmarks and Life-long NLU Learning
                 </h3>
                 <br/>
-                  Static benchmarks such as GLUE or SuperGLUE are becoming saturated by more powerful models. Using human or neural models to generate adverserial examples tailored to the weaknesses of the models (i.e., those examples that the models cannot predict correctly) makes up the concept of dynamic benchmarking. Newer models introduce harder examples; harder examples push neural models to be more powerful. In this multi-round data collection process, people usually retrain the models for each round. But does this make sense? Is this energy efficient? Ideally, if we have collected adverserial examples that fool a powerful model, we only need to curriculum train the model with a new curriculum for these examples. Then, the model should do well on those new examples as well as on data from previous rounds.
+                  Static benchmarks such as GLUE or SuperGLUE are becoming saturated by more powerful models. Using human or neural models to generate adversarial examples tailored to the weaknesses of the models (i.e., those examples that the models cannot predict correctly) makes up the concept of dynamic benchmarking. Newer models introduce harder examples; harder examples push neural models to be more powerful. In this multi-round data collection process, people usually retrain the models for each round. But does this make sense? Is this energy efficient? Ideally, if we have collected adversarial examples that fool a powerful model, we only need to curriculum train the model with a new curriculum for these examples. Then, the model should do well on those new examples as well as on data from previous rounds.
               </div>
 
               <br/><br/>
@@ -184,7 +184,7 @@
                   Neural-Symbolic AI: What Is It? Is It Possible and Useful?
                 </h3>
                 <br/>
-                  Neural models are hard interpret. One traditional way is to make the models more like Baysian models, but can we actually train neural-symbolic models that behave with logics? There are a plenty of ways to achieve this goal, such as enforcing a pool of weights are designed to encode certain parts of the language or image, matching behaviors of a neural models with a high level logistic model, and representing high-level logics using neural weights or contrained linear equations. Along with the interpretability, what else will neural-symbolic models bring into our table? Can it be compositional generalization? or solving mutual exclusive problem? Can energy-based models (EBMs) be used in achieving this goal?
+                  Neural models are hard to interpret. One traditional way is to make the models more like Bayesian models, but can we actually train neural-symbolic models that behave with logic? There are plenty of ways to achieve this goal, such as enforcing a pool of weights are designed to encode certain parts of the language or image, matching behaviors of neural models with a high-level logistic model, and representing high-level logic using neural weights or constrained linear equations. Along with the interpretability, what else will neural-symbolic models bring to our table? Can it be compositional generalization? or solving the mutual exclusive problem? Can energy-based models (EBMs) be used in achieving this goal?
               </div>
 
               <br/><br/>
@@ -232,7 +232,7 @@
                   Anatomy of Pretrained Models: What Aspects Do They Learn?
                 </h3>
                 <br/>
-                  Fine-tuning pretrained language models are dominating most of the NLU benchmarks. Learning why they are be so successful across so many benchmarks becomes a pressing issue in the NLP community. Papers have discussed about what pretrained models good at and bad at. For example, they are good at solving static benchmarks but they are bad at doing reasonings. They even hardly encode hierarchical information in languages. Learning why they succeed will provide us a clearer way to how to improve it further.  
+                  Fine-tuning pretrained language models are dominating most of the NLU benchmarks. Learning why they are so successful across so many benchmarks becomes a pressing issue in the NLP community. Papers have discussed what pretrained models good at and bad at. For example, they are good at solving static benchmarks but they are bad at doing reasonings. They even hardly encode hierarchical information in languages. Learning why they succeed will provide us a clearer way to how to improve it further.  
               </div>
 
               <br/><br/>
@@ -279,7 +279,7 @@
                   Model Distillation and Ethics
                 </h3>
                 <br/>
-                  Model distillation helps large models to maintain strong performance when being compressed to a tiny model which is runnable in small devices such as a regular smart phone. While people have been developing more complicated versions of model distillation, can we also do debiasing when distilling neural models. 
+                  Model distillation helps large models to maintain strong performance when being compressed to a tiny model which is runnable in small devices such as a regular smartphone. While people have been developing more complicated versions of model distillation, can we also do debiasing when distilling neural models? 
               </div>
 
               <br/><br/>
