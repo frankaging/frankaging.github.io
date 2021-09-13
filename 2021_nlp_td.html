@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <script src="js/head.js?prefix="></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Zhengxuan Wu">
+
+  <meta name="description" content="Zhengxuan Wu is a current Masters student at Symbolic Systems Program at Stanford University. Before that he received a Masters degree in Computer Science at University of Pennsylvania. He studied aerospace engineering in college at Case Western Reserve University. He's reseach interests are Sentiment Analysis, NLP, Neural-Symbolic Systems and HCI.">
+  <meta name="keywords" content="Zhengxuan Wu,Computer,Machine,Learning,Cognitive,Science,Homepage,Artificial,Intelligence,Affective,Computing,HCI">
+
+
+  <title>Zhengxuan Wu</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="57x57" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png"
+  />
+  <link rel="apple-touch-icon" sizes="120x120" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png"
+  />
+  <link rel="apple-touch-icon" sizes="144x144" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png"
+  />
+  <link rel="apple-touch-icon" sizes="152x152" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png"
+  />
+  <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png"
+  />
+
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-192x192.png" sizes="192x192" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-128.png" sizes="128x128" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="//www-media.stanford.edu/assets/favicon/favicon-16x16.png" sizes="16x16" />
+
+  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="application-name" content="Stanford University" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
+  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="css/resume.css">
+
+</head>
+
+<body id="page-top">
+  <div class="outercontainer">
+      <header>
+          <div class="container header">
+            <div class="ftheader text"><a href="2021_nlp_td.html">NLP Paper Digest</a></div>
+            <div class="ftsubheader text"><a href="index.html">Publications</a></div>
+            <div class="ftsubheader text"><a href="index.html">Home</a></div>
+          </div>
+        </header>
+    <div class="container body">
+      <div class="content heading anchor" id="home">
+
+          <br/><br/>
+
+          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
+              <div class="text" style="z-index:1;position:relative">
+                <h3 style="margin-bottom:0em">
+                  Prompt-tuning: Prompt based fine-tuning for NLU tasks
+                </h3>
+                <br/>
+                  Since prompting introduced in GPT-3, providing prompts during fine-tuning for any pretrained models becomes a hot topic. Prompts provide auxiliary information about what information to extract from pretrained models for specific tasks. It also often turns a classification task with labels into a token prediction task (i.e., more MLM like) where tokens are associated with labels. Before the debut of prompt-tuning, there are already some works in aspect-based sentiment analysis (ABSA) by turing a single sequence classification task into a dual sequence classification by using the second sentence as an auxiliary sentence to query information from the pretrained models with the primary sentence. I don't think it is a suprise to me that prompt-tuning often out-performance classic fine-tuning given that more information or localized context are provided during fine-tuning.
+              </div>
+
+              <br/><br/>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="paper" href="https://arxiv.org/pdf/2105.11259.pdf">PTR: Prompt Tuning with Rules for Text Classification</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2105.11259.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://github.com/thunlp/PTR">Github</a></span>
+                  </div>
+                  Highlight: To this end, the authors propose prompt tuning with rules (PTR) for many-class text classification, and apply logic rules to construct prompts with several sub-prompts. 
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="paper" href="https://arxiv.org/pdf/2105.11259.pdf">The Power of Scale for Parameter-Efficient Prompt Tuning</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2104.08691.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://github.com/kipgparker/soft-prompt-tuning">Github</a></span>
+                  </div>
+                  Highlight: Soft-generated prompts that can be used to prompt-tuning frozen pretrained models to different downstream tasks. This is much like the GPT-3 settings, where it has one model but multiple prompts for different tasks.
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="paper" href="https://arxiv.org/pdf/2105.11259.pdf">KnowPrompt: Knowledge-aware Prompt-tuning with Synergistic Optimization for Relation Extraction</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2104.07650.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/2104.07650.pdf">Github</a></span>
+                  </div>
+                  Highlight: The authors propose a Knowledge-aware Prompt-tuning approach with synergistic optimization (KnowPrompt). This idea can be easily adapted to aspect-based sentiment analysis or other fine-grained text classification.
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="paper" href="https://arxiv.org/pdf/2105.11259.pdf">Making Pre-trained Language Models Better Few-shot Learners</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2012.15723.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://github.com/princeton-nlp/LM-BFF">Github</a></span>
+                  </div>
+                  Highlight: The authors present LM-BFF—better few-shot fine-tuning of language models1—a suite of simple and complementary techniques for finetuning language models on a small number of annotated examples.
+                </div>
+              </div>
+
+          </div>
+
+
+          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
+              <div class="text" style="z-index:1;position:relative">
+                <h3 style="margin-bottom:0em">
+                  Dynamic Benchmarks and Life-long NLU Learning
+                </h3>
+                <br/>
+                  Static benchmarks such as GLUE or SuperGLUE are becoming saturated by more powerful models. Using human or neural models to generate adverserial examples tailored to the weaknesses of the models (i.e., those examples that the models cannot predict correctly) makes up the concept of dynamic benchmarking. Newer models introduce harder examples; harder examples push neural models to be more powerful. In this multi-round data collection process, people usually retrain the models for each round. But does this make sense? Is this energy efficient? Ideally, if we have collected adverserial examples that fool a powerful model, we only need to curriculum train the model with a new curriculum for these examples. Then, the model should do well on those new examples as well as on data from previous rounds.
+              </div>
+
+              <br/><br/>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Dynaboard: An Evaluation-As-A-Service Platform for Holistic Next-Generation Benchmarking</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2106.06052.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/2106.06052.pdf">Github</a></span>
+                  </div>
+                  Highlight: The authors introduce Dynaboard, an evaluation-as-a-service framework for hosting benchmarks and conducting holistic model comparison, integrated with the Dynabench platform. New adverserial datasets are being generated along with new models. The data generation pipeline is a never ending process.
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">LAMOL: LAnguage MOdeling for Lifelong Language Learning</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/1909.03329.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/1909.03329.pdf">Github</a></span>
+                  </div>
+                  Highlight: The authors present LAMOL, a simple yet effective method for lifelong language learning (LLL) based on language modeling. The training process contains an additional data generation model where it will keep generating with-in distribution data from previous rounds.
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Continual Relation Learning via Episodic Memory Activation and Reconsolidation</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://aclanthology.org/2020.acl-main.573.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://aclanthology.org/2020.acl-main.573.pdf">Github</a></span>
+                  </div>
+                  Highlight: The authors introduce episodic memory activation and reconsolidation (EMAR) to continual relation learning. It is a more advanced EWC concept.
+                </div>
+              </div>
+
+
+          </div>
+
+
+          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
+              <div class="text" style="z-index:1;position:relative">
+                <h3 style="margin-bottom:0em">
+                  Neural-Symbolic AI: What Is It? Is It Possible and Useful?
+                </h3>
+                <br/>
+                  Neural models are hard interpret. One traditional way is to make the models more like Baysian models, but can we actually train neural-symbolic models that behave with logics? There are a plenty of ways to achieve this goal, such as enforcing a pool of weights are designed to encode certain parts of the language or image, matching behaviors of a neural models with a high level logistic model, and representing high-level logics using neural weights or contrained linear equations. Along with the interpretability, what else will neural-symbolic models bring into our table? Can it be compositional generalization? or solving mutual exclusive problem? Can energy-based models (EBMs) be used in achieving this goal?
+              </div>
+
+              <br/><br/>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Causal Abstractions of Neural Networks</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2106.02997.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/2106.02997.pdf">Github</a></span>
+                  </div>
+                  Highlight: The authors propose a new structural analysis method grounded in a formal theory of causal abstraction that provides rich characterizations of model-internal representations and their roles in input/output behavior. With this framework, special training paradigm may enforce neural models to behave in a determinstic way.
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Logical Neural Networks</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2006.13155.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/2006.13155.pdf">Github</a></span>
+                  </div>
+                  Highlight: The authors propose a novel framework seamlessly providing key properties of both neural nets (learning) and symbolic logic (knowledge and reasoning). Every neuron has a meaning as a component of a formula in a weighted real-valued logic, yielding a highly intepretable disentangled representation. 
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Compositional Generalization via Neural-Symbolic Stack Machines</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2008.06662.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/2008.06662.pdf">Github</a></span>
+                  </div>
+                  Highlight: The authors e propose the Neural-Symbolic Stack Machine (NeSS). It contains a neural network to generate traces, which are then executed by a symbolic stack machine enhanced with sequence manipulation operations. This neural networks can solve nearly perfect for some compositional generalization tasks such as SCAN.
+                </div>
+              </div>
+
+
+          </div>
+
+
+          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
+              <div class="text" style="z-index:1;position:relative">
+                <h3 style="margin-bottom:0em">
+                  Anatomy of Pretrained Models: What Aspects Do They Learn?
+                </h3>
+                <br/>
+                  Fine-tuning pretrained language models are dominating most of the NLU benchmarks. Learning why they are be so successful across so many benchmarks becomes a pressing issue in the NLP community. Papers have discussed about what pretrained models good at and bad at. For example, they are good at solving static benchmarks but they are bad at doing reasonings. They even hardly encode hierarchical information in languages. Learning why they succeed will provide us a clearer way to how to improve it further.  
+              </div>
+
+              <br/><br/>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Identifying the Limits of Cross-Domain Knowledge Transfer for Pretrained Models</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2104.08410.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://github.com/frankaging/limits-cross-domain-transfer">Github</a></span>
+                  </div>
+                  Highlight: The authors offer a partial answer via a systematic exploration of how much transfer occurs when models are denied any information about word identity via random scrambling. What is the thing that is transferred here? Is it some statistical distribution? Inductive biases? Maybe pretrained models are a large statistical machine with inductive bias plus some language encoded information. Can we do better pretraining based on this?
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Can Small and Synthetic Benchmarks Drive Modeling Innovation? A Retrospective Study of Question Answering Modeling Approaches</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://cs.stanford.edu/~nfliu/papers/liu+lee+jia+liang.arxiv2021.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://cs.stanford.edu/~nfliu/papers/liu+lee+jia+liang.arxiv2021.pdf">Github</a></span>
+                  </div>
+                  Highlight: The authors carefully construct small, targeted synthetic benchmarks that do not resemble natural language, yet have high concurrence with SQuAD, demonstrating that naturalness and size are not necessary for reflecting historical modeling improvements on SQuAD.
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">A Primer in BERTology: What We Know About How BERT Works</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://aclanthology.org/2020.tacl-1.54.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://aclanthology.org/2020.tacl-1.54.pdf">Github</a></span>
+                  </div>
+                  Highlight: This paper is the first survey of over 150 studies of the popular BERT model. We review the current state of knowledge about how BERT works, what kind of information it learns and how it is represented, common modifications to its training objectives and architecture, the overparameterization issue, and approaches to compression. We then outline directions for future research.
+                </div>
+              </div>
+
+
+          </div>
+
+          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
+              <div class="text" style="z-index:1;position:relative">
+                <h3 style="margin-bottom:0em">
+                  Model Distillation and Ethics
+                </h3>
+                <br/>
+                  Model distillation helps large models to maintain strong performance when being compressed to a tiny model which is runnable in small devices such as a regular smart phone. While people have been developing more complicated versions of model distillation, can we also do debiasing when distilling neural models. 
+              </div>
+
+              <br/><br/>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/1910.01108.pdf?ref=hackernoon.com">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/1910.01108.pdf?ref=hackernoon.com">Github</a></span>
+                  </div>
+                  Highlight: This paper proposes a method to pre-train a smaller generalpurpose language representation model, called DistilBERT, which can then be finetuned with good performances on a wide range of tasks like its larger counterparts.
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Towards Debiasing NLU Models from Unknown Biases</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2009.12303.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/2009.12303.pdf">Github</a></span>
+                  </div>
+                  Highlight: This paper present the first step to bridge this gap by introducing a self-debiasing framework that prevents models from mainly utilizing biases without knowing them in advance. The proposed framework is general and complementary to the existing debiasing methods.
+                </div>
+              </div>
+
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="emnlp2021">Mind the Trade-off: Debiasing NLU Models without Degrading the In-distribution Performance</a></div> 
+                  <div>
+                    <span class="venue"><a href="https://arxiv.org/pdf/2005.00315.pdf">Paper</a></span> / 
+                    <span class="venue"><a href="https://arxiv.org/pdf/2005.00315.pdf">Github</a></span>
+                  </div>
+                  Highlight: This paper addresses the trade-off between out-of-distribution performance v.s. in-distribution performance when debiasing by introducing a novel debiasing method, called confidence regularization, which discourage models from exploiting biases while enabling them to receive enough incentive to learn from all the training examples. 
+                </div>
+              </div>
+
+
+          </div>
+
+
+
+
+      </div>
+    </div>
+
+
+    <div class="counter">
+      <a target="_blank" title="Visitor Hit Counter" >
+        <img style="height: 15px; opacity: 0.3" src="https://smallseotools.com/counterDisplay?code=30bc4a9c7b8de277470a006d36c8eb5b&style=0001&pad=5&type=page&initCount=20"  title="Visitor Hit Counter" Alt="Visitor Hit Counter" border="0">
+        </a>
+      </div>
+       <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=080808&w=200&t=m&d=Dds9mR8IX5Off8Ck7C02ugK_jW6kHrYktTRTQs-TpFY&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080"></script>      <br/>
+      <br/>
+      <br/>
+      <br/>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/resume.min.js"></script>
+  <script src="js/header.js?prefix="></script>
+
+</body>
+
+</html>
