@@ -66,21 +66,38 @@ div.body{margin-top:50px}
 div.content{margin-bottom:10px}
 div.heading{text-align:left;position:relative;z-index:1}
 div.heading div.img{padding:30px 30px 30px 10px;max-width:30%}
-div.heading div.img img{width:200px}
+div.heading div.img img{width:175px}
 div.heading span.tag{padding-right:15px}
 div.heading ul{padding-bottom:0px}
 div.publication{padding-top:0px;padding-bottom:20px}
-div.publication div.img{max-width:300px;padding-right:0px;padding-top:5px}
+div.publication div.img{max-width:300px;padding-right:0px;padding-top:2px}
 div.publication div.text{max-width:650px;text-align:left;vertical-align:top}
-span.author{color:black;font-weight: 600}
-div.authors{font-size:100%;color:#777777}
+span.author{
+    color:black;font-weight: 200; font-size:80%;
+    line-height: 1;
+}
+div.authors{font-size:100%;color:#777777; line-height: 1;}
 span.venue,span.highlight,
 div.publication span.tag{padding-right:0px;font-size:100%}
+span.venue {
+    font-size:80%;
+    font-weight: 200;
+    line-height: 1;
+}
 span.highlight,
 span.highlight a:link,
 span.highlight a:visited{color:#BB2222}
 span.fullvenue{padding-left:8px}
 div.anchor{border-top:50px solid transparent;margin-top:-50px}
+div.img img{
+  border-radius: 6px;
+  border: 1.5px solid #001f3f;
+}
+
+div.img{
+    font-size:0.8em;
+    line-height: 1.6;
+}
 
 @media only screen and (max-width: 980px) {
     div.heading div.topic{display:none}
@@ -97,10 +114,13 @@ div.anchor{border-top:50px solid transparent;margin-top:-50px}
 /*    body{font-size:100%}*/
 }
 @media only screen and (min-width: 880px) {
-    div.heading div.img{padding-right:calc(8% - 30px)}
-    div.heading div.info{padding-right:calc(30% - 250px)}
-    div.publication div.img{width:23%}
-    div.publication div.text{max-width:70%;text-align:left}
+    div.heading div.img{padding-right:calc(8% - 100px)}
+    div.heading div.info{
+        padding-right:calc(30% - 250px);
+        padding-left:30px;
+    }
+    div.publication div.img{width:12%}
+    div.publication div.text{max-width:80%;text-align:left}
 }
 zw.a{color: black}
 
