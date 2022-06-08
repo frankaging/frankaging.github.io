@@ -86,7 +86,7 @@ span.author{
 div.authors{font-size:100%;color:#777777; line-height: 1;}
 span.venue,span.highlight,
 div.publication span.tag{padding-right:0px;font-size:100%}
-span.venue,span.award {
+span.venue {
     font-size:80%;
     font-weight: 200;
     line-height: 1;
