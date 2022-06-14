@@ -100,8 +100,8 @@ span.highlight a:visited{color:#BB2222}
 span.fullvenue{padding-left:8px}
 div.anchor{border-top:50px solid transparent;margin-top:-50px}
 div.img img{
-  border-radius: 6px;
-  border: 1.5px solid #001f3f;
+  border-radius: 1px;
+  border: 3px solid grey;
 }
 
 div.img{
