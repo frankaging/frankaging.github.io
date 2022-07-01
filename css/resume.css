@@ -91,6 +91,15 @@ span.venue {
     font-weight: 200;
     line-height: 1;
 }
+span.date {
+    font-size:80%;
+    font-weight: 200;
+    line-height: 1;
+    color:grey;
+}
+div.blogtext{
+    color:DimGray;
+}
 div.title {
     line-height: 1.2;
 }
