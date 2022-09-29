@@ -35,6 +35,10 @@
     line-height: 1;
 }
 
+.newpaper {
+  color: #cc1515;
+}
+
 header{width:100%;height:50px;margin-top:0px;text-align:center;background-color: #b40c1c;position:fixed;z-index:2}
 body{margin:auto;padding:0;-webkit-transition:all;-moz-transition:all;-ms-transition:all;-o-transition:all;transition:all;
     font-family:Palatino, "EB Garamond", Georgia, "Times New Roman", serif ,sans-serif;font-size:18px;line-height:170%;text-align:justify;font-weight:400}
