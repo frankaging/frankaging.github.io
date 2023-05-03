@@ -150,4 +150,24 @@ zw.a{color: black}
 a {
   color: #007bff;
 }
+
+.chinese_name {
+  width:100px;padding-bottom:5px;
+}
+#playButton {
+  font-size: 12px;
+/*    padding: 5px 10px;*/
+  padding: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#playButton:focus {
+  outline: none;
+}
+
+.material-icons {
+  font-size: 10px;
+}
 /* a.img{height: 15px} */

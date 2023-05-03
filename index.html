@@ -16,6 +16,7 @@
   </script>
 
     <script src="js/head.js?prefix="></script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Zhengxuan Wu">
@@ -60,9 +61,10 @@
   <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
   <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
 
+
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="css/resume.css">
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body id="page-top">
@@ -80,7 +82,16 @@
           <img class="img_responsive profile" src="img/zen_lake_tahoe_mugs.png" alt="Photo">
         </div>
         <div class="text info">
-          <h3>Zhengxuan Wu</h3>
+          <h3>
+            Zhengxuan Wu <img class="chinese_name" src="img/chinese_name.png">
+            <audio id="nameAudio">
+              <source src="assets/name_p.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <button id="playButton" class="play-button">
+              <i id="playIcon" class="material-icons">volume_up</i>
+            </button>
+          </h3> 
           <p/>
           <div>Ph.D. Student, Computer Science, Stanford University</div>
           <div>Email:&nbsp;</td>
@@ -568,6 +579,24 @@
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
   <script src="js/header.js?prefix="></script>
+
+<script>
+  const nameAudio = document.getElementById("nameAudio");
+  const playButton = document.getElementById("playButton");
+  const playIcon = document.getElementById("playIcon");
+
+  playButton.addEventListener("click", function () {
+    if (nameAudio.paused) {
+      nameAudio.play();
+    } else {
+      nameAudio.pause();
+    }
+  });
+
+  nameAudio.addEventListener("ended", function () {
+
+  });
+</script>
 
 </body>
 
