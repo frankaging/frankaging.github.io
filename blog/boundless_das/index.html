@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Hi, this is Zhengxuan. Please remove the following lines if you want to fork this webpage. Otherwise my google analytics
+    will track traffic from your website as well! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVGLSDJKXN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVGLSDJKXN');
+  </script>
+  
+    <script src="../../js/head.js?prefix="></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Zhengxuan Wu">
+
+  <meta name="description" content="Zhengxuan Wu is interested in building interpretable and robust NLP systems">
+  <meta name="keywords" content="Zhengxuan Wu,Computer,Machine,Learning,Cognitive,Science,Homepage,Artificial,Intelligence,Affective,Computing,HCI">
+
+
+  <title>Zhengxuan Wu</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../vendor/devicons/css/devicons.min.css" rel="stylesheet">
+  <link href="../../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="57x57" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png"
+  />
+  <link rel="apple-touch-icon" sizes="120x120" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png"
+  />
+  <link rel="apple-touch-icon" sizes="144x144" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png"
+  />
+  <link rel="apple-touch-icon" sizes="152x152" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png"
+  />
+  <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png"
+  />
+
+  <link rel="icon" type="../../image/png" href="favicon.ico"/>
+
+  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="application-name" content="Stanford University" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
+  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body id="page-top">
+  <div class="outercontainer">
+      <header class="metaheader">
+        <div class="container header">
+          <div class="ftheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">zen's blog</a></div>
+          <div class="ftsubheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">@zen</a></div>
+        </div>
+      </header>
+
+        <div class="nd-pageheader">
+         <div class="container">
+         <h1 class="lead">
+         <nobr class="widenobr">Interpretability at Scale:</nobr>
+         <nobr class="widenobr">Identifying Causal Mechanisms in Alpaca</nobr>
+         </h1>
+
+        <address class="lead">
+          <nobr><a href="https://nlp.stanford.edu/~wuzhengx/" target="_blank"
+          >Zhengxuan Wu</a><sup>*</sup>,</nobr>
+          <nobr><a href="https://atticusg.github.io/" target="_blank"
+          >Atticus Geiger</a><sup>*</sup>,</nobr>
+          <nobr><a href="https://web.stanford.edu/~cgpotts/" target="_blank"
+          >Christopher Potts</a>,</nobr>
+          <nobr><a href="http://cocolab.stanford.edu/ndg.html" target="_blank"
+          >Noah Goodman</a></nobr>
+         <br>
+          <nobr><a href="https://nlp.stanford.edu/" target="_blank"
+          >Stanford University</a></nobr>;
+          <nobr><sup>*</sup><a class="likelink">Equal Contribution</a></nobr>
+          <br>
+          <nobr class="smallfont">(Blog written by Zhengxuan Wu)</nobr>
+        </address>
+
+         </div>
+        </div><!-- end nd-pageheader -->
+
+    <div class="container body">
+      <div class="content heading anchor" id="home">
+      <div class="row justify-content-center text-center">
+      <p>
+      <a href="https://arxiv.org/pdf/xxxx.xxxxx.pdf" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../../img/paper-thumb.png" style="border:1px solid" alt="ArXiv preprint thumbnail" data-nothumb=""><br>ArXiv<br>Preprint</a>
+      <a href="https://github.com/frankaging/align-transformers" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../../img/code-thumb.png" style="border:1px solid" alt="Github code thumbnail" data-nothumb=""><br>Source Code<br>Github</a>
+      <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../../img/alpaca-thumb.png" style="border:1px solid" data-nothumb="" alt="Alpaca model thumbnail"><br>Alpaca<br>Model</a>
+      <a href="" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../../img/translate-thumb.png" style="border:1px solid" data-nothumb="" alt="Translate thumbnail"><br>本文<br>中文翻译</a>
+      </p>
+
+      <div class="card" style="max-width: 1000px;">
+      <div class="card-block">
+      <h3>How to Identity Causal Mechansims in LLMs?</h3>
+      <p class="text-left">
+      <b>Interpretbility tools poorly scale with LLMs</b> as they often focus on a small model that is finetuned for a specific task. In this paper, we propose a new method based on the theory of <em>causal abstraction</em> to find representations that play a given causal role in LLMs. With our tool, we discover that the <b>Alpaca model implements a causal model with interpretable intermediate variables</b> when solving a simple numerical reasoning task. Furthermore, we find that these <b>causal circuits are robust</b> to changes in inputs and instructions. Our causal mechanism discovery framework is generic and ready for LLMs with billions of parameters.
+      </p>
+      <img src="../../img/DIIT.svg" class="medfig" alt="Diagram of bdas">
+      <p class="text-left">
+      In this figure, the Alpaca model is instructed to solve our <b>Pricing Tag Game</b>,</p>
+      <p class="text-center">
+      <em>"Say yes if the cost (Z) is betwee 2.00 (X) and 3.00 (Y) dollars, otherwise no."</em>
+      </p>
+      <p class="text-left">
+      On the top, we have a causal model that solves this problem by having two boolean variables determine whether the input amount is above the lower bound and below the upper bound. Here, we try to align the first boolean varibale. To train for an alignment, we sample two training examples and then <b>swap the intermediate boolean value</b> between them to produce a <b>counterfactual output</b> using our causal model. In parallel, we <b>swap activations</b> between these two examples with the neurons proposed to align. Lastly, we train our rotation matrix such that our neural network behaves counterfactually the same as the causal model.
+      </p>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col">
+      <h2>Why We Scale Causal Mechanism Discovery?</h2>
+
+      <p>Obtaining robust, human-interpretable explanations of large, general-purpose language models is an urgent goal for AI. Current tools have major limitations:
+      </p>
+      <ol>
+        <li><b>Search Space Is Too Large.</b> LLMs has billions of parameters and sequence representations grow as length grows. The search space of neurons are often too large to any heuristic-based search tools.
+        <li><b>Representations Are Distributed.</b> The mappings between activations of individual neurons in LLMs to concepts are often many-to-many, not one-to-one. Past works claiming a set of neurons representing a simple concept (e.g., <em>gender</em>) may be specious while neurons can encode something far more complex (e.g., superposition of multiple concepts).
+        <li><b>Zero Robuestness.</b> Alignments or circuits found in previous works often assume a finetuned model trained specifically for the task, and even with a fixed length input with a fixed template. We are not sure whether these alignments generalize or not, and if generalize to what extent.
+      </ol>
+      We try to address all these limitations and showcase our framework on the recently released Alpaca 7B model <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html" target="_blank"
+          >[1]</a>.
+
+      <h2>Distributed Alignment as an Optimization Problem</h2>
+      <p>Instead of iteratively search for alignments over neurons, we adapt our recently proposed Distributed Alignment Search (DAS) <a href="https://arxiv.org/abs/2303.02536" target="_blank">[2]</a> by turing alignment process into an optimation problem. In DAS, we find the alignment between high-level and low-level models using gradient descent rather than conducting a brute-force search, and we allow individual neurons to play multiple distinct roles by analyzing representations in non-standard bases-distributed representations.
+      </p>
+      <p class="text-center">
+      <img src="../../img/das.png" class="midfig" alt="Diagram of DAS">
+      </p>
+      <p>This figure (copied from the original paper) illustrates one example of a distributed interchange intervention when training DAS. It shows a zoomed in version of the rotation matrix training process in our first figure. Essentially, we call forward passes for all inputs, and we apply a learnable rotation matrix on the representation we are aligning. Then, we do interventions on the rotated space with an objective of aligning counterfactual behaviors predicted by our high-level causal model.
+      </p>
+
+      <p>In this work, we propose an updated version of DAS, <b>Boundless DAS</b>, by scaling these methods significantly by replacing the remaining brute-force search steps with learned parameters. Here are some key advantages:
+      </p>
+      <ol>
+        <li><b>Turning Search into an Optimization Problem.</b> With intervention in the rotated space, we now only need to check whether we could learn a faithful rotation matrix (see next section for our unified metrics of faithfulness) in order to evaluate a proposed alignment.
+        <li><b>Subspace Alignment.</b> Our rotation matrix is an orthogonal matrix and it is othornormal. Each dimension after rotation is a linear combination of original dimensions. In the orthogonalized representation, each dimension is thus independent which is useful for our assumption that intermediate variables are independent.
+      </ol>
+
+      <h2>Generic Boundless DAS Pseudocode</h2>
+      <p>Boundless DAS is a generic method for any model. Here we show a pseudocode snippet for generic decoder-only LLMs.
+      </p>
+      <p class="text-center">
+      <img src="../../img/bdas-code.png" class="midfig" alt="Diagram of DAS code">
+      </p>
+      Ideally, this could also be extend to encoder-decoder LLMs, or encoder-only LLMs.
+
+      <h2>Our Unified Metrics</h2>
+      <p>We use <b>Interchange Intervention Accuracy (IIA)</b> proposed in previous causal abstract works <a href="https://arxiv.org/abs/2106.02997" target="_blank"
+          >[3]</a> <a href="https://arxiv.org/abs/2112.00826" target="_blank"
+          >[4]</a> to evaluate how well or faithful our alignment in the rotated subspace is. The higher the IIA is, the better the alignment is. Here is one running example with <b>a very simple arithmetic task (a + b) * c</b>,</p>
+          <p class="text-center">
+          <img src="../../img/perfect-align.svg" class="smallfig" alt="Diagram of perfect alignment">
+          </p>
+
+      <p>
+        In this problem, if we have these four neurons <em>perfectly</em> align with an intermediate variable representing (a + b), then one can determinstically take activations from these four neurons from an input (1 + 2) * 3, and plug them into another input (2 + 3) * 4 and get the model to output (1 + 2) * 4 = 12. We call this case, a perfect alignment with 100% IIA. We use the same metrics to evaluate alignments in the rotated subspace.
+      </p>
+
+      <p>
+        <b>Note that the meaning behind IIA changes slightly for Boundless DAS</b>: for an 100% IIA in the rotated subspace, it means the aligning causal variable is distributed in the original representation 100%. We can also reverse engineer the learned rotation matrix to back out the weight for each original dimension.
+      </p>
+
+      <h2>A Simple Numeric Reasoning Task</h2>
+      <p>To start with, we construct a simple numeric reasoning task that the Alpaca model can solve fairly easily. 
+      </p>
+
+      <p class="text-center">
+      <img src="../../img/task.svg" class="smallfig" alt="Diagram of our task">
+      </p>
+      The Pricing Tag Game contains essentially three moving parts: (1) left bracket; (2) right bracket; and (3) input amount. There are <b>a few intuitive high-level causal models</b> that can perfectly solve this task,
+      <p class="text-center">
+      <img src="../../img/Causal-Models.svg" class="midfig" alt="Diagram of our causal models">
+      </p>
+
+      <p>
+      Our central research question is: <b>Is the Alpaca model following any of these causal model when solving the task?</b> We try to answer this question by finding alignments for intermediate causal variables above colored in red.</p>
+
+      <h2>Our Findings: Which Alignments Are More Faithful?</h2>
+      </p>
+      We train Boundless DAS on token representations across multiple layers and positions for our task. And we evaluate our learned alignments on hold out testing set to get testing time IIA distributions. Here are the alignment results for all four high-level causal models we are considering,
+      <p class="text-center">
+      <img src="../../img/main-heatmap-standard.svg" class="midfig" alt="Diagram of main result">
+      </p>
+      Here, we normalize IIA by setting the upper bound to be the task performance and lower bound to be the model performance of a dummy classifier. Clearly, causal models involve <b>Left and Right Boundary</b> checks are drastically more faithful. Our findings suggest that the Alpaca model internally is calculating these boolean variables representing the relations between the input amount and the brackets.
+
+      <h2>Our Findings: Are Found Alignments Robust?</h2>
+      </p>
+      One central criticism of <em>mechanistic interpretability</em> is results may only work with a specific setup of seen input-output pairs. In this section, we try to tackle this concern by asking whether the causal role (i.e., alignments) found using Boundless DAS in one setting is preserved in another setting with different levels of difficulties. This is crucial as it tells how robustly the causal model is realized in the neural network. We investigate three settings,
+      <ol>
+        <li><b>New Brackets.</b> We train alignments on a set of brackets and see if they generalize to new brackets.
+        <li><b>Irrelevant Context.</b> We inject random context as prefix at testing time for evaluating alignments.
+        <li><b>Sibling Instruction.</b> We train alignments for instructions saying "Say yes ..., otherwise no" and see if they generalize to instructions saying "Say True ..., otherwise False".
+      </ol>
+
+      <p class="text-center">
+      <img src="../../img/ptg-table.png" class="midfig" alt="Diagram of main table">
+      </p>
+      Here are summarized results for our experiments with task performance as accuracy (bounded between [0.00, 1.00]), the maximal interchange intervention accuracy (IIA) (bounded between [0.00, 1.00]) across all positions and layers, Pearson correlations of IIA between two distributions (bounded between [-1.00, 1.00]), and variance of IIA within a single experiment across all positions and layers. <b>Our findings suggest found alignments are robust</b> across these settings.
+
+      <h2>Bigger Picture</h2>
+      </p>
+      Automated causal mechanism discovery (i.e., circuits discover or mechanistic interpretability) is not an easy task of which there are a lot of moving parts. In the paper, we offer a step forward towards this goal by coming up with a improved paradigm using our proposing method,
+      <p class="text-center">
+      <img src="../../img/Next-DAS-on-LLMs.svg" class="midfig" alt="Diagram of main table">
+      </p>
+      On the left panel, our proposing paradigm has four central step where the last step includes an iterative process to search for better alignments. This paradigm solves a set of limitations posing by current systems but leaves us a lot of TODOs. On the right panel, we show one intermediate goal we want to achieve in the future by <b>replacing our deterministic high-level model with GPT-4 or human expert in-the-loop process</b>.
+
+      <h2>Limitations</h2>
+      </p>
+        Our work marks a first step forward toward understanding the internal causal mechanism of LLMs. It has limitations and it potentially opens up a line of work in this direction. 
+        <ol>
+          <li><b>Go Bigger.</b> we hope our framework can be applied to study the most powerful LLMs (e.g., GPT-3 with 175B or GPT-4) when they are released since current work still focuses on a simple reasoning task that smaller LLMs can solve.
+          <li><b>Deterministic Causal Model.</b> Our work relies on the high-level causal models known as <em>a priori</em> which is unrealistic in many real-world applications where the high-level causal models are hidden as well. Future works can investigate ways to learn high-level causal graphs through discrete search based on heuristics or even end-to-end optimized with
+          <li><b>Ultimate Scalability.</b> The scalability of our method is still bounded by the hidden dimension size of the search space. It is now impossible to search over a group of token representations in LLMs as the rotation matrix grows exponentially as the hidden dimension grows.
+          <li><b>No Conclusive Answer.</b> Our evaluation paradigm could rank between proposing alignments based on IIA (i.e., greybox) but could not make conclusive inferences about failed alignments. 
+        </ol>
+
+      <h4>Acknowledgements</h4>
+      </p>
+      We thank everyone in the Stanford NLP group who offers many great thoughts through many offline discussions.
+    </div>
+  </div>
+
+    </div>
+
+        <footer class="nd-pagefooter">
+      <div class="row">
+        <div class="col-6 col-md text-center">
+          <a href="https://nlp.stanford.edu/">Stanford NLP Group</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../../js/resume.min.js"></script>
+  <script src="../../js/header.js?prefix="></script>
+
+</body>
+
+</html>

@@ -74,7 +74,7 @@ div.ftheader{float:left;padding-left:15px;font-size:1.8em}
 div.ftsubheader{float:right;padding-left:20px;padding-right:20px}
 div.outercontainer,div.content{padding-top:0px;padding-bottom:0px}
 div.container,div.content{width:100%}
-div.body{margin-top:50px}
+div.body{margin-top:0px}
 div.content{margin-bottom:10px}
 div.heading{text-align:left;position:relative;z-index:1}
 div.heading div.img{padding:30px 30px 30px 10px;max-width:30%}
@@ -112,7 +112,7 @@ span.highlight,
 span.highlight a:link,
 span.highlight a:visited{color:#BB2222}
 span.fullvenue{padding-left:8px}
-div.anchor{border-top:50px solid transparent;margin-top:-50px}
+
 div.img img{
   border-radius: 3px;
 /*  border: 3px solid grey;*/
@@ -125,6 +125,9 @@ div.img{
 
 @media only screen and (max-width: 980px) {
     div.heading div.topic{display:none}
+    .medfig {
+      width: 50%;
+    }
 }
 
 @media only screen and (max-width: 879px) {
@@ -134,8 +137,11 @@ div.img{
     div.publication div.text{text-align:left}
     div.heading div.img{max-width: 250px}
     div.heading div.topic{display:none}
-    div.content,div.publication{padding-top:0px;padding-bottom:10px}
+    div.content,div.publication{padding-top:0px}
 /*    body{font-size:100%}*/
+    .medfig {
+      width: 70%;
+    }
 }
 @media only screen and (min-width: 880px) {
     div.heading div.img{padding-right:calc(8% - 100px)}
@@ -145,8 +151,13 @@ div.img{
     }
     div.publication div.img{width:12%}
     div.publication div.text{max-width:80%;text-align:left}
+    .medfig {
+      width: 70%;
+    }
 }
 zw.a{color: black}
+
+
 
 a {
   color: #007bff;
@@ -172,3 +183,79 @@ a {
   font-size: 10px;
 }
 /* a.img{height: 15px} */
+
+/* new thing! */
+
+.nd-pageheader {
+  padding-top: 80px;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+  background-color: #b40c1c;
+}
+
+.nd-pagefooter {
+  color: white;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: #b40c1c;
+  color: white;
+}
+
+.nd-pagefooter a {
+  color: white;
+}
+
+.nd-pageheader address {
+  font-weight: 300;
+}
+
+.smallfont {
+  font-size: 12px;
+}
+
+.nd-pageheader p, .nd-pageheader h1 {
+  margin-bottom: 0.75rem;
+  font-size: 2.25rem;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.metaheader {
+  height: 50px
+}
+
+.lead {
+  padding-left: 15px;
+  text-align: center;
+}
+
+.relatedthumb {
+  float:left; width: 200px; margin: 3px 10px 7px 0;
+}
+.relatedblock {
+  clear: both;
+  display: inline-block;
+}
+.bold-sc {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.cite, .citegroup {
+  margin-bottom: 8px;
+}
+
+h2 {
+  margin-top: 3ex;
+}
+
+.smallfig {
+  text-align: center;
+  width: 60%;
+}
+
+.midfig {
+  text-align: center;
+  width: 80%;
+}
