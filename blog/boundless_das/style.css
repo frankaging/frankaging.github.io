@@ -151,7 +151,8 @@ div.img{
 }
 
 @media only screen and (max-width: 710px) {
-    .titlefonten { font-size: 1.25rem; }
+    .titlefontentop { font-size: 1.75rem; }
+    .titlefonten { font-size: 1.0rem; }
 
 }
 
