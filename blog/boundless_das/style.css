@@ -142,7 +142,19 @@ div.img{
     .medfig {
       width: 70%;
     }
+
 }
+
+@media only screen and (max-width: 450px) {
+    .titlefont { font-size: 1.5rem; }
+
+}
+
+@media only screen and (max-width: 710px) {
+    .titlefonten { font-size: 1.25rem; }
+
+}
+
 @media only screen and (min-width: 880px) {
     div.heading div.img{padding-right:calc(8% - 100px)}
     div.heading div.info{
