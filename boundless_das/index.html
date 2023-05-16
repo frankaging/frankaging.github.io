@@ -149,7 +149,7 @@
       <ol>
         <li><b>Search Space Is Too Large.</b> LLMs has billions of parameters and sequence representations grow as length grows. The search space of neurons are often too large to any heuristic-based search tools.
         <li><b>Representations Are Distributed.</b> The mappings between activations of individual neurons in LLMs to concepts are often many-to-many, not one-to-one. Past works claiming a set of neurons representing a simple concept (e.g., <em>gender</em>) may be specious while neurons can encode something far more complex (e.g., superposition of multiple concepts).
-        <li><b>Zero Robuestness.</b> Alignments or circuits found in previous works often assume a finetuned model trained specifically for the task, and even with a fixed length input with a fixed template. We are not sure whether these alignments generalize or not, and if generalize to what extent.
+        <li><b>Very weak Robuestness.</b> Alignments or circuits found in previous works often assume a finetuned model trained specifically for the task, and even with a fixed length input with a fixed template. We are not sure whether these alignments generalize or not, and if generalize to what extent.
       </ol>
       We try to address all these limitations and showcase our framework on the recently released Alpaca 7B model <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html" target="_blank"
           >[1]</a>.
