@@ -153,7 +153,9 @@ a {
 }
 
 .chinese_name {
-  width:100px;padding-bottom:5px;
+  width:20%;
+  max-width:100px;
+  padding-bottom:5px;
 }
 #playButton {
   font-size: 12px;
