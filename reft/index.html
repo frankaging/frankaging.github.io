@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Hi, this is Zhengxuan. Please remove the following lines if you want to fork this webpage. Otherwise my google analytics
+    will track traffic from your website as well! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVGLSDJKXN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVGLSDJKXN');
+  </script>
+  
+    <script src="../js/head.js?prefix="></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Zhengxuan Wu">
+
+  <meta name="description" content="ReFT">
+  <meta name="keywords" content="Interpretability,NLP,ReFT,PEFT">
+
+
+  <title>ReFT</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../vendor/devicons/css/devicons.min.css" rel="stylesheet">
+  <link href="../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="57x57" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png"
+  />
+  <link rel="apple-touch-icon" sizes="120x120" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png"
+  />
+  <link rel="apple-touch-icon" sizes="144x144" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png"
+  />
+  <link rel="apple-touch-icon" sizes="152x152" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png"
+  />
+  <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png"
+  />
+
+  <link rel="icon" type="../image/png" href="favicon.ico"/>
+
+  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="application-name" content="Stanford University" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
+  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
+
+<meta property="og:title" content="ReFT: Representation Finetuning for Language Models" />
+<meta property="og:url" content="https://zen-wu.social/blog/reft/index.html" />
+<meta property="og:image" content="https://zen-wu.social/img/DIIT-t.png" />
+<meta property="og:description" content="ReFT represents a novel approach to parameter-efficient, powerful, and interpretable fine-tuning of language models." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:title" content="ReFT: Representation Finetuning for Language Models" />
+<meta name="twitter:description" content="ReFT represents a novel approach to parameter-efficient, powerful, and interpretable fine-tuning of language models." />
+<meta name="twitter:image" content="https://zen-wu.social/img/DIIT-t.png" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body id="page-top">
+  <div class="outercontainer">
+      <header class="metaheader">
+        <div class="container header">
+          <div class="ftheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">zen's blog</a></div>
+          <div class="ftsubheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">@zen</a></div>
+        </div>
+      </header>
+
+        <div class="nd-pageheader">
+         <div class="container">
+         <h1 class="lead titlefont">
+         ReFT: Representation Finetuning <br/>for Language Models
+         </h1>
+
+        <address class="lead">
+          <nobr><a href="https://nlp.stanford.edu/~wuzhengx/" target="_blank"
+          >Zhengxuan Wu</a><sup>*</sup>,</nobr>
+          <nobr><a href="https://aryaman.io/" target="_blank"
+          >Aryaman Arora</a><sup>*</sup>,</nobr>
+          <nobr><a href="" target="_blank"
+          >Zheng Wang</a>,</nobr>
+          <nobr><a href="https://atticusg.github.io/" target="_blank"
+          >Atticus Geiger</a>,<br/></nobr>
+          <nobr><a href="https://web.stanford.edu/~jurafsky/" target="_blank"
+          >Dan Jurafsky</a>,</nobr>
+          <nobr><a href="https://nlp.stanford.edu/~manning/" target="_blank"
+          >Christopher D. Manning</a>,</nobr>
+          <nobr><a href="https://web.stanford.edu/~cgpotts/" target="_blank"
+          >Christopher Potts</a></nobr>
+         <br>
+          <nobr><a href="https://nlp.stanford.edu/" target="_blank"
+          >Stanford University</a></nobr>;
+          <nobr><a href="https://prair.group/" target="_blank"
+          >Pr(Ai)2R Group</a></nobr>;
+          <nobr><sup>*</sup><a class="likelink">Equal Contribution</a></nobr>
+        </address>
+
+         </div>
+        </div><!-- end nd-pageheader -->
+
+    <div class="container body">
+      <div class="content heading anchor" id="home">
+      <div class="row justify-content-center text-center">
+      <p>
+      <a href="https://arxiv.org/pdf/2404.03592.pdf" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/paper-thumb-reft.png" style="border:1px solid" alt="ArXiv preprint thumbnail" data-nothumb=""><br>ArXiv<br>Preprint</a>
+      <a href="https://github.com/stanfordnlp/pyreft" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/code-thumb.png" style="border:1px solid" alt="Github code thumbnail" data-nothumb=""><br>Source Code<br>Github</a>
+      <a href="cn_index.html" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/translate-thumb.png" style="border:1px solid" data-nothumb="" alt="Translate thumbnail"><br>本文<br>中文翻译</a>
+      </p>
+
+      <div class="card" style="max-width: 1000px;">
+      <div class="card-block">
+      <h3>Why ReFT is different from existing PEFTs?</h3>
+      <p class="text-left">
+      <b>> Representation is weight-less.</b> Instead of training model subcomponents or prefix hidden representations, we learn interventions that edit <b>very few</b> representations. <b>PEFTs lack the notion of time</b>, which usually update representations across all layers and positions. 
+
+      <br/>
+
+      <b>> The notion of time is the key.</b> Unpacking the time sequence, and intervening on select timesteps allow much more flexible representation-based updates. More importantly, the hidden representations of pretrained LMs usually carry rich semantics. So, why not exploit them?
+
+      <br/>
+
+      <b>> Insights are really from the interpretability works.</b>
+      Instead of adding vectors into representations or scaling them, we edit them <b>by first projecting it onto a linear subspace</b>, and intervening on the subspace projections. Based on past works <a href="https://web.stanford.edu/~jlmcc/papers/PDP/Volume%202/Chap22_PDP86.pdf" target="_blank">[1]</a><a href="https://direct.mit.edu/books/monograph/4424/Parallel-Distributed-Processing-Volume" target="_blank">[2]</a><a href="https://nightmare-code.github.io/files/18-manuel-sanford-jr/-parallel-distributed-processing-explorations-in--9780262132183.pdf" target="_blank">[3]</a>, we believe concepts are encoded in linear subspaces of the original representations. Thus, we edit subspaces, named our method <b>LoReFT</b>.
+
+
+      </p>
+      <img src="../img/reft-main.png" class="medfig" alt="Diagram of bdas">
+      <p class="text-left">
+  In this figure, we illustrate ReFT. The left panel depicts an intervention <em>I</em>: the intervention
+  function <em>Φ</em> is applied to hidden representations at positions <em>P</em> in layer <em>L</em>. The right panel depicts the hyperparameters we tune when experimenting with LoReFT. Specifically, we intervene on representations for 2 prefix and suffix tokens, respectively.
+      </p>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col">
+      <h2>We did not expect ReFT to perform well.</h2>
+
+      <p>LoReFT intervenes on representations minimally (rank-1 involves about 9K parameters). It can either overfit easily or not learn at all. However, it turns out that LoReFT can be SoTA in some cases.
+      </p>
+      <p class="text-center">
+      <img src="../img/reft-perf.png" class="midfig" alt="Diagram of DAS">
+      </p>
+
+      <p>One particular datapoint from the chart above that is very interesting to think about is instruct-tuning. Not because LoReFT is the SoTA, but because of the fact that <b>the LoReFT we used here is a 4-layer and rank-4 ReFT</b>. In the paper, we also show that instruct-tuning can be done with just 1K examples, 262K parameters, and under 18 minutes! (p.s., you can even go lower).
+      </p> 
+
+
+
+      <h2>What does it mean that LoReFT performs well?</h2>
+
+      <p><b>Pretraining does all the hard work.</b> One big bet is that the pretraining phase grants all the abilities to the base LM, and finetuning is simply like a style transfer which positions the model to the right output space. Especially for instruct-tuning, it seems like it's mostly likely style transfer.
+      </p>
+
+
+      <p><b>Intervention on prompt tokens affects long-form generations.</b> This is unexpected. For all of our experiments, we only intervene on the prompt tokens, but we gain control over all generating tokens. Why? It might be that to control model generations, you only need to put a few first tokens into the right states. Your LMs are your super-powered future lenses for decoding tokens from hidden representations.</p>
+
+      <p><b>Linear subspace is powerful, conditioned on model's upstream computations.</b> LoReFT shows linear subspaces contain rich semantics that you can manipulate to steer model behaviors. More importantly, the interventions not only result in changes in the representations but also <b>changes in all the upstream computations</b> (i.e., all the upper right corner computations of the intervening representation). You can think of LoReFT as if it is strengthening or weakening existing causal pathways.</p>
+     
+          <h2>Why does LoReFT work? A case study through a memorisation test.</h2>
+        
+      In short, we are not sure yet. We only qualitatively study its limits with the hope of understanding ReFT better through a memorisation test. We first simplify our intervention function <em>Φ</em> to have fewer parameters than vanilla LoReFT by removing the <b>Wh</b> term and only learning the bias term:
+      <p class="text-center">
+      <img src="../img/reft-eqn.png" class="smallfig" alt="Diagram of DAS">
+      </p>
+      We then train a rank-1 modified LoReFT with a single example. Given a fixed non-English prompt, we train the intervention to recover the start of the book <em>Alice in Wonderland</em>. In other words, we want to test how many words a single rank-1 intervention can "store". 
+      </p>
+      <p class="text-center">
+      <img src="../img/reft-memo.png" class="midfig" alt="Diagram of DAS">
+      </p>
+
+      <p>The figure above shows the prefix recovery rate (Rec. %) as exact matches. If it is 100%, it means the text is fully recovered. We vary the number of tokens and intervening layers for each test. Surprisingly, <b>rank-1 LoReFT on LLaMA-1 7B can memorise up to 2048 tokens</b> for almost all layers. This means LMs are very good at unpacking information stored in the representations - LMs are, themselves, super powerful future lenses.
+      </p>
+
+      <h2>LoReFT operates in vector space and is composable.</h2>
+
+       PEFTs like LoRA provides some post-hoc cool interpretability usages, such as weight merging <a href="https://arxiv.org/abs/2307.13269" target="_blank">[2]</a> that has also been tried in learned model weights as well <a href="https://arxiv.org/abs/2212.09849" target="_blank">[3]</a>. Can LoReFT do something similar? Yes, ReFT can be composable in a very interpretable way, since <b>LoReFT learns orthogonal subspaces</b>.
+
+      <p><b>Learn subspaces separately, and then compose.</b> In this experiment, we train two groups of subspaces separately for different tasks: (1) German sentence completion task given an English prompt and (2) English instruction following task. At inference time, we intervene on both groups.</p>
+      <p class="text-center">
+      <img src="../img/reft-compose.png" class="smallfig" alt="Diagram of DAS">
+      </p>
+
+      As shown in the example above, our intervened model can start following English instructions but answer in German by composing two abilities together.
+
+
+      <h2>Try LoReFT, and customize your ReFT with our <a href="https://github.com/stanfordnlp/pyreft" target="_blank">pyreft library</a>!</h2>
+
+      To lower the switch cost from PEFTs library to ReFT, we build a pyreft-native python library, <a href="https://github.com/stanfordnlp/pyreft" target="_blank">pyreft</a>. We made the interface just like any other PEFTs library. The following code shows how you can configure an intervened LLaMA model:
+
+      <p class="text-center">
+      <img src="../img/reft-code.png" class="midfig" alt="Diagram of DAS">
+      </p>
+
+      <h2>Onto the future: ReFTs, interpretability, abstraction, and control.</h2>
+        
+      <p><b>More ReFTs.</b> ReFTs allow us to intervene across different timesteps and locations. So far, we only intervene on prompt tokens. We don't share weights when we intervene across layers. We also have not tried to do schematic interventions where we intervene on a specific causal path (e.g., attention head 8 at layer 7 and position 0 and attention head 9 at layer 8 and position 1). More complex ReFTs or automatic ReFTs would be nice. Having ReFTs that better control the mathematical reasoning ability would be cool.</p>
+
+      <p><b>Interpretability.</b> ReFT relies on insights from work on interpretability, and it may also be able to contribute insights back to that field. We hope ReFT can convince you that neurons, when acting together, can achieve many tasks simultaneously. This also leads us to think whether it is even reasonable to assign a set of functional words to describe what a single neuron encodes, or what a group of neurons encode. They probably even encode different things given different prompts. More importantly, what they encode heavily depends on the upstream computations they are involved in. We hope we can interpret our models with a more active lens. Instead of viewing them as static artifacts that we can prune and understand, we can create useful and interpretable abstractions from them.</p>
+
+      <p><b>Causal abstraction and model control.</b> Alignment training can be done with SFT or SFT plus some reward modeling. We hope ReFT shows that alignment can also be done via intervention training, or editing representations. By finetuning the representations, you are essentially creating an abstraction, i.e., a grey-box model that you have partial control over, given you know how the model will behave conditioned on an intervention. In other words, the more causal abstraction you can do, the more control you gain.</p>
+
+
+      <p><b>Other thoughts.</b> ReFT achieving SoTA or getting very close to SoTA was unexpected. It means our LMs have so much more power to be explored in their representation space. We also hope ReFT can not only be viewed as another PEFT method to benchmark against for your future work, but also a window we open up for us to study how our LMs work, and what are their limits.</p>
+
+
+      <h2>How to Cite</h2>
+
+      <p>This work is in preprint only. It can be cited as follows.
+      </p>
+
+      <div class="card">
+          <h4 class="card-header">bibliography</h4>
+          <div class="card-block">
+          <p style="text-indent: -3em; margin-left: 3em;" class="card-text clickselect">
+          Zhengxuan Wu*, Aryaman Arora*, Zheng Wang, and Atticus Geiger and Dan Jurafsky and Christopher D. Manning. and Christopher Potts. "<em>ReFT: Representation Finetuning for Language Models.</em>" Ms. Stanford University (2024).
+          </p>
+          </div>
+          <h4 class="card-header">bibtex</h4>
+          <div class="card-block">
+          <pre class="card-text clickselect">
+@article{wuandarora2024reft,
+  title={ReFT: Representation Finetuning for Language Models},
+  author={Wu, Zhengxuan* and Arora, Aryaman* and Wang, Zheng and Geiger, Atticus and Jurafsky, Dan and Manning, Christopher D. and Potts, Christopher},
+  booktitle={arXiv:2404.03592},
+  url={arxiv.org/abs/2404.03592},
+  year={2024}
+}</pre>
+        </div>
+      </div>
+
+      <h2>Acknowledgements</h2>
+      </p>
+      We thank Jing Huang for helpful discussion in designing our memorisation tests as well as writing.
+We thank Chenglei Si, Harshit Joshi, Jordan Juravsky, Julie Kallini, Ken Liu, Rohan Pandey, Jiuding
+Sun, Leonard Tang, Tristan Thrush, Shengguang Wu, Qinan Yu, Yanzhe Zhang, Amir Zur, and Shiqi
+Chen for helpful discussion about the project and comments on the manuscript
+    </div>
+  </div>
+
+    </div>
+
+      <footer class="nd-pagefooter">
+          <a href="https://nlp.stanford.edu/">Stanford NLP Group</a>
+    </footer>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/resume.min.js"></script>
+  <script src="../js/header.js?prefix="></script>
+
+</body>
+
+</html>
