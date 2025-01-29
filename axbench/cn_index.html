@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Hi, this is Zhengxuan. Please remove the following lines if you want to fork this webpage. Otherwise my google analytics
+    will track traffic from your website as well! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVGLSDJKXN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVGLSDJKXN');
+  </script>
+  
+    <script src="../js/head.js?prefix="></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Zhengxuan Wu">
+
+  <meta name="description" content="ReFT">
+  <meta name="keywords" content="Interpretability,NLP,ReFT,PEFT">
+
+
+  <title>ReFT</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../vendor/devicons/css/devicons.min.css" rel="stylesheet">
+  <link href="../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="57x57" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png"
+  />
+  <link rel="apple-touch-icon" sizes="120x120" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png"
+  />
+  <link rel="apple-touch-icon" sizes="144x144" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png"
+  />
+  <link rel="apple-touch-icon" sizes="152x152" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png"
+  />
+  <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png"
+  />
+
+  <link rel="icon" type="../image/png" href="favicon.ico"/>
+
+  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="application-name" content="Stanford University" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
+  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
+
+<meta property="og:title" content="ReFT: 针对大语言模型基于表征的微调方法" />
+<meta property="og:url" content="https://zen-wu.social/blog/reft/cn_index.html" />
+<meta property="og:image" content="../img/paper-thumb-reft.png" />
+<meta property="og:description" content="ReFT提供了一种高效，低参数，并且是带有可解释性的微调方法。" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:title" content="ReFT: 针对大语言模型基于表征的微调方法" />
+<meta name="twitter:description" content="ReFT提供了一种高效，低参数，并且是带有可解释性的微调方法。" />
+<meta name="twitter:image" content="../img/paper-thumb-reft.png" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body id="page-top">
+  <div class="outercontainer">
+      <header class="metaheader">
+        <div class="container header">
+          <div class="ftheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">zen's blog</a></div>
+          <div class="ftsubheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">@zen</a></div>
+        </div>
+      </header>
+
+        <div class="nd-pageheader">
+         <div class="container">
+         <h1 class="lead titlefont">
+         ReFT: 针对大语言模型<br/>基于表征的微调方法
+         </h1>
+
+        <address class="lead">
+          <nobr><a href="https://nlp.stanford.edu/~wuzhengx/" target="_blank"
+          >Zhengxuan Wu</a><sup>*</sup>,</nobr>
+          <nobr><a href="https://aryaman.io/" target="_blank"
+          >Aryaman Arora</a><sup>*</sup>,</nobr>
+          <nobr><a href="" target="_blank"
+          >Zheng Wang</a>,</nobr>
+          <nobr><a href="https://atticusg.github.io/" target="_blank"
+          >Atticus Geiger</a>,<br/></nobr>
+          <nobr><a href="https://web.stanford.edu/~jurafsky/" target="_blank"
+          >Dan Jurafsky</a>,</nobr>
+          <nobr><a href="https://nlp.stanford.edu/~manning/" target="_blank"
+          >Christopher D. Manning</a>,</nobr>
+          <nobr><a href="https://web.stanford.edu/~cgpotts/" target="_blank"
+          >Christopher Potts</a></nobr>
+         <br>
+          <nobr><a href="https://nlp.stanford.edu/" target="_blank"
+          >Stanford University</a></nobr>;
+          <nobr><a href="https://prair.group/" target="_blank"
+          >Pr(Ai)2R Group</a></nobr>;
+          <nobr><sup>*</sup><a class="likelink">共一作者</a></nobr>
+        </address>
+
+         </div>
+        </div><!-- end nd-pageheader -->
+
+    <div class="container body">
+      <div class="content heading anchor" id="home">
+      <div class="row justify-content-center text-center">
+      <p>
+      <a href="https://arxiv.org/pdf/2404.03592.pdf" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/paper-thumb-reft.png" style="border:1px solid" alt="ArXiv preprint thumbnail" data-nothumb=""><br>ArXiv<br>预印版</a>
+      <a href="https://github.com/stanfordnlp/pyreft" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/code-thumb.png" style="border:1px solid" alt="Github code thumbnail" data-nothumb=""><br>Github<br>代码</a>
+      <a href="index.html" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/translate-thumb.png" style="border:1px solid" data-nothumb="" alt="Translate thumbnail"><br>English<br>Blog</a>
+      </p>
+
+      <div class="card" style="max-width: 1000px;">
+      <div class="card-block">
+      <h3>ReFT跟现有的PEFTs(参数高效微调)有啥区别?</h3>
+      <p class="text-left">
+      <b>> 模型表征 (Representations) 是不具有参数的。</b> 现有的PEFTs通常需要训练一些少量的模型参数，或者对于新加的适配器 (Adaptor) 进行少量的参数微调，或者像前缀词 (Prefix) 微调一样训练少量词向量。表征本身并不具有任何参数，他们是模型在线生成的产物。因此，我们加入了表征干预模块这个概念。这个干预模块负责修改特定的表征从而达到训练的目标。干预的表征通常是很少量的分词 (tokens) 所在位置的表征，帮助我们省训练参数。
+      <br/>
+
+      <b>> 输入序列中的时间概念是关键。</b> 现有的PEFTs，也包括最近的RED <a href="https://arxiv.org/abs/2402.15179" target="_blank">[0]</a> 通常忽略时间这个概念，而是对于模型产生的表征进行全局修改。换言之，每一层，每一个分词对应的表征全部都会产生变化以达到训练的目标。我们认为这是没必要的。大语言模型的表征通常已经具有十分有意义的表示，比如词在空间向量中的位置和词的意思通常会有相关性等。所以，我们猜想，如果我们只是对少部分表征进行修改，是不是也能达到训练的目标呢？
+      <br/>
+
+      <b>> 模型和解释性为我们的方法提供了理论基础。</b> 在ReFT之前，其实就有一些表征修改的方法从而达到控制模型输出的能力。但跟他们不一样的地方是，我们的LoReFT方法是基于线性子空间这个概念。线性子空间来源于早期神经网络的工作，比如最著名的PDP的几篇鼻祖文章 <a href="https://web.stanford.edu/~jlmcc/papers/PDP/Volume%202/Chap22_PDP86.pdf" target="_blank">[1]</a><a href="https://direct.mit.edu/books/monograph/4424/Parallel-Distributed-Processing-Volume" target="_blank">[2]</a><a href="https://nightmare-code.github.io/files/18-manuel-sanford-jr/-parallel-distributed-processing-explorations-in--9780262132183.pdf" target="_blank">[3]</a>。这些文章都提出一个假说就是神经网络学习到的概念 (Concept) 都存在于线性子空间中。基于这些理论基础，我们的方法会在表征的线性子空间中进行修改，命名为LoReFT。
+
+      </p>
+      <img src="../img/reft-main.png" class="medfig" alt="Diagram of bdas">
+      <p class="text-left">
+  在上面的图中 <em>I</em> 代表了我们的干预模块，
+  方程 <em>Φ</em> 就是我们需要学习的表征干预方程，<em>P</em> 和 <em>L</em> 分别代表了干预位置，和干预层。在右边图中，我们详细标注了我们具体在什么位置进行干预（这里的位置包含了分词位置和模型层号）。在这个示意图里，我们干预了前两个，和后两个分词对应的所有层的表征。
+      </p>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col">
+      <h2>我们对于ReFT的表现预期，并没有很高。</h2>
+
+      <p>对于特定位置的表征修改存在两个可能的问题：（1）可能会特别容易过拟合，训练极其不稳定。（2）也有可能根本不能进行长输出的控制，因为我们只是在干预输入的提示词（Prompt）而已。我们对于ReFT的最后表现是持有惊讶的态度。
+      <p class="text-center">
+      <img src="../img/reft-perf.png" class="midfig" alt="Diagram of DAS">
+      </p>
+
+      <p>在我们这些实验当中，最令人满意的是我们的语言模型的对齐训练。我们满意的不是LoReFT在我们的测试当中跑的最好，而是在这组LoReFT实验当中，我们只修改了32层其中4层的表征，并且每一个修改都是低秩矩阵，秩为4。我们在补充实验当中用了仅1000个训练样本，26.2万参数，训练基础语言模型18分钟就达到了不错的对齐效果（p.s.应该可以更加高效）。
+      </p> 
+
+
+
+      <h2>LoReFT较为出色的表现说明了什么呢？</h2>
+
+      <p><b>预训练很有可能是赋予模型能力的关键，而不是后期微调。</b> 
+        一个重大的假设是，预训练阶段赋予了基础语言模型所有的能力，而微调仅仅像是一种风格转换，将模型定位到正确的输出空间。特别是对于指令调优，它似乎最有可能是风格转换。
+      </p>
+
+
+      <p><b>对提示词的干预影响长篇生成。</b>这是出乎意料的。在我们所有的实验中，我们只对提示词进行干预，但我们控制了所有生成的词。为什么这个可以有效呢？可能是因为要控制模型的生成，你只需要将一些最初的提示词的表征置于正确的状态。你的语言模型是你的未来透镜 (Future Lens)，用于从隐藏表示中解码词。</p>
+
+
+      <p><b>线性子空间具有强大的能力，但它的能力取决于模型的上游计算。</b> LoReFT表明，线性子空间包含丰富的语义，你可以操作这些语义来引导模型行为。更重要的是，这些干预不仅导致了表示中的变化，还导致了<b>所有上游计算的变化</b>（即，干预表示的右上角计算的所有变化）。你可以将LoReFT视为它在强化或削弱现有的因果路径。</p>
+          
+
+      <h2>LoReFT为什么能够有效呢? 一个有趣的记忆力测试。</h2>
+        
+        简而言之，我们目前还不确定。我们只是通过记忆测试定性地研究其限制，希望能更好地理解ReFT。我们首先简化我们的干预函数<em>Φ</em>，通过移除<b>Wh</b>项并且只学习偏置项，使其参数比原始LoReFT更少：
+      <p class="text-center">
+      <img src="../img/reft-eqn.png" class="smallfig" alt="Diagram of DAS">
+      </p>
+      然后，我们用一个示例，训练一个秩为1的LoReFT。给定一个固定的非英文提示，我们训练这个干预来恢复书籍《爱丽丝梦游仙境》的开头。换句话说，我们想测试单个秩为1干预能够“存储”多少单词。
+      </p>
+      <p class="text-center">
+      <img src="../img/reft-memo.png" class="midfig" alt="Diagram of DAS">
+      </p>
+
+      <p>
+      上图显示了前缀恢复率（Rec. %）作为完全匹配的情况。如果是100%，这意味着文本被完全恢复了。我们在每个测试中改变需要记忆的长度和干预层。令人惊讶的是，<b>秩为1的LoReFT在LLaMA-1 7B上可以记忆多达2048个分词</b>，几乎适用于所有层。这意味着语言模型非常擅长解包存储在表示中的信息 - 语言模型本身，就是超级强大的未来透镜。
+      </p>
+
+      <h2>LoReFT在向量空间中操作，可能是可组合的。</h2>
+
+      像LoRA这样的PEFT提供了一些事后的酷炫解释性用途，例如权重合并，这也已经在学习到的模型权重中尝试过 <a href="https://arxiv.org/abs/2307.13269" target="_blank">[4]</a> <a href="https://arxiv.org/abs/2307.13269" target="_blank">[5]</a>。LoReFT能做类似的事情吗？是的，ReFT可以以非常可解释的方式组合，因为<b>LoReFT学习正交子空间</b>。
+
+      <p><b>分别学习子空间，然后进行组合。</b>在这个实验中，我们分别为不同的任务训练了两组子空间：（1）给定英语提示的德语句子完成任务和（2）英语指令跟随任务。在推理时，我们对这两组进行干预。</p>
+
+      <p class="text-center">
+      <img src="../img/reft-compose.png" class="smallfig" alt="Diagram of DAS">
+      </p>
+
+      如上例所示，我们干预后的模型可以开始遵循英语指令，但通过将两种能力组合在一起，用德语回答。
+
+
+      <h2>来试试LoReFT吧！可直接用我们开发的库 <a href="https://github.com/stanfordnlp/pyreft" target="_blank">pyreft</a>!</h2>
+
+      为了降低从PEFTs库到ReFT的切换成本，我们构建了一个pyreft-native Python库, <a href="https://github.com/stanfordnlp/pyreft" target="_blank">pyreft</a>. 我们使接口就像任何其他PEFTs库一样。以下代码展示了如何配置一个干预过的LLaMA模型：
+
+      <p class="text-center">
+      <img src="../img/reft-code.png" class="midfig" alt="Diagram of DAS">
+      </p>
+
+<h2>一些疑惑和感受：ReFTs、可解释性、抽象化和控制。</h2>
+
+<p><b>更多的ReFTs。</b> ReFTs允许我们跨不同的时间步和位置进行干预。到目前为止，我们只对提示词进行干预。当我们跨层进行干预时，我们不共享权重。我们也尚未尝试进行更为复杂的干预，比如在特定的因果路径上进行干预（例如，在第7层的第0个位置的注意力头8和第8层的第1个位置的注意力头9）。更复杂的ReFTs或自动ReFTs会更好 (参考AdaLoRA <a href="https://arxiv.org/abs/2303.10512" target="_blank">[6]</a>)。拥有更好控制数学推理能力的ReFTs会很酷。</p>
+
+<p><b>可解释性。</b> ReFT依赖于解释性工作的洞见，它也可能能够反过来为该领域贡献洞见。我们希望ReFT能够说服你，当一起同时干预过个表征时，神经元 (Neurons) 可以同时完成许多任务。这也让我们思考，将一组功能性词汇分配给描述单个神经元编码的内容，或一组神经元编码的内容，是否合理。它们甚至可能在给定不同提示的情况下编码不同的事物。更重要的是，它们编码的内容在很大程度上取决于它们所参与的上游计算。我们希望我们能够用一个更积极的视角解读我们的模型。而不是将它们视为我们可以修剪和理解的静态参照物。我们可以从模型中创建有用且可解释的抽象。</p>
+
+<p><b>因果抽象和模型控制。</b> 对齐训练可以通过SFT或SFT加上一些奖励建模来完成。我们希望ReFT展示对齐也可以通过干预训练或编辑表示来完成。通过微调表征，你本质上是在创建一个抽象，即一个你有部分控制权的灰盒模型，前提是你知道模型在干预条件下的行为方式。换句话说，你能做的因果抽象越多，你获得的控制就越多。</p>
+
+<p><b>其他想法。</b> ReFT达到或非常接近于SoTA是出乎意料的。这意味着我们的LM在它们的表示空间中有更多的潜力可以被探索。我们也希望ReFT不仅被视为另一种PEFT方法以供你未来的工作进行基准测试，而且是我们为了研究我们的LM如何工作以及它们的极限提供一些更多的思路。</p>
+
+
+      <h2>引用本文</h2>
+
+      <p>这项工作仅为预印本。可以按以下方式引用。
+      </p>
+
+      <div class="card">
+          <h4 class="card-header">bibliography</h4>
+          <div class="card-block">
+          <p style="text-indent: -3em; margin-left: 3em;" class="card-text clickselect">
+          Zhengxuan Wu*, Aryaman Arora*, Zheng Wang, and Atticus Geiger and Dan Jurafsky and Christopher D. Manning. and Christopher Potts. "<em>ReFT: Representation Finetuning for Language Models.</em>" Ms. Stanford University (2024).
+          </p>
+          </div>
+          <h4 class="card-header">bibtex</h4>
+          <div class="card-block">
+          <pre class="card-text clickselect">
+@article{wuandarora2024reft,
+  title={ReFT: Representation Finetuning for Language Models},
+  author={Wu, Zhengxuan* and Arora, Aryaman* and Wang, Zheng and Geiger, Atticus and Jurafsky, Dan and Manning, Christopher D. and Potts, Christopher},
+  booktitle={arXiv:2404.03592},
+  url={arxiv.org/abs/2404.03592},
+  year={2024}
+}</pre>
+        </div>
+      </div>
+
+      <h2>感谢</h2>
+      </p>
+我们感谢Jing Huang在设计我们的记忆测试以及写作上的有益讨论。我们感谢Chenglei Si, Harshit Joshi, Jordan Juravsky, Julie Kallini, Ken Liu, Rohan Pandey, Jiuding Sun, Leonard Tang, Tristan Thrush, Shengguang Wu, Qinan Yu, Yanzhe Zhang, Amir Zur, 和 Shiqi Chen对该项目的有益讨论和对手稿的评论。
+    </div>
+  </div>
+
+    </div>
+
+      <footer class="nd-pagefooter">
+          <a href="https://nlp.stanford.edu/">Stanford NLP Group</a>
+    </footer>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/resume.min.js"></script>
+  <script src="../js/header.js?prefix="></script>
+
+</body>
+
+</html>
