@@ -110,13 +110,13 @@
             <div class="links">
               <a href="https://arxiv.org/abs/2305.08809">arxiv preprint</a> · 
               <a href="https://github.com/frankaging/align-transformers">source code (github)</a> · 
-              <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">alpaca model</a> · 
+              <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">Alpaca model</a> · 
               <a href="cn_index.html">中文翻译</a>
             </div>
           </div>
         </div>
 
-        <h2>how to identify causal mechanisms in LLMs?</h2>
+        <h2>How to identify causal mechanisms in LLMs?</h2>
 
         <p><strong>interpretability tools poorly scale with LLMs</strong> as they often focus on a small model that is finetuned for a specific task. In this paper, we propose a new method based on the theory of <em>causal abstraction</em> to find representations that play a given causal role in LLMs. With our tool, we discover that the <strong>Alpaca model implements a causal model with interpretable intermediate variables</strong> when solving a simple numerical reasoning task. Furthermore, we find that these <strong>causal mechanisms are robust</strong> to changes in inputs and instructions. Our causal mechanism discovery framework is generic and ready for LLMs with billions of parameters.</p>
 
@@ -125,7 +125,7 @@
           <p style="margin-top: 1em; font-style: italic;">In this figure, the Alpaca model is instructed to solve our <strong>Price Tagging Game</strong>,<br/><em>"Say yes if the cost (Z) is between 2.00 (X) and 3.00 (Y) dollars, otherwise no."</em><br/>On the top, we have a causal model that solves this problem by having two boolean variables determine whether the input amount is above the lower bound and below the upper bound. Here, we try to align the first boolean variable. To train for an alignment, we sample two training examples and then <strong>swap the intermediate boolean value</strong> between them to produce a <strong>counterfactual output</strong> using our causal model. In parallel, we <strong>swap activations</strong> between these two examples with the neurons proposed to align. Lastly, we train our rotation matrix such that our neural network behaves counterfactually the same as the causal model.</p>
         </div>
 
-        <h2>why we scale causal mechanism discovery?</h2>
+        <h2>Why we scale causal mechanism discovery?</h2>
 
         <p>Obtaining robust, human-interpretable explanations of large, general-purpose language models is an urgent goal for AI. Current tools have major limitations:</p>
         <ol>
@@ -149,14 +149,14 @@
           <li><strong>subspace alignment.</strong> Our rotation matrix is an orthogonal matrix and it is orthonormal. Each dimension after rotation is a linear combination of original dimensions. In the orthogonalized representation, each dimension is thus independent which is useful for our assumption that intermediate variables are independent.
         </ol>
 
-        <h2>generic Boundless DAS pseudocode</h2>
+        <h2>Generic Boundless DAS pseudocode</h2>
         <p>Boundless DAS is a generic method for any model. Here we show a pseudocode snippet for generic decoder-only LLMs.</p>
         <div style="margin: 2em 0;">
           <img src="../img/bdas-code.png" style="max-width: 100%; height: auto;" alt="Boundless DAS code">
           <p style="margin-top: 1em; font-style: italic;">Ideally, this could also be extend to encoder-decoder LLMs, or encoder-only LLMs.</p>
         </div>
 
-        <h2>our unified metrics</h2>
+        <h2>Our unified metrics</h2>
         <p>We use <strong>Interchange Intervention Accuracy (IIA)</strong> proposed in previous causal abstract works <a href="https://arxiv.org/abs/2106.02997">[3]</a> <a href="https://arxiv.org/abs/2112.00826">[4]</a> to evaluate how well or faithful our alignment in the rotated subspace is. The higher the IIA is, the better the alignment is. Here is one running example with <strong>a very simple arithmetic task (a + b) * c</strong>,</p>
 
         <div style="margin: 2em 0;">
@@ -166,7 +166,7 @@
 
         <p><strong>Note that the meaning behind IIA changes slightly for Boundless DAS</strong>: for an 100% IIA in the rotated subspace, it means the aligning causal variable is distributed in the original representation 100%. We can also reverse engineer the learned rotation matrix to back out the weight for each original dimension.</p>
 
-        <h2>a simple numeric reasoning task</h2>
+        <h2>A simple numeric reasoning task</h2>
         <p>To start with, we construct a simple numeric reasoning task that the Alpaca model can solve fairly easily.</p>
 
         <div style="margin: 2em 0;">
@@ -187,7 +187,7 @@
           <p style="margin-top: 1em; font-style: italic;">Here, we normalize IIA by setting the upper bound to be the task performance and lower bound to be the model performance of a dummy classifier. Clearly, causal models involve <strong>Left and Right Boundary</strong> checks are drastically more faithful. Our findings suggest that the Alpaca model internally is calculating these boolean variables representing the relations between the input amount and the brackets.</p>
         </div>
 
-        <h2>our findings: are found alignments robust?</h2>
+        <h2>Our findings: are found alignments robust?</h2>
         <p>One central criticism of <em>mechanistic interpretability</em> is results may only work with a specific setup of seen input-output pairs. In this section, we try to tackle this concern by asking whether the causal role (i.e., alignments) found using Boundless DAS in one setting is preserved in another setting with different levels of difficulties. This is crucial as it tells how robustly the causal model is realized in the neural network. We investigate three settings,</p>
         <ol>
           <li><strong>new brackets.</strong> We train alignments on a set of brackets and see if they generalize to new brackets.
@@ -200,7 +200,7 @@
           <p style="margin-top: 1em; font-style: italic;">Here are summarized results for our experiments with task performance as accuracy (bounded between [0.00, 1.00]), the maximal interchange intervention accuracy (IIA) (bounded between [0.00, 1.00]) across all positions and layers, Pearson correlations of IIA between two distributions (bounded between [-1.00, 1.00]), and variance of IIA within a single experiment across all positions and layers. <strong>Our findings suggest found alignments are robust</strong> across these settings.</p>
         </div>
 
-        <h2>bigger picture</h2>
+        <h2>Bigger picture</h2>
         <p>Automated causal mechanism discovery (i.e., circuits discover or mechanistic interpretability) is not an easy task of which there are a lot of moving parts. In the paper, we offer a step forward towards this goal by coming up with a improved paradigm using our proposing method,</p>
 
         <div style="margin: 2em 0;">
@@ -208,7 +208,7 @@
           <p style="margin-top: 1em; font-style: italic;">On the left panel, our proposing paradigm has four central step where the last step includes an iterative process to search for better alignments. This paradigm solves a set of limitations posing by current systems but leaves us a lot of TODOs. On the right panel, we show one intermediate goal we want to achieve in the future by <strong>replacing our deterministic high-level model with GPT-4 or human expert in-the-loop process</strong>.</p>
         </div>
 
-        <h2>limitations</h2>
+        <h2>Limitations</h2>
         <p>Our work marks a first step forward toward understanding the internal causal mechanism of LLMs. It has limitations and it potentially opens up a line of work in this direction.</p>
         <ol>
           <li><strong>go bigger.</strong> we hope our framework can be applied to study the most powerful LLMs (e.g., GPT-3 with 175B or GPT-4) when they are released since current work still focuses on a simple reasoning task that smaller LLMs can solve.
@@ -217,7 +217,7 @@
           <li><strong>no conclusive answer.</strong> Our evaluation paradigm could rank between proposing alignments based on IIA (i.e., greybox) but could not make conclusive inferences about failed alignments.
         </ol>
 
-        <h2>how to cite</h2>
+        <h2>How to cite</h2>
 
         <div class="publication">
           <div class="text">
