@@ -120,7 +120,7 @@
 
         <p><strong>interpretability tools poorly scale with LLMs</strong> as they often focus on a small model that is finetuned for a specific task. In this paper, we propose a new method based on the theory of <em>causal abstraction</em> to find representations that play a given causal role in LLMs. With our tool, we discover that the <strong>Alpaca model implements a causal model with interpretable intermediate variables</strong> when solving a simple numerical reasoning task. Furthermore, we find that these <strong>causal mechanisms are robust</strong> to changes in inputs and instructions. Our causal mechanism discovery framework is generic and ready for LLMs with billions of parameters.</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/DIIT.svg" style="max-width: 100%; height: auto;" alt="Diagram of boundless DAS">
           <p style="margin-top: 1em; font-style: italic;">In this figure, the Alpaca model is instructed to solve our <strong>Price Tagging Game</strong>,<br/><em>"Say yes if the cost (Z) is between 2.00 (X) and 3.00 (Y) dollars, otherwise no."</em><br/>On the top, we have a causal model that solves this problem by having two boolean variables determine whether the input amount is above the lower bound and below the upper bound. Here, we try to align the first boolean variable. To train for an alignment, we sample two training examples and then <strong>swap the intermediate boolean value</strong> between them to produce a <strong>counterfactual output</strong> using our causal model. In parallel, we <strong>swap activations</strong> between these two examples with the neurons proposed to align. Lastly, we train our rotation matrix such that our neural network behaves counterfactually the same as the causal model.</p>
         </div>
@@ -138,7 +138,7 @@
         <h2>distributed alignment as an optimization problem</h2>
         <p>Instead of iteratively search for alignments over neurons, we adapt our recently proposed Distributed Alignment Search (DAS) <a href="https://arxiv.org/abs/2303.02536">[2]</a> by turning alignment process into an optimization problem. In DAS, we find the alignment between high-level and low-level models using gradient descent rather than conducting a brute-force search, and we allow individual neurons to play multiple distinct roles by analyzing representations in non-standard bases-distributed representations.</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/das.png" style="max-width: 100%; height: auto;" alt="Diagram of DAS">
           <p style="margin-top: 1em; font-style: italic;">This figure (copied from the original paper) illustrates one example of a distributed interchange intervention when training DAS. It shows a zoomed in version of the rotation matrix training process in our first figure. Essentially, we call forward passes for all inputs, and we apply a learnable rotation matrix on the representation we are aligning. Then, we do interventions on the rotated space with an objective of aligning counterfactual behaviors predicted by our high-level causal model.</p>
         </div>
@@ -151,7 +151,7 @@
 
         <h2>generic Boundless DAS pseudocode</h2>
         <p>Boundless DAS is a generic method for any model. Here we show a pseudocode snippet for generic decoder-only LLMs.</p>
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/bdas-code.png" style="max-width: 100%; height: auto;" alt="Boundless DAS code">
           <p style="margin-top: 1em; font-style: italic;">Ideally, this could also be extend to encoder-decoder LLMs, or encoder-only LLMs.</p>
         </div>
@@ -159,7 +159,7 @@
         <h2>our unified metrics</h2>
         <p>We use <strong>Interchange Intervention Accuracy (IIA)</strong> proposed in previous causal abstract works <a href="https://arxiv.org/abs/2106.02997">[3]</a> <a href="https://arxiv.org/abs/2112.00826">[4]</a> to evaluate how well or faithful our alignment in the rotated subspace is. The higher the IIA is, the better the alignment is. Here is one running example with <strong>a very simple arithmetic task (a + b) * c</strong>,</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/perfect-align.svg" style="max-width: 100%; height: auto;" alt="Perfect alignment diagram">
           <p style="margin-top: 1em; font-style: italic;">In this problem, if we have these four neurons <em>perfectly</em> align with an intermediate variable representing (a + b), then one can deterministically take activations from these four neurons from an input (1 + 2) * 3, and plug them into another input (2 + 3) * 4 and get the model to output (1 + 2) * 4 = 12. We call this case, a perfect alignment with 100% IIA. We use the same metrics to evaluate alignments in the rotated subspace.</p>
         </div>
@@ -169,12 +169,12 @@
         <h2>a simple numeric reasoning task</h2>
         <p>To start with, we construct a simple numeric reasoning task that the Alpaca model can solve fairly easily.</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/task.svg" style="max-width: 100%; height: auto;" alt="Our task diagram">
           <p style="margin-top: 1em; font-style: italic;">The Price Tagging Game contains essentially three moving parts: (1) left bracket; (2) right bracket; and (3) input amount. There are <strong>a few intuitive high-level causal models</strong> that can perfectly solve this task,</p>
         </div>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/Causal-Models.svg" style="max-width: 100%; height: auto;" alt="Causal models">
           <p style="margin-top: 1em; font-style: italic;">Our central research question is: <strong>Is the Alpaca model following any of these causal model when solving the task?</strong> We try to answer this question by finding alignments for intermediate causal variables above colored in red.</p>
         </div>
@@ -182,7 +182,7 @@
         <h2>our findings: which alignments are more faithful?</h2>
         <p>We train Boundless DAS on token representations across multiple layers and positions for our task. And we evaluate our learned alignments on hold out testing set to get testing time IIA distributions. Here are the alignment results for all four high-level causal models we are considering,</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/main-heatmap-standard.svg" style="max-width: 100%; height: auto;" alt="Main results">
           <p style="margin-top: 1em; font-style: italic;">Here, we normalize IIA by setting the upper bound to be the task performance and lower bound to be the model performance of a dummy classifier. Clearly, causal models involve <strong>Left and Right Boundary</strong> checks are drastically more faithful. Our findings suggest that the Alpaca model internally is calculating these boolean variables representing the relations between the input amount and the brackets.</p>
         </div>
@@ -195,7 +195,7 @@
           <li><strong>sibling instruction.</strong> We train alignments for instructions saying "Say yes ..., otherwise no" and see if they generalize to instructions saying "Say True ..., otherwise False".
         </ol>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/ptg-table.png" style="max-width: 100%; height: auto;" alt="Results table">
           <p style="margin-top: 1em; font-style: italic;">Here are summarized results for our experiments with task performance as accuracy (bounded between [0.00, 1.00]), the maximal interchange intervention accuracy (IIA) (bounded between [0.00, 1.00]) across all positions and layers, Pearson correlations of IIA between two distributions (bounded between [-1.00, 1.00]), and variance of IIA within a single experiment across all positions and layers. <strong>Our findings suggest found alignments are robust</strong> across these settings.</p>
         </div>
@@ -203,7 +203,7 @@
         <h2>bigger picture</h2>
         <p>Automated causal mechanism discovery (i.e., circuits discover or mechanistic interpretability) is not an easy task of which there are a lot of moving parts. In the paper, we offer a step forward towards this goal by coming up with a improved paradigm using our proposing method,</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/Next-DAS-on-LLMs.svg" style="max-width: 100%; height: auto;" alt="Future directions">
           <p style="margin-top: 1em; font-style: italic;">On the left panel, our proposing paradigm has four central step where the last step includes an iterative process to search for better alignments. This paradigm solves a set of limitations posing by current systems but leaves us a lot of TODOs. On the right panel, we show one intermediate goal we want to achieve in the future by <strong>replacing our deterministic high-level model with GPT-4 or human expert in-the-loop process</strong>.</p>
         </div>

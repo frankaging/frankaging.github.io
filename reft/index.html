@@ -132,7 +132,7 @@
 
         <p>LoReFT intervenes on representations minimally (rank-1 involves about 9K parameters). It can either overfit easily or not learn at all. However, it turns out that LoReFT can be SoTA in some cases.</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-perf.png" style="max-width: 100%; height: auto;" alt="ReFT Performance">
         </div>
 
@@ -150,13 +150,13 @@
 
         <p>In short, we are not sure yet. We only qualitatively study its limits with the hope of understanding ReFT better through a memorisation test. We first simplify our intervention function <em>Φ</em> to have fewer parameters than vanilla LoReFT by removing the <strong>Wh</strong> term and only learning the bias term:</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-eqn.png" style="max-width: 100%; height: auto;" alt="ReFT Equation">
         </div>
 
         <p>We then train a rank-1 modified LoReFT with a single example. Given a fixed non-English prompt, we train the intervention to recover the start of the book <em>Alice in Wonderland</em>. In other words, we want to test how many words a single rank-1 intervention can "store".</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-memo.png" style="max-width: 100%; height: auto;" alt="ReFT Memorization">
         </div>
 
@@ -168,7 +168,7 @@
 
         <p><strong>Learn subspaces separately, and then compose.</strong> In this experiment, we train two groups of subspaces separately for different tasks: (1) German sentence completion task given an English prompt and (2) English instruction following task. At inference time, we intervene on both groups.</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-compose.png" style="max-width: 100%; height: auto;" alt="ReFT Composition">
         </div>
 
@@ -178,7 +178,7 @@
 
         <p>To lower the switch cost from PEFTs library to ReFT, we build a pyreft-native python library, <a href="https://github.com/stanfordnlp/pyreft">pyreft</a>. We made the interface just like any other PEFTs library. The following code shows how you can configure an intervened LLaMA model:</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-code.png" style="max-width: 100%; height: auto;" alt="ReFT Code">
         </div>
 

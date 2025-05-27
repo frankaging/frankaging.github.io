@@ -123,7 +123,7 @@
 
         <p><strong>现有的可解释性工具在数亿参数语言模型上通常无法适配</strong>，因为它们往往专注于为特定任务微调的小型模型。在本文中，我们提出了一种基于因果抽象 (causal abstraction) 理论的新方法，以找到在模型中扮演给定因果角色的隐藏表达 (hidden representation)。通过使用我们的工具，我们发现Alpaca模型在解决简单的数字推理任务时实现了具有可解释中间变量的因果模型。此外，我们发现这些因果模型对于输入和指令的变化具有鲁棒性 (robustness)。我们的因果机制发现框架是通用的，并且可以适用于拥有数十亿参数的大语言模型。</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/DIIT.svg" style="max-width: 100%; height: auto;" alt="Diagram of boundless DAS">
           <p style="margin-top: 1em; font-style: italic;">在这个图中，Alpaca模型被要求解决我们的<strong>价格标签游戏</strong>,<br/><em>"如果成本（Z）在 2.00（X）和 3.00（Y）美元之间，则回答是，否则回答否。"</em><br/>在上图的顶部，我们有一个因果模型，通过两个布尔变量 (boolean variable) 确定输入金额是否在下限以上和上限以下来解决这个问题。在这里，我们尝试对齐第一个布尔变量。为了训练对齐，我们抽取两个训练样例，然后交换它们之间的中间布尔值以使用我们的因果模型生成一个反事实 (counterfactual) 的输出。同时，我们使用建议对齐的神经元交换这两个样例之间的激活。最后，我们训练我们的旋转矩阵，使得我们的神经网络的行为与因果模型产生相同的反事实结果。</p>
         </div>
@@ -141,7 +141,7 @@
         <h2>将分布式因果机制的寻找转化为优化问题</h2>
         <p>我们将我们最近提出的分布式对齐搜索（DAS) <a href="https://arxiv.org/abs/2303.02536">[2]</a> 调整为将对齐过程转化为一个优化问题。在DAS中，我们使用梯度下降方法找到高层模型和低层模型之间的对齐，而不是进行暴力搜索，并且通过分析非标准基的表示形式-分布式表示，我们允许单个神经元扮演多个不同的角色。</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/das.png" style="max-width: 100%; height: auto;" alt="Diagram of DAS">
           <p style="margin-top: 1em; font-style: italic;">这张图（从原始论文中复制）展示了一个分布式互换干预的例子，当训练DAS时使用。它显示了我们第一张图中旋转矩阵训练过程的放大版本。基本上，我们对所有输入进行正向传递，并在我们要对齐的表示形式上应用一个可学习的旋转矩阵。然后，我们在旋转后的空间中进行干预，以对齐我们高层因果模型预测的反事实行为。</p>
         </div>
@@ -154,7 +154,7 @@
 
         <h2>Boundless DAS 代码</h2>
         <p>Boundless DAS是适用于任何模型的通用方法。这里我们展示了一个通用的解码器 (decoder-only) LLM的伪代码片段。</p>
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/bdas-code.png" style="max-width: 100%; height: auto;" alt="Boundless DAS code">
           <p style="margin-top: 1em; font-style: italic;">理想情况下，这个方法也可以扩展到编码器-解码器 (encoder-decoder) LLMs，或者仅有编码器的LLMs。</p>
         </div>
@@ -162,7 +162,7 @@
         <h2>统一的评估方式</h2>
         <p>我们使用前几篇因果抽象工作中提出的互换干预准确率 (Interchange Intervention Accuracy; IIA) <a href="https://arxiv.org/abs/2106.02997">[3]</a> <a href="https://arxiv.org/abs/2112.00826">[4]</a>来评估我们在旋转子空间中对齐的准确性或忠实度。IIA越高，对齐就越好。这里是一个非常简单的算术任务 (a + b) * c 的示例,</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/perfect-align.svg" style="max-width: 100%; height: auto;" alt="Perfect alignment diagram">
           <p style="margin-top: 1em; font-style: italic;">在这个问题中，如果我们有这四个神经元与代表 (a + b) 的中间变量完美对齐，那么可以确定性地从一个输入 (1 + 2) * 3中取出这四个神经元的激活，并将它们插入到另一个输入 (2 + 3) * 4中，使模型输出 (1 + 2) * 4 = 12。我们称这种情况为完美对齐，IIA为100%。我们使用相同的指标评估在旋转子空间中的对齐情况。</p>
         </div>
@@ -172,12 +172,12 @@
         <h2>一个简单的数字推理任务</h2>
         <p>我们首先构建了一个简单的数字推理任务，Alpaca模型可以相当容易地解决。</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/task.svg" style="max-width: 100%; height: auto;" alt="Our task diagram">
           <p style="margin-top: 1em; font-style: italic;">这个定价标签游戏基本上包含三个部分: (1) 左括号; (2) 右括号; 和 (3) 输入金额。有几种直观的因果模型可以完美地解决这个任务。</p>
         </div>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/Causal-Models.svg" style="max-width: 100%; height: auto;" alt="Causal models">
           <p style="margin-top: 1em; font-style: italic;">我们的中心研究问题是: <strong>Alpaca模型在解决这个任务时是否遵循了这些因果模型之一？我们试图通过找到标记为红色的中间因果变量的对齐方式来回答这个问题。</strong></p>
         </div>
@@ -185,7 +185,7 @@
         <h2>主要结果: 模型遵循哪一种因果机制?</h2>
         <p>我们在任务的多个层和位置上使用Boundless DAS训练了每一个单词 (token) 的隐性表达，并在保留的测试集上评估了我们学习到的对齐方式，在我们的隐藏测试数据集中得到了IIA分布。下面是我们考虑的所有四个高级因果模型的对齐结果。</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/main-heatmap-standard.svg" style="max-width: 100%; height: auto;" alt="Main results">
           <p style="margin-top: 1em; font-style: italic;">在这里，我们通过将上限设置为任务性能，将下限设置为虚拟分类器的模型性能来对IIA进行归一化。显然，涉及左边界和右边界检查的因果模型要明显更可靠。我们的研究结果表明，Alpaca模型在内部计算这些布尔变量来表示输入金额与括号之间的关系。</p>
         </div>
@@ -198,7 +198,7 @@
           <li><strong>整个指令的改写: </strong> 我们为指令 "说是……，否则不" 训练对齐方式，并查看它们是否推广到指令 "说真……，否则假"。
         </ol>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/ptg-table.png" style="max-width: 100%; height: auto;" alt="Results table">
           <p style="margin-top: 1em; font-style: italic;">表格里的数据是我们实验的总结结果，任务性能作为准确率（Task Acc.; 在[0.00，1.00]之间），在所有位置和层中的最大互换干预准确率（IIA; 在[0.00，1.00]之间），两个分布之间的IIA的Pearson相关性（在[-1.00，1.00]之间），以及单个实验中所有位置和层的IIA方差。我们的研究结果表明，在这些设置中找到的对齐方式具有鲁棒性。</p>
         </div>
@@ -206,7 +206,7 @@
         <h2>可解释性的愿景</h2>
         <p>自动因果机制发现（机制解释性）不是一个简单的任务，其中有许多移动部分。在本文中，我们通过提出一种改进的方法，向这个目标迈出了一步。</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/Next-DAS-on-LLMs.svg" style="max-width: 100%; height: auto;" alt="Future directions">
           <p style="margin-top: 1em; font-style: italic;">在上图的左侧插图，我们的提议范例有四个中心步骤，其中最后一步包括一个迭代过程来寻找更好的对齐方式。这个范例解决了当前系统提出的一系列限制，但还有很多工作要做。在右侧插图中，我们展示了一个我们未来想要实现的中间目标，即用GPT-4或人类专家在环过程替换我们的确定性高级模型。</p>
         </div>

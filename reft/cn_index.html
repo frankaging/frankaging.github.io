@@ -132,7 +132,7 @@
 
         <p>对于特定位置的表征修改存在两个可能的问题：（1）可能会特别容易过拟合，训练极其不稳定。（2）也有可能根本不能进行长输出的控制，因为我们只是在干预输入的提示词（Prompt）而已。我们对于ReFT的最后表现是持有惊讶的态度。</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-perf.png" style="max-width: 100%; height: auto;" alt="ReFT 性能">
         </div>
 
@@ -150,13 +150,13 @@
 
         <p>简而言之，我们目前还不确定。我们只是通过记忆测试定性地研究其限制，希望能更好地理解ReFT。我们首先简化我们的干预函数Φ，通过移除<strong>Wh</strong>项并且只学习偏置项，使其参数比原始LoReFT更少：</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-eqn.png" style="max-width: 100%; height: auto;" alt="ReFT 方程">
         </div>
 
         <p>然后，我们用一个示例，训练一个秩为1的LoReFT。给定一个固定的非英文提示，我们训练这个干预来恢复书籍《爱丽丝梦游仙境》的开头。换句话说，我们想测试单个秩为1干预能够"存储"多少单词。</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-memo.png" style="max-width: 100%; height: auto;" alt="ReFT 记忆测试">
         </div>
 
@@ -168,7 +168,7 @@
 
         <p><strong>分别学习子空间，然后进行组合。</strong>在这个实验中，我们分别为不同的任务训练了两组子空间：（1）给定英语提示的德语句子完成任务和（2）英语指令跟随任务。在推理时，我们对这两组进行干预。</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-compose.png" style="max-width: 100%; height: auto;" alt="ReFT 组合">
         </div>
 
@@ -178,7 +178,7 @@
 
         <p>为了降低从PEFTs库到ReFT的切换成本，我们构建了一个pyreft-native Python库, <a href="https://github.com/stanfordnlp/pyreft">pyreft</a>. 我们使接口就像任何其他PEFTs库一样。以下代码展示了如何配置一个干预过的LLaMA模型：</p>
 
-        <div style="text-align: center; margin: 2em 0;">
+        <div style="margin: 2em 0;">
           <img src="../img/reft-code.png" style="max-width: 100%; height: auto;" alt="ReFT 代码">
         </div>
 
