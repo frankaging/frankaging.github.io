@@ -13,17 +13,17 @@
 
     gtag('config', 'G-HVGLSDJKXN');
   </script>
-  
-    <script src="../js/head.js?prefix="></script>
   <meta charset="utf-8">
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Zhengxuan Wu">
 
-  <meta name="description" content="Interpretability at Scale: Identifying Causal Mechanisms in Alpaca">
-  <meta name="keywords" content="Interpretability,NLP,Causality">
+  <meta name="description" content="我们提出了一种基于因果抽象理论的新方法，来找到在大语言模型中扮演给定因果角色的表征">
+  <meta name="keywords" content="Interpretability,NLP,Causality,Natural,Language,Processing,Machine,Learning">
 
 
-  <title>Interpretability at Scale</title>
+  <title>解释大语言模型: 在 Alpaca 中识别因果机制</title>
 
   <!-- Bootstrap core CSS -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
@@ -32,6 +32,7 @@
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -62,209 +63,179 @@
   <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
   <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
 
-<meta property="og:title" content="Interpretability at Scale: Identifying Causal Mechanisms in Alpaca" />
-<meta property="og:url" content="https://zen-wu.social/blog/boundless_das/index.html" />
+<meta property="og:title" content="解释大语言模型: 在 Alpaca 中识别因果机制" />
+<meta property="og:url" content="https://zen-wu.social/blog/boundless_das/cn_index.html" />
 <meta property="og:image" content="https://zen-wu.social/img/DIIT-t.png" />
-<meta property="og:description" content="We propose a new method based on the theory of causal abstraction to find representations that play a given causal role in LLMs." />
+<meta property="og:description" content="我们提出了一种基于因果抽象理论的新方法，来找到在大语言模型中扮演给定因果角色的表征。" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" /> 
-<meta name="twitter:title" content="Interpretability at Scale: Identifying Causal Mechanisms in Alpaca" />
-<meta name="twitter:description" content="We propose a new method based on the theory of causal abstraction to find representations that play a given causal role in LLMs." />
+<meta name="twitter:title" content="解释大语言模型: 在 Alpaca 中识别因果机制" />
+<meta name="twitter:description" content="我们提出了一种基于因果抽象理论的新方法，来找到在大语言模型中扮演给定因果角色的表征。" />
 <meta name="twitter:image" content="https://zen-wu.social/img/DIIT-t.png" />
 
   <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/resume.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <style>
+    .content img {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-section {
+      margin-bottom: 10px;
+    }
+  </style>
+
 
 </head>
 
 <body id="page-top">
   <div class="outercontainer">
-      <header class="metaheader">
-        <div class="container header">
-          <div class="ftheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">zen's blog</a></div>
-          <div class="ftsubheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">@zen</a></div>
-        </div>
-      </header>
-
-        <div class="nd-pageheader">
-         <div class="container">
-         <h1 class="lead titlefont">
-         解释大语言模型: <br/>在 Alpaca 中识别因果机制
-         </h1>
-
-        <address class="lead">
-          <nobr><a href="https://nlp.stanford.edu/~wuzhengx/" target="_blank"
-          >Zhengxuan Wu</a><sup>*</sup>,</nobr>
-          <nobr><a href="https://atticusg.github.io/" target="_blank"
-          >Atticus Geiger</a><sup>*</sup>,</nobr>
-          <nobr><a href="https://web.stanford.edu/~cgpotts/" target="_blank"
-          >Christopher Potts</a>,</nobr>
-          <nobr><a href="http://cocolab.stanford.edu/ndg.html" target="_blank"
-          >Noah Goodman</a></nobr>
-         <br>
-          <nobr><a href="https://nlp.stanford.edu/" target="_blank"
-          >Stanford University</a></nobr>;
-          <nobr><sup>*</sup><a class="likelink">Equal Contribution</a></nobr>
-        </address>
-
-         </div>
-        </div><!-- end nd-pageheader -->
-
     <div class="container body">
       <div class="content heading anchor" id="home">
-      <div class="row justify-content-center text-center">
-      <p>
-      <a href="https://arxiv.org/abs/2305.08809" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/paper-thumb.png" style="border:1px solid" alt="ArXiv preprint thumbnail" data-nothumb=""><br>ArXiv<br>文章</a>
-      <a href="https://github.com/frankaging/align-transformers" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/code-thumb.png" style="border:1px solid" alt="Github code thumbnail" data-nothumb=""><br>Github<br>源代码</a>
-      <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/alpaca-thumb.png" style="border:1px solid" data-nothumb="" alt="Alpaca model thumbnail"><br>Alpaca<br>模型</a>
-      <a href="index.html" class="d-inline-block p-3 align-top" target="_blank"><img height="100" width="78" src="../img/translate-thumb.png" style="border:1px solid" data-nothumb="" alt="Translate thumbnail"><br>English<br>Blog</a>
-      </p>
+        <div class="header-section">
+          <div class="profile-pic">
+            <img src="../img/zen_lake_tahoe_mugs_bw.png" alt="Zhengxuan Wu">
+          </div>
+          <div class="header-text">
+            <h1>解释大语言模型: 在 Alpaca 中识别因果机制</h1> 
+            
+            <p class="nav-links"><a href="../index.html">home</a> · <a href="../blog.html">blog</a> · <a href="https://arxiv.org/abs/2305.08809">paper</a> · <a href="https://github.com/frankaging/align-transformers">code</a> · <a href="index.html">english</a></p>
+          </div>
+        </div>
 
-      <div class="card" style="max-width: 1000px;">
-      <div class="card-block">
-      <h3>如何在大语言模型中寻找因果机制?</h3>
-      <p class="text-left">
-      <b>现有的可解释性工具在数亿参数语言模型上通常无法适配</b>，因为它们往往专注于为特定任务微调的小型模型。在本文中，我们提出了一种基于因果抽象 (causal abstraction) 理论的新方法，以找到在模型中扮演给定因果角色的隐藏表达 (hidden representation)。通过使用我们的工具，我们发现Alpaca模型在解决简单的数字推理任务时实现了具有可解释中间变量的因果模型。此外，我们发现这些因果模型对于输入和指令的变化具有鲁棒性 (robustness)。我们的因果机制发现框架是通用的，并且可以适用于拥有数十亿参数的大语言模型。
-      </p>
-      <img src="../img/DIIT.svg" class="medfig" alt="Diagram of bdas">
-      <p class="text-left">
-      在这个图中，Alpaca模型被要求解决我们的<b>价格标签游戏</b>,</p>
-      <p class="text-center">
-      <em>"如果成本（Z）在 2.00（X）和 3.00（Y）美元之间，则回答是，否则回答否。"</em>
-      </p>
-      <p class="text-left">
-      在上图的顶部，我们有一个因果模型，通过两个布尔变量 (boolean variable) 确定输入金额是否在下限以上和上限以下来解决这个问题。在这里，我们尝试对齐第一个布尔变量。为了训练对齐，我们抽取两个训练样例，然后交换它们之间的中间布尔值以使用我们的因果模型生成一个反事实 (counterfactual) 的输出。同时，我们使用建议对齐的神经元交换这两个样例之间的激活。最后，我们训练我们的旋转矩阵，使得我们的神经网络的行为与因果模型产生相同的反事实结果。
-      </p>
-      </div>
-      </div>
-      </div>
-      </div>
+        <div class="publication">
+          <div class="text">
+            <div class="title">快速链接</div>
+            <div class="links">
+              <a href="https://arxiv.org/abs/2305.08809">arxiv 文章</a> · 
+              <a href="https://github.com/frankaging/align-transformers">github 源代码</a> · 
+              <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">alpaca 模型</a> · 
+              <a href="index.html">english blog</a>
+            </div>
+          </div>
+        </div>
 
-      <div class="row">
-      <div class="col">
-      <h2>为什么我们要扩展 (Scale) 因果机制发现?</h2>
+        <h2>如何在大语言模型中寻找因果机制?</h2>
 
-      <p>获取大型通用语言模型的具有鲁棒性的、易于理解的解释是人工智能领域的重要目标。目前的工具存在以下主要限制：
-      </p>
-      <ol>
-        <li><b>搜索空间太大: </b>LLM具有数十亿的参数，序列表示随长度增加而增加。神经元的搜索空间通常太大，无法使用任何启发式搜索工具。
-        <li><b>表达是分布式的: </b> LLM中单个神经元的激活与<em>概念</em> (concept) 之间的映射通常是多对多而不是一对一的。先前的工作声称一组神经元表示一个简单的<em>概念</em>（例如<em>性别</em>），可能是虚假的，因为神经元可以编码更复杂的内容（例如多个<em>概念</em>的叠加）。
-        <li><b>极低的鲁棒性: </b> 以前的工作中找到的因果机制通常假设为特定任务微调的模型，甚至带有固定长度输入和固定模板。我们不确定这些对齐是否具有泛化性，如果具有泛化性，泛化程度如何。
-      </ol>
-      我们试图解决所有这些限制，并在最近发布的Alpaca 7B模型上展示我们的框架<a href="https://crfm.stanford.edu/2023/03/13/alpaca.html" target="_blank"
-          >[1]</a>。
+        <p><strong>现有的可解释性工具在数亿参数语言模型上通常无法适配</strong>，因为它们往往专注于为特定任务微调的小型模型。在本文中，我们提出了一种基于因果抽象 (causal abstraction) 理论的新方法，以找到在模型中扮演给定因果角色的隐藏表达 (hidden representation)。通过使用我们的工具，我们发现Alpaca模型在解决简单的数字推理任务时实现了具有可解释中间变量的因果模型。此外，我们发现这些因果模型对于输入和指令的变化具有鲁棒性 (robustness)。我们的因果机制发现框架是通用的，并且可以适用于拥有数十亿参数的大语言模型。</p>
 
-      <h2>将分布式因果机制的寻找转化为优化问题</h2>
-      <p>我们将我们最近提出的分布式对齐搜索（DAS) <a href="https://arxiv.org/abs/2303.02536" target="_blank">[2]</a> 调整为将对齐过程转化为一个优化问题。在DAS中，我们使用梯度下降方法找到高层模型和低层模型之间的对齐，而不是进行暴力搜索，并且通过分析非标准基的表示形式-分布式表示，我们允许单个神经元扮演多个不同的角色。
-      </p>
-      <p class="text-center">
-      <img src="../img/das.png" class="midfig" alt="Diagram of DAS">
-      </p>
-      <p>这张图（从原始论文中复制）展示了一个分布式互换干预的例子，当训练DAS时使用。它显示了我们第一张图中旋转矩阵训练过程的放大版本。基本上，我们对所有输入进行正向传递，并在我们要对齐的表示形式上应用一个可学习的旋转矩阵。然后，我们在旋转后的空间中进行干预，以对齐我们高层因果模型预测的反事实行为。
-      </p>
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/DIIT.svg" style="max-width: 100%; height: auto;" alt="Diagram of boundless DAS">
+          <p style="margin-top: 1em; font-style: italic;">在这个图中，Alpaca模型被要求解决我们的<strong>价格标签游戏</strong>,<br/><em>"如果成本（Z）在 2.00（X）和 3.00（Y）美元之间，则回答是，否则回答否。"</em><br/>在上图的顶部，我们有一个因果模型，通过两个布尔变量 (boolean variable) 确定输入金额是否在下限以上和上限以下来解决这个问题。在这里，我们尝试对齐第一个布尔变量。为了训练对齐，我们抽取两个训练样例，然后交换它们之间的中间布尔值以使用我们的因果模型生成一个反事实 (counterfactual) 的输出。同时，我们使用建议对齐的神经元交换这两个样例之间的激活。最后，我们训练我们的旋转矩阵，使得我们的神经网络的行为与因果模型产生相同的反事实结果。</p>
+        </div>
 
-      <p>在本文中，我们通过用学习参数替换剩余的暴力搜索步骤，大幅度扩展这些方法，提出了DAS的更新版本 <b>Boundless DAS</b> 。以下是一些关键优势：
-      </p>
-      <ol>
-        <li><b>将搜索转化为优化问题: </b> 通过在旋转空间中进行干预，我们现在只需要检查是否可以学习一个忠实的旋转矩阵（有关我们的忠实度统一度量，请参见下一节），以评估所提出的对齐方法。
-        <li><b>子空间对齐: </b> 我们的旋转矩阵是正交矩阵，它是正交规范的。旋转后的每个维度都是原始维度的线性组合。在正交化表示中，每个维度都是独立的，这对于我们假设中间变量是独立的很有用。
-      </ol>
+        <h2>为什么我们要扩展 (scale) 因果机制发现?</h2>
 
-      <h2>Boundless DAS 代码</h2>
-      <p>Boundless DAS是适用于任何模型的通用方法。这里我们展示了一个通用的解码器 (decoder-only) LLM的伪代码片段。
-      </p>
-      <p class="text-center">
-      <img src="../img/bdas-code.png" class="midfig" alt="Diagram of DAS code">
-      </p>
-      理想情况下，这个方法也可以扩展到编码器-解码器 (encoder-decoder) LLMs，或者仅有编码器的LLMs。
-
-      <h2>统一的评估方式</h2>
-      <p>我们使用前几篇因果抽象工作中提出的互换干预准确率 (Interchange Intervention Accuracy; IIA) <a href="https://arxiv.org/abs/2106.02997" target="_blank"
-          >[3]</a> <a href="https://arxiv.org/abs/2112.00826" target="_blank"
-          >[4]</a>来评估我们在旋转子空间中对齐的准确性或忠实度。IIA越高，对齐就越好。这里是一个非常简单的算术任务 (a + b) * c 的示例,</p>
-          <p class="text-center">
-          <img src="../img/perfect-align.svg" class="smallfig" alt="Diagram of perfect alignment">
-          </p>
-
-      <p>
-        在这个问题中，如果我们有这四个神经元与代表 (a + b) 的中间变量完美对齐，那么可以确定性地从一个输入 (1 + 2) * 3中取出这四个神经元的激活，并将它们插入到另一个输入 (2 + 3) * 4中，使模型输出 (1 + 2) * 4 = 12。我们称这种情况为完美对齐，IIA为100%。我们使用相同的指标评估在旋转子空间中的对齐情况。
-      </p>
-
-      <p>
-        <b>需要注意的是，对于Boundless DAS，IIA的含义略有变化: </b> 在旋转子空间中达到100％的IIA，意味着对齐的因果变量在原始表示中分布为100％。我们还可以反向工程学习到的旋转矩阵，以回推每个原始维度的权重。
-      </p>
-
-      <h2>一个简单的数字推理任务</h2>
-      <p>我们首先构建了一个简单的数字推理任务，Alpaca模型可以相当容易地解决。
-      </p>
-
-      <p class="text-center">
-      <img src="../img/task.svg" class="smallfig" alt="Diagram of our task">
-      </p>
-      这个定价标签游戏基本上包含三个部分: (1) 左括号; (2) 右括号; 和 (3) 输入金额。有几种直观的因果模型可以完美地解决这个任务。
-      <p class="text-center">
-      <img src="../img/Causal-Models.svg" class="midfig" alt="Diagram of our causal models">
-      </p>
-
-      <p>
-      我们的中心研究问题是: <b>Alpaca模型在解决这个任务时是否遵循了这些因果模型之一？我们试图通过找到标记为红色的中间因果变量的对齐方式来回答这个问题。</b></p>
-
-      <h2>主要结果: 模型遵循哪一种因果机制?</h2>
-      </p>
-      我们在任务的多个层和位置上使用Boundless DAS训练了每一个单词 (token) 的隐性表达，并在保留的测试集上评估了我们学习到的对齐方式，在我们的隐藏测试数据集中得到了IIA分布。下面是我们考虑的所有四个高级因果模型的对齐结果。
-      <p class="text-center">
-      <img src="../img/main-heatmap-standard.svg" class="midfig" alt="Diagram of main result">
-      </p>
-      在这里，我们通过将上限设置为任务性能，将下限设置为虚拟分类器的模型性能来对IIA进行归一化。显然，涉及左边界和右边界检查的因果模型要明显更可靠。我们的研究结果表明，Alpaca模型在内部计算这些布尔变量来表示输入金额与括号之间的关系。
-
-      <h2>主要结果: 找到的因果机制是否具有鲁棒性?</h2>
-      </p>
-      现在对于大模型的可解释性或者机制解释性 (mechanistic interpretability) 的方法的主要诟病是找到的可解释性的结果可能仅适用于特定的输入-输出对设置。在本文中，我们试图通过探寻找到的可解释性是否具有很好的鲁棒性。我们在不同的输入-输出设置的情况下无训练 (inference-time only) 的看发现的因果作用（即对齐方式）是否得到保留。这是至关重要的，因为它告诉我们因果模型在神经网络中的实现是否具有鲁棒性。我们研究了三种设置：
-      <ol>
-        <li><b>新的输入: </b> 在测试的时候，我们改变了问题中的最大和最小值。
-        <li><b>插入无关的信息: </b> 我们在测试时注入随机上下文以评估对齐方式。
-        <li><b>整个指令的改写: </b> 我们为指令 "说是……，否则不" 训练对齐方式，并查看它们是否推广到指令 "说真……，否则假"。
-      </ol>
-
-      <p class="text-center">
-      <img src="../img/ptg-table.png" class="midfig" alt="Diagram of main table">
-      </p>
-      表格里的数据是我们实验的总结结果，任务性能作为准确率（Task Acc.; 在[0.00，1.00]之间），在所有位置和层中的最大互换干预准确率（IIA; 在[0.00，1.00]之间），两个分布之间的IIA的Pearson相关性（在[-1.00，1.00]之间），以及单个实验中所有位置和层的IIA方差。我们的研究结果表明，在这些设置中找到的对齐方式具有鲁棒性。
-
-      <h2>可解释性的愿景</h2>
-      </p>
-      自动因果机制发现（机制解释性）不是一个简单的任务，其中有许多移动部分。在本文中，我们通过提出一种改进的方法，向这个目标迈出了一步。
-      <p class="text-center">
-      <img src="../img/Next-DAS-on-LLMs.svg" class="midfig" alt="Diagram of main table">
-      </p>
-      在上图的左侧插图，我们的提议范例有四个中心步骤，其中最后一步包括一个迭代过程来寻找更好的对齐方式。这个范例解决了当前系统提出的一系列限制，但还有很多工作要做。在右侧插图中，我们展示了一个我们未来想要实现的中间目标，即用GPT-4或人类专家在环过程替换我们的确定性高级模型。
-
-      <h2>局限性讨论</h2>
-      </p>
-        我们的工作是朝着理解LLMs的内部因果机制迈出的第一步。它具有局限性，并可能在这个方向上开启一条工作线。
+        <p>获取大型通用语言模型的具有鲁棒性的、易于理解的解释是人工智能领域的重要目标。目前的工具存在以下主要限制：</p>
         <ol>
-          <li><b>更大的规模: </b> 我们希望我们的框架可以应用于研究最强大的LLMs（例如175B的GPT-3或GPT-4）在发布时，因为当前的工作仍然集中在一个简单的推理任务上，较小的LLMs可以解决。
-          <li><b>确定的因果模型: </b> 我们的工作依赖于先验已知的因果模型，在许多实际应用中这是不现实的，因为高级因果模型也是隐藏的。未来的工作可以通过基于启发式的离散搜索或甚至端到端优化来研究学习因果图的方法。
-          <li><b>最终的可扩展性: </b> 我们方法的可扩展性仍然受到搜索空间隐藏维度大小的限制。现在无法在LLMs的一组令牌表示上进行搜索，因为随着隐藏维度的增长，旋转矩阵呈指数增长。
-          <li><b>没有确凿的答案: </b> 我们的评估范例可以根据IIA提出对齐方式（即灰盒），但无法对失败的对齐方式进行确定性推断。
+          <li><strong>搜索空间太大: </strong>LLM具有数十亿的参数，序列表示随长度增加而增加。神经元的搜索空间通常太大，无法使用任何启发式搜索工具。
+          <li><strong>表达是分布式的: </strong> LLM中单个神经元的激活与<em>概念</em> (concept) 之间的映射通常是多对多而不是一对一的。先前的工作声称一组神经元表示一个简单的<em>概念</em>（例如<em>性别</em>），可能是虚假的，因为神经元可以编码更复杂的内容（例如多个<em>概念</em>的叠加）。
+          <li><strong>极低的鲁棒性: </strong> 以前的工作中找到的因果机制通常假设为特定任务微调的模型，甚至带有固定长度输入和固定模板。我们不确定这些对齐是否具有泛化性，如果具有泛化性，泛化程度如何。
+        </ol>
+        <p>我们试图解决所有这些限制，并在最近发布的Alpaca 7B模型上展示我们的框架<a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">[1]</a>。</p>
+
+        <h2>将分布式因果机制的寻找转化为优化问题</h2>
+        <p>我们将我们最近提出的分布式对齐搜索（DAS) <a href="https://arxiv.org/abs/2303.02536">[2]</a> 调整为将对齐过程转化为一个优化问题。在DAS中，我们使用梯度下降方法找到高层模型和低层模型之间的对齐，而不是进行暴力搜索，并且通过分析非标准基的表示形式-分布式表示，我们允许单个神经元扮演多个不同的角色。</p>
+
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/das.png" style="max-width: 100%; height: auto;" alt="Diagram of DAS">
+          <p style="margin-top: 1em; font-style: italic;">这张图（从原始论文中复制）展示了一个分布式互换干预的例子，当训练DAS时使用。它显示了我们第一张图中旋转矩阵训练过程的放大版本。基本上，我们对所有输入进行正向传递，并在我们要对齐的表示形式上应用一个可学习的旋转矩阵。然后，我们在旋转后的空间中进行干预，以对齐我们高层因果模型预测的反事实行为。</p>
+        </div>
+
+        <p>在本文中，我们通过用学习参数替换剩余的暴力搜索步骤，大幅度扩展这些方法，提出了DAS的更新版本 <strong>Boundless DAS</strong> 。以下是一些关键优势：</p>
+        <ol>
+          <li><strong>将搜索转化为优化问题: </strong> 通过在旋转空间中进行干预，我们现在只需要检查是否可以学习一个忠实的旋转矩阵（有关我们的忠实度统一度量，请参见下一节），以评估所提出的对齐方法。
+          <li><strong>子空间对齐: </strong> 我们的旋转矩阵是正交矩阵，它是正交规范的。旋转后的每个维度都是原始维度的线性组合。在正交化表示中，每个维度都是独立的，这对于我们假设中间变量是独立的很有用。
         </ol>
 
-      <h2>引用本文</h2>
+        <h2>Boundless DAS 代码</h2>
+        <p>Boundless DAS是适用于任何模型的通用方法。这里我们展示了一个通用的解码器 (decoder-only) LLM的伪代码片段。</p>
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/bdas-code.png" style="max-width: 100%; height: auto;" alt="Boundless DAS code">
+          <p style="margin-top: 1em; font-style: italic;">理想情况下，这个方法也可以扩展到编码器-解码器 (encoder-decoder) LLMs，或者仅有编码器的LLMs。</p>
+        </div>
 
-      <p>这项工作仅为预印本。可以按以下方式引用。
-      </p>
+        <h2>统一的评估方式</h2>
+        <p>我们使用前几篇因果抽象工作中提出的互换干预准确率 (Interchange Intervention Accuracy; IIA) <a href="https://arxiv.org/abs/2106.02997">[3]</a> <a href="https://arxiv.org/abs/2112.00826">[4]</a>来评估我们在旋转子空间中对齐的准确性或忠实度。IIA越高，对齐就越好。这里是一个非常简单的算术任务 (a + b) * c 的示例,</p>
 
-      <div class="card">
-          <h4 class="card-header">bibliography</h4>
-          <div class="card-block">
-          <p style="text-indent: -3em; margin-left: 3em;" class="card-text clickselect">
-          Zhengxuan Wu, Atticus Geiger, Christopher Potts, and Noah Goodman. "<em>Interpretability at Scale: Identifying Causal Mechanisms in Alpaca.</em>" Ms. Stanford University (2023).
-          </p>
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/perfect-align.svg" style="max-width: 100%; height: auto;" alt="Perfect alignment diagram">
+          <p style="margin-top: 1em; font-style: italic;">在这个问题中，如果我们有这四个神经元与代表 (a + b) 的中间变量完美对齐，那么可以确定性地从一个输入 (1 + 2) * 3中取出这四个神经元的激活，并将它们插入到另一个输入 (2 + 3) * 4中，使模型输出 (1 + 2) * 4 = 12。我们称这种情况为完美对齐，IIA为100%。我们使用相同的指标评估在旋转子空间中的对齐情况。</p>
+        </div>
+
+        <p><strong>需要注意的是，对于Boundless DAS，IIA的含义略有变化: </strong> 在旋转子空间中达到100％的IIA，意味着对齐的因果变量在原始表示中分布为100％。我们还可以反向工程学习到的旋转矩阵，以回推每个原始维度的权重。</p>
+
+        <h2>一个简单的数字推理任务</h2>
+        <p>我们首先构建了一个简单的数字推理任务，Alpaca模型可以相当容易地解决。</p>
+
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/task.svg" style="max-width: 100%; height: auto;" alt="Our task diagram">
+          <p style="margin-top: 1em; font-style: italic;">这个定价标签游戏基本上包含三个部分: (1) 左括号; (2) 右括号; 和 (3) 输入金额。有几种直观的因果模型可以完美地解决这个任务。</p>
+        </div>
+
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/Causal-Models.svg" style="max-width: 100%; height: auto;" alt="Causal models">
+          <p style="margin-top: 1em; font-style: italic;">我们的中心研究问题是: <strong>Alpaca模型在解决这个任务时是否遵循了这些因果模型之一？我们试图通过找到标记为红色的中间因果变量的对齐方式来回答这个问题。</strong></p>
+        </div>
+
+        <h2>主要结果: 模型遵循哪一种因果机制?</h2>
+        <p>我们在任务的多个层和位置上使用Boundless DAS训练了每一个单词 (token) 的隐性表达，并在保留的测试集上评估了我们学习到的对齐方式，在我们的隐藏测试数据集中得到了IIA分布。下面是我们考虑的所有四个高级因果模型的对齐结果。</p>
+
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/main-heatmap-standard.svg" style="max-width: 100%; height: auto;" alt="Main results">
+          <p style="margin-top: 1em; font-style: italic;">在这里，我们通过将上限设置为任务性能，将下限设置为虚拟分类器的模型性能来对IIA进行归一化。显然，涉及左边界和右边界检查的因果模型要明显更可靠。我们的研究结果表明，Alpaca模型在内部计算这些布尔变量来表示输入金额与括号之间的关系。</p>
+        </div>
+
+        <h2>主要结果: 找到的因果机制是否具有鲁棒性?</h2>
+        <p>现在对于大模型的可解释性或者机制解释性 (mechanistic interpretability) 的方法的主要诟病是找到的可解释性的结果可能仅适用于特定的输入-输出对设置。在本文中，我们试图通过探寻找到的可解释性是否具有很好的鲁棒性。我们在不同的输入-输出设置的情况下无训练 (inference-time only) 的看发现的因果作用（即对齐方式）是否得到保留。这是至关重要的，因为它告诉我们因果模型在神经网络中的实现是否具有鲁棒性。我们研究了三种设置：</p>
+        <ol>
+          <li><strong>新的输入: </strong> 在测试的时候，我们改变了问题中的最大和最小值。
+          <li><strong>插入无关的信息: </strong> 我们在测试时注入随机上下文以评估对齐方式。
+          <li><strong>整个指令的改写: </strong> 我们为指令 "说是……，否则不" 训练对齐方式，并查看它们是否推广到指令 "说真……，否则假"。
+        </ol>
+
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/ptg-table.png" style="max-width: 100%; height: auto;" alt="Results table">
+          <p style="margin-top: 1em; font-style: italic;">表格里的数据是我们实验的总结结果，任务性能作为准确率（Task Acc.; 在[0.00，1.00]之间），在所有位置和层中的最大互换干预准确率（IIA; 在[0.00，1.00]之间），两个分布之间的IIA的Pearson相关性（在[-1.00，1.00]之间），以及单个实验中所有位置和层的IIA方差。我们的研究结果表明，在这些设置中找到的对齐方式具有鲁棒性。</p>
+        </div>
+
+        <h2>可解释性的愿景</h2>
+        <p>自动因果机制发现（机制解释性）不是一个简单的任务，其中有许多移动部分。在本文中，我们通过提出一种改进的方法，向这个目标迈出了一步。</p>
+
+        <div style="text-align: center; margin: 2em 0;">
+          <img src="../img/Next-DAS-on-LLMs.svg" style="max-width: 100%; height: auto;" alt="Future directions">
+          <p style="margin-top: 1em; font-style: italic;">在上图的左侧插图，我们的提议范例有四个中心步骤，其中最后一步包括一个迭代过程来寻找更好的对齐方式。这个范例解决了当前系统提出的一系列限制，但还有很多工作要做。在右侧插图中，我们展示了一个我们未来想要实现的中间目标，即用GPT-4或人类专家在环过程替换我们的确定性高级模型。</p>
+        </div>
+
+        <h2>局限性讨论</h2>
+        <p>我们的工作是朝着理解LLMs的内部因果机制迈出的第一步。它具有局限性，并可能在这个方向上开启一条工作线。</p>
+        <ol>
+          <li><strong>更大的规模: </strong> 我们希望我们的框架可以应用于研究最强大的LLMs（例如175B的GPT-3或GPT-4）在发布时，因为当前的工作仍然集中在一个简单的推理任务上，较小的LLMs可以解决。
+          <li><strong>确定的因果模型: </strong> 我们的工作依赖于先验已知的因果模型，在许多实际应用中这是不现实的，因为高级因果模型也是隐藏的。未来的工作可以通过基于启发式的离散搜索或甚至端到端优化来研究学习因果图的方法。
+          <li><strong>最终的可扩展性: </strong> 我们方法的可扩展性仍然受到搜索空间隐藏维度大小的限制。现在无法在LLMs的一组令牌表示上进行搜索，因为随着隐藏维度的增长，旋转矩阵呈指数增长。
+          <li><strong>没有确凿的答案: </strong> 我们的评估范例可以根据IIA提出对齐方式（即灰盒），但无法对失败的对齐方式进行确定性推断。
+        </ol>
+
+        <h2>引用本文</h2>
+
+        <div class="publication">
+          <div class="text">
+            <div class="title">bibliography</div>
+            <div class="authors">
+              Zhengxuan Wu, Atticus Geiger, Christopher Potts, and Noah Goodman. "<em>Interpretability at Scale: Identifying Causal Mechanisms in Alpaca.</em>" Ms. Stanford University (2023).
+            </div>
           </div>
-          <h4 class="card-header">bibtex</h4>
-          <div class="card-block">
-          <pre class="card-text clickselect">
-@article{wu-etal-2023-Boundless-DAS,
+        </div>
+
+        <div class="publication">
+          <div class="text">
+            <div class="title">BibTeX</div>
+            <div class="authors">
+              <pre>@article{wu-etal-2023-Boundless-DAS,
       title={Interpretability at Scale: Identifying Causal Mechanisms in Alpaca}, 
       author={Wu, Zhengxuan and Geiger, Atticus and Potts, Christopher and Goodman, Noah},
       year={2023},
@@ -272,22 +243,21 @@
       archivePrefix={arXiv},
       primaryClass={cs.LG}
 }</pre>
+            </div>
+          </div>
         </div>
+
+        <h2>感谢</h2>
+        <p>我们感谢斯坦福自然语言处理组 (Stanford NLP Group) 中的所有人，在许多离线讨论中提出了许多好的想法。</p>
+
+        <div class="footer">
+          <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
+        </div>
+
       </div>
-
-      <h2>感谢</h2>
-      </p>
-      我们感谢斯坦福自然语言处理组 (Stanford NLP Group) 中的所有人，在许多离线讨论中提出了许多好的想法。
     </div>
   </div>
-
-    </div>
-
-      <footer class="nd-pagefooter">
-          <a href="https://nlp.stanford.edu/">Stanford NLP Group</a>
-    </footer>
-    </footer>
-  </div>
+  <br/>
 
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>

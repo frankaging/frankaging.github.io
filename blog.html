@@ -13,22 +13,23 @@
 
     gtag('config', 'G-HVGLSDJKXN');
   </script>
-  
-    <script src="js/head.js?prefix="></script>
   <meta charset="utf-8">
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Zhengxuan Wu">
 
   <meta name="description" content="Zhengxuan Wu is interested in building interpretable and robust NLP systems">
-  <meta name="keywords" content="Zhengxuan Wu,Computer,Machine,Learning,Cognitive,Science,Homepage,Artificial,Intelligence,Affective,Computing,HCI">
+  <meta name="keywords" content="Zhengxuan Wu,Natural,Language,Processing,Machine,Learning,Cognitive,Science,Homepage,Artificial,Intelligence,Affective,Computing,HCI">
 
 
-  <title>Zhengxuan Wu</title>
+  <title>Zhengxuan Wu - Blog</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -61,97 +62,75 @@
 
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="css/resume.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <style>
+    .header-section h1 {
+      margin-bottom: 1rem;
+    }
+  </style>
 
 </head>
 
 <body id="page-top">
   <div class="outercontainer">
-      <header>
-          <div class="container header">
-            <div class="ftheader text"><a href=#home>zen's blog</a></div>
-            <div class="ftsubheader text"><a href="https://nlp.stanford.edu/~wuzhengx/">@zen</a></div>
-          </div>
-        </header>
     <div class="container body">
       <div class="content heading anchor" id="home">
-
-          <br/><br/>
-
-          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
-              <div class="text" style="z-index:1;position:relative">
-                <h3 style="margin-bottom:0em">
-                  <a href="reft/index.html">ReFT: Representation Finetuning for Language Models</a>
-                </h3>
-                <div>
-                  <span class="date">April, 05, 2024</span>
-                </div>
-                <div class="blogtext">
-                  ReFT represents a novel approach to parameter-efficient, powerful, and interpretable fine-tuning of language models. It draws inspiration from our interpretability work in <a href="https://arxiv.org/abs/2303.02536">distributed alignment search (DAS)</a>. Instead of training any model weights, we train interventions that edit representations on-the-fly. We demonstrate that editing a very limited number of representations is sufficient to achieve or get close to the state-of-the-art (SoTA) performance across a wide range of tasks.
-                </div>
-              </div>
+        <div class="header-section">
+          <div class="profile-pic">
+            <img src="img/zen_lake_tahoe_mugs_bw.png" alt="Zhengxuan Wu">
           </div>
-
-          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
-              <div class="text" style="z-index:1;position:relative">
-                <h3 style="margin-bottom:0em">
-                  <a href="boundless_das/index.html">Interpretability at Scale: Identifying Causal Mechanisms in Alpaca</a>
-                </h3>
-                <div>
-                  <span class="date">May, 09, 2023</span>
-                </div>
-                <div class="blogtext">
-                  Obtaining robust, human-interpretable explanations of large, general-purpose language models is an urgent goal for AI. Building on the theory of causal abstraction, we release this generic library encapsulated Boundless <a href="https://arxiv.org/abs/2303.02536">DAS</a> introduced in our paper for find representations that play a given causal role in LLMs with billions of parameters.
-                </div>
-              </div>
+          <div class="header-text">
+            <h1>zen's blog</h1> 
+            
+            <p class="nav-links"><a href="index.html">home</a> · <a href="https://scholar.google.com/citations?user=CBvE6lwAAAAJ&hl=en">google scholar</a> · <a href="https://github.com/frankaging">github</a> · <a href="https://twitter.com/zhengxuanzenwu">twitter</a> · <a href="pdf/cv.pdf">c.v.</a> · <a href="mailto:wuzhengx@cs.stanford.edu">email</a></p>
           </div>
+        </div>
+        
+        <div class="intro-section">
+          <p>I write about interpretability, language models, and other interesting findings.</p>
+        </div>
 
-          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
-              <div class="text" style="z-index:1;position:relative">
-                <h3 style="margin-bottom:0em">
-                  <a href="pdf/sop_cs_22.pdf">Computer Science Ph.D. Statement of Purpose</a>
-                </h3>
-                <div>
-                  <span class="date">June, 30, 2022</span>
-                </div>
-                <div class="blogtext">
-                  It takes me years to transition from an aerospace engineering student to a NLP Ph.D. student. I want to share my experience as much as I can, so people can build on top of it to make their experience even better. For my SOP, I have to credit my good friend <a href="https://cs.stanford.edu/~nfliu/">Nelson F. Liu</a>. I wrote my SOP based on <a href="https://cs.stanford.edu/~nfliu/files/phd_sop/nfliu_phd_sop.pdf">his</a>! I applied twice, and I am also pretty liberal to share <a href="pdf/sop_cs_20.pdf">the version of my failed attempt</a>. One takeaway for me is that - you need to have a big vision that is grounded with specific past experience.
-                </div>
-              </div>
+        <h2>blog posts</h2>
+
+        <div class="publication">
+          <div class="text">
+            <div class="title"><a href="reft/index.html">ReFT: Representation Finetuning for Language Models</a></div>
+            <div class="venue-year">April 05, 2024</div>
+            <div class="authors">
+              ReFT represents a novel approach to parameter-efficient, powerful, and interpretable fine-tuning of language models. It draws inspiration from our interpretability work in <a href="https://arxiv.org/abs/2303.02536">distributed alignment search (DAS)</a>. Instead of training any model weights, we train interventions that edit representations on-the-fly. We demonstrate that editing a very limited number of representations is sufficient to achieve or get close to the state-of-the-art (SoTA) performance across a wide range of tasks.
+            </div>
           </div>
+        </div>
 
-<!--           <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
-              <div class="text" style="z-index:1;position:relative">
-                <h3 style="margin-bottom:0em">
-                  <a href="pdf/sop_ss_20.pdf">Symbolic Systems Program M.S. Statement of Purpose</a>
-                </h3>
-                <div>
-                  <span class="date">April, 24, 2020</span>
-                </div>
-                <div class="blogtext">
-                  With two years into my part-time M.S. program at Stanford, I switched my gear to do a lot of NLP-related research. I found the way of carrying out a research project astonishingly similar to the way of starting a mini start-up project. So, I asked Stanford whether I can switch my M.S. major to Symbolic Systems ...
-                </div>
-              </div>
+        <div class="publication">
+          <div class="text">
+            <div class="title"><a href="boundless_das/index.html">Interpretability at Scale: Identifying Causal Mechanisms in Alpaca</a></div>
+            <div class="venue-year">May 09, 2023</div>
+            <div class="authors">
+              Obtaining robust, human-interpretable explanations of large, general-purpose language models is an urgent goal for AI. Building on the theory of causal abstraction, we release this generic library encapsulated Boundless <a href="https://arxiv.org/abs/2303.02536">DAS</a> introduced in our paper for find representations that play a given causal role in LLMs with billions of parameters.
+            </div>
           </div>
+        </div>
 
-          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
-              <div class="text" style="z-index:1;position:relative">
-                <h3 style="margin-bottom:0em">
-                  <a href="pdf/sop_mse_18.pdf">Management Science & Engineering M.S. Statement of Purpose</a>
-                </h3>
-                <div>
-                  <span class="date">December, 24, 2018</span>
-                </div>
-                <div class="blogtext">
-                  After I joined the industry working as a software engineer at sillicon valley, I was very interested in starting my own tech business soon. The part-time basis MS&E M.S. program at Stanford was a perfect fit to me. I applied to this program with my die-heart passion about entrepreneurship. Who knows how will it end ... Maybe a Ph.D. instead?
-                </div>
-              </div>
-          </div> -->
+        <div class="publication">
+          <div class="text">
+            <div class="title"><a href="pdf/sop_cs_22.pdf">Computer Science Ph.D. Statement of Purpose</a></div>
+            <div class="venue-year">June 30, 2022</div>
+            <div class="authors">
+              It takes me years to transition from an aerospace engineering student to a NLP Ph.D. student. I want to share my experience as much as I can, so people can build on top of it to make their experience even better. For my SOP, I have to credit my good friend <a href="https://cs.stanford.edu/~nfliu/">Nelson F. Liu</a>. I wrote my SOP based on <a href="https://cs.stanford.edu/~nfliu/files/phd_sop/nfliu_phd_sop.pdf">his</a>! I applied twice, and I am also pretty liberal to share <a href="pdf/sop_cs_20.pdf">the version of my failed attempt</a>. One takeaway for me is that - you need to have a big vision that is grounded with specific past experience.
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
+        </div>
 
       </div>
     </div>
-
-      <br/>
   </div>
+  <br/>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -162,8 +141,8 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/resume.min.js"></script>
-  <script src="js/header.js?prefix="></script>
 
 </body>
 
+</html>
 </html>
