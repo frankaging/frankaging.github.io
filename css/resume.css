@@ -1,176 +1,351 @@
-/*!
- * Start Bootstrap - Resume v4.0.0-beta.2 (https://startbootstrap.com/template-overviews/resume)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
- */
+/* Minimal Academic Website CSS - Inspired by Shikhar Murty's design */
 
- /* open-sans-regular - latin */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans Regular'), local('OpenSans-Regular'),
-       url('../fonts/open-sans-v15-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/open-sans-v15-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/* open-sans-600 - latin */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
+
+body {
+  font-family: "Inconsolata", "Monaco", "Consolas", "Courier New", monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  background-color: rgb(252, 248, 245);
+  margin: 0;
+  padding: 0;
+}
+
+/* Container and layout */
+.outercontainer {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container {
+  max-width: 100%;
+}
+
+/* Zen highlight */
+.zen-highlight {
+  color: rgb(204, 101, 0);
   font-weight: 600;
-  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
-       url('../fonts/open-sans-v15-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/open-sans-v15-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-.equalcontribution {
-  color: #cc1515;
-  font-weight: bold;
-}
-
-.award {
-  color: #cc1515;
-    font-size:80%;
-    font-weight: 200;
-    line-height: 1;
-}
-
-.newpaper {
-  color: #cc1515;
-}
-
-header{width:100%;height:50px;margin-top:0px;text-align:center;background-color: #b40c1c;position:fixed;z-index:2}
-body{margin:auto;padding:0;-webkit-transition:all;-moz-transition:all;-ms-transition:all;-o-transition:all;transition:all;
-    font-family:Palatino, "EB Garamond", Georgia, "Times New Roman", serif ,sans-serif;font-size:18px;line-height:170%;text-align:justify;font-weight:400}
-h1,h2,h3,h4,h5,h6,div.title,div.ftheader,span.venue,span.highlight{font-weight:600}
-h4,div.title,div.ftsubheader{font-size:100%}
-ul,ol,dl{margin:0;padding:5px 10px 30px 30px;width:calc(100% - 30px)}
-img.img_responsive{width:100%;height:auto;display:block}
-div.container a:link,
-div.container a:visited{color:#007bff;text-decoration:none}
-div.ftheader a:link,
-div.ftheader a:visited,
-div.ftsubheader a:link,
-div.ftsubheader a:visited{color:#FFFFFF;text-decoration:none}
-div.title a:link,
-div.title a:visited{color:#000000}
-div.authors a:link,
-div.authors a:visited{color:#777777}
-div.content a:hover,
-div.content a:hover div.text,
-div.ftsubheader a:hover{text-decoration:underline}
-#span.jw{color:#000000;font-weight:600;text-decoration:underline}
-span.jw{color:#000000;font-weight:600}
-span.author{white-space:nowrap}
-div.outercontainer{text-align:center}
-div.header,div.container,div.content,div.img,div.text{display:inline-block;zoom:1;display*:inline;text-align:left;margin-left:auto;margin-right:auto;vertical-align:middle;max-width:1000px}
-div.researchinterests{min-width: 330px;}
-div.header,div.container{min-width:330px}
-div.img,div.text{padding-left:10px;padding-right:10px}
-div.header{line-height:50px}
-div.ftsubheader a:hover{text-decoration:underline}
-div.ftheader,div.ftsubheader{display:inline-block;color:#FFF}
-div.ftheader{float:left;padding-left:15px;font-size:1.8em}
-div.ftsubheader{float:right;padding-left:20px;padding-right:20px}
-div.outercontainer,div.content{padding-top:0px;padding-bottom:0px}
-div.container,div.content{width:100%}
-div.body{margin-top:50px}
-div.content{margin-bottom:10px}
-div.heading{text-align:left;position:relative;z-index:1}
-div.heading div.img{padding:30px 30px 30px 10px;max-width:30%}
-div.heading div.img img{width:175px}
-div.heading span.tag{padding-right:15px}
-div.heading ul{padding-bottom:0px}
-div.publication{padding-top:0px;padding-bottom:20px}
-div.publication div.img{max-width:300px;padding-right:0px;padding-top:0px}
-div.publication div.text{max-width:650px;text-align:left;vertical-align:top}
-span.author{
-    color:black;font-weight: 200; font-size:80%;
-    line-height: 1;
-}
-div.authors{font-size:100%;color:#777777; line-height: 1;}
-span.venue,span.highlight,
-div.publication span.tag{padding-right:0px;font-size:100%}
-span.venue {
-    font-size:80%;
-    font-weight: 200;
-    line-height: 1;
-}
-span.date {
-    font-size:80%;
-    font-weight: 200;
-    line-height: 1;
-    color:grey;
-}
-div.blogtext{
-    color:DimGray;
-}
-div.title {
-    line-height: 1.2;
-}
-span.highlight,
-span.highlight a:link,
-span.highlight a:visited{color:#BB2222}
-span.fullvenue{padding-left:8px}
-div.anchor{border-top:50px solid transparent;margin-top:-50px}
-div.img img{
+  background-color: rgba(204, 101, 0, 0.06);
+  padding: 1px 4px;
   border-radius: 3px;
-/*  border: 3px solid grey;*/
 }
 
-div.img{
-    font-size:0.8em;
-    line-height: 1.6;
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid #e5e5e5;
 }
 
-@media only screen and (max-width: 980px) {
-    div.heading div.topic{display:none}
+.footer p {
+  margin: 0;
+  font-size: 14px;
 }
 
-@media only screen and (max-width: 879px) {
-    div.ftsubheader{padding-left:10px;padding-right:10px}
-/*    div.heading div.img{padding-right:10px}*/
-    div.publication div.img{display:none}
-    div.publication div.text{text-align:left}
-    div.heading div.img{max-width: 250px}
-    div.heading div.topic{display:none}
-    div.content,div.publication{padding-top:0px;padding-bottom:10px}
-/*    body{font-size:100%}*/
+.footer a {
+  color: #666;
+  text-decoration: none;
 }
-@media only screen and (min-width: 880px) {
-    div.heading div.img{padding-right:calc(8% - 100px)}
-    div.heading div.info{
-        padding-right:calc(30% - 250px);
-        padding-left:30px;
-    }
-    div.publication div.img{width:12%}
-    div.publication div.text{max-width:80%;text-align:left}
-}
-zw.a{color: black}
 
-a {
-  color: #007bff;
+.footer a:hover {
+  color: rgb(204, 101, 0);
+}
+
+/* Main content */
+.body {
+  margin-top: 0;
+  padding: 40px 0;
+}
+
+.content {
+  margin-bottom: 40px;
+}
+
+/* Profile section */
+.heading {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.heading .img {
+  display: none; /* Hide image for now to match Aryaman's layout */
+}
+
+.heading .img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.heading .text {
+  width: 100%;
+}
+
+.heading h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.heading h3 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
 }
 
 .chinese_name {
-  width:20%;
-  max-width:100px;
-  padding-bottom:5px;
-}
-#playButton {
-  font-size: 12px;
-/*    padding: 5px 10px;*/
-  padding: none;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+  width: 80px;
+  height: auto;
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
-#playButton:focus {
-  outline: none;
+/* Audio button */
+#playButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 2px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  vertical-align: middle;
+}
+
+#playButton:hover {
+  background-color: #f5f5f5;
 }
 
 .material-icons {
-  font-size: 10px;
+  font-size: 18px;
+  color: #666;
 }
-/* a.img{height: 15px} */
+
+/* Text styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+/* Links */
+a {
+  color: rgb(204, 101, 0);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Bio section advisor links */
+.heading p a:not(.nav-links a) {
+  background-color: rgba(204, 101, 0, 0.08);
+  padding: 1px 3px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* Navigation links */
+.heading p {
+  margin-bottom: 20px;
+}
+
+.heading p a {
+  color: rgb(204, 101, 0);
+  margin-right: 5px;
+}
+
+/* Navigation links with individual highlights */
+.nav-links {
+  margin-bottom: 25px !important;
+}
+
+.nav-links a {
+  color: rgb(204, 101, 0);
+  font-weight: 500;
+  background-color: rgba(204, 101, 0, 0.08);
+  padding: 1px 3px;
+  border-radius: 2px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+/* Tag styling */
+.tag {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Publications section */
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.equal-note {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+}
+
+/* Venue and year styling */
+.venue-year {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+
+/* Links styling */
+.links {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.links a {
+  color: rgb(204, 101, 0);
+  background-color: rgba(204, 101, 0, 0.08);
+  padding: 1px 3px;
+  border-radius: 2px;
+  margin-right: 4px;
+  display: inline-block;
+}
+
+/* Chinese font styling */
+.chinese {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.publication {
+  margin-bottom: 25px;
+}
+
+.publication .img {
+  display: none; /* Hide venue badges for cleaner look */
+}
+
+.publication .text {
+  width: 100%;
+}
+
+.publication .title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.publication .title a {
+  color: #000;
+}
+
+.publication .title a:hover {
+  color: rgb(204, 101, 0);
+}
+
+.publication .authors {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.publication .authors strong {
+  color: rgb(204, 101, 0);
+  font-weight: 600;
+  background-color: rgba(204, 101, 0, 0.06);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.equalcontribution {
+  color: #666;
+  font-weight: 600;
+}
+
+.venue {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.venue a {
+  color: rgb(204, 101, 0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .outercontainer {
+    padding: 0 15px;
+  }
+  
+  .header {
+    padding: 0 15px;
+  }
+  
+  .heading h1,
+  .heading h3 {
+    font-size: 28px;
+  }
+  
+  .publication {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .heading h1,
+  .heading h3 {
+    font-size: 24px;
+  }
+  
+  .heading p a {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+}
+
+/* Hide elements that are not needed in minimal design */
+.anchor {
+  padding-top: 20px;
+  margin-top: -20px;
+}
+
+/* Ensure proper spacing */
+.content.heading.anchor {
+  margin-bottom: 0;
+}
+
+.content.anchor {
+  margin-top: 0;
+}

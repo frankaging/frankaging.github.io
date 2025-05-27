@@ -33,6 +33,7 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -71,193 +72,126 @@
 
 <body id="page-top">
   <div class="outercontainer">
-      <header>
-          <div class="container header">
-            <div class="ftheader text"><a href=#home>zen</a></div>
-<!--             <div class="ftsubheader text"><a href=#publications></a></div>
- -->            <div class="ftsubheader text"><a href="https://nlp.stanford.edu/">@stanfordnlp</a></div>
-          </div>
-        </header>
     <div class="container body">
       <div class="content heading anchor" id="home">
-        <div class="img">
-          <img class="img_responsive profile" src="img/zen_lake_tahoe_mugs.png" alt="Photo">
+        <h1>
+          Zhengxuan Wu <button id="playButton" class="play-button">
+            <i id="playIcon" class="material-icons">volume_up</i>
+          </button>
+          <audio id="nameAudio">
+            <source src="assets/name_p.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </h1> 
+        
+        <p class="nav-links"><a href="https://scholar.google.com/citations?user=CBvE6lwAAAAJ&hl=en">Google Scholar</a> · <a href="https://github.com/frankaging">GitHub</a> · <a href="https://twitter.com/zhengxuanzenwu">Twitter</a> · <a href="pdf/cv.pdf">C.V.</a> · <a href="mailto:wuzhengx@cs.stanford.edu">Email</a></p>
+        
+        <p>I go by <span class="zen-highlight">zen</span>. I am a third-year CS Ph.D. student at Stanford University, co-advised by <a href="https://nlp.stanford.edu/~manning/">Chris Manning</a> and <a href="https://web.stanford.edu/~cgpotts/">Chris Potts</a>. Before that, I studied aerospace engineering, and worked in cloud computing.</p>
+
+        <p>I am interested in interpreting language models, and, thus, controlling them.</p>
+
+        <h2>Selected Works <span class="equal-note">(*=Equal Contribution)</span></h2>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="ms_reft" href="https://arxiv.org/abs/2501.17148">AxBench: Steering LLMs? Even simple baselines outperform sparse autoencoders</a></div>
+                  <div class="venue-year">ICML, 2025 (spotlight)</div>
+                  <div class="authors">
+                      <strong>Zhengxuan Wu</strong><span class="equalcontribution">*</span> · 
+                      Aryaman Arora<span class="equalcontribution">*</span> · 
+                      Atticus Geiger · 
+                      Zheng Wang · 
+                      Jing Huang · 
+                      Dan Jurafsky · 
+                      Christopher D. Manning · 
+                      Christopher Potts
+                  </div>
+                  <div class="links">
+                    <a href="https://huggingface.co/spaces/pyvene/AxBench-ReFT-r1-16K">Chat with Steered LM</a> · 
+                    <a href="https://nlp.stanford.edu/~wuzhengx/axbench/index.html">Feature Visualization</a> · 
+                    <a href="https://github.com/stanfordnlp/axbench">Github</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="ms_reft" href="https://arxiv.org/abs/2404.03592">ReFT: Representation finetuning for language models</a></div>
+                  <div class="venue-year">NeurIPS, 2024 (spotlight)</div>
+                  <div class="authors">
+                      <strong>Zhengxuan Wu</strong><span class="equalcontribution">*</span> · 
+                      Aryaman Arora<span class="equalcontribution">*</span> · 
+                      Zheng Wang · 
+                      Atticus Geiger · 
+                      Dan Jurafsky · 
+                      Christopher D. Manning · 
+                      Christopher Potts
+                  </div>
+                  <div class="links">
+                    <a href="https://github.com/stanfordnlp/pyreft">Github</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="ms_pyvene" href="https://arxiv.org/abs/2403.07809">pyvene: A library for understanding and improving PyTorch models via interventions</a></div>
+                  <div class="venue-year">NAACL, 2024</div>
+                  <div class="authors">
+                      <strong>Zhengxuan Wu</strong> · 
+                      Atticus Geiger · 
+                      Aryaman Arora · 
+                      Jing Huang · 
+                      Zheng Wang · 
+                      Noah Goodman · 
+                      Christopher D. Manning · 
+                      Christopher Potts
+                  </div>
+                  <div class="links">
+                    <a href="https://github.com/stanfordnlp/pyvene">Github</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="ms_boundless" href="https://arxiv.org/abs/2305.08809">Interpretability at scale: Identifying causal mechanisms in Alpaca</a></div>
+                  <div class="venue-year">NeurIPS, 2023</div>
+                  <div class="authors">
+                      <strong>Zhengxuan Wu</strong><span class="equalcontribution">*</span> · 
+                      Atticus Geiger<span class="equalcontribution">*</span> · 
+                      Christopher Potts · 
+                      Noah D. Goodman
+                  </div>
+                  <div class="links">
+                    <a href="https://github.com/frankaging/align-transformers">Github</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="publication">
+                <div class="text">
+                  <div class="title"><a name="ms_iit" href="https://arxiv.org/abs/2112.00826">Inducing causal structure for interpretable neural networks</a></div>
+                  <div class="venue-year">ICML, 2022</div>
+                  <div class="authors">
+                      Atticus Geiger<span class="equalcontribution">*</span> · 
+                      <strong>Zhengxuan Wu</strong><span class="equalcontribution">*</span> · 
+                      Hanson Lu<span class="equalcontribution">*</span> · 
+                      Josh Rozner · 
+                      Elisa Kreiss · 
+                      Thomas Icard · 
+                      Noah D. Goodman · 
+                      Christopher Potts
+                  </div>
+                  <div class="links">
+                    <a href="https://github.com/frankaging/Interchange-Intervention-Training">Github</a>
+                  </div>
+                </div>
+              </div>
+
+        <div class="footer">
+          <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
         </div>
-        <div class="text info">
-          <h3>
-            Zhengxuan Wu <img class="chinese_name" src="img/chinese_name.png">
-            <audio id="nameAudio">
-              <source src="assets/name_p.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
-            <button id="playButton" class="play-button">
-              <i id="playIcon" class="material-icons">volume_up</i>
-            </button>
-          </h3> 
-          <p/>
-          <div>Ph.D. Student, Computer Science, Stanford University</div>
-          <div>Email:&nbsp;</td>
-            <td>wuzhengx [at] cs (dot) stanford (dot) edu</div>
-          <p/>
-          <span>
-            [<a href="https://scholar.google.com/citations?user=CBvE6lwAAAAJ&hl=en">Google Scholar</a>]
-          </span>
-          <span class="">
-            [<a href="https://github.com/frankaging">GitHub</a>]
-          </span>
-          <span class="">
-            [<a href="https://twitter.com/zhengxuanzenwu">Twitter</a>]
-          </span>
-          <span>
-            [<a href="pdf/cv.pdf">C.V.</a>]
-          </span>
-          <span class="">
-            [<a href="https://nlp.stanford.edu/~wuzhengx/blog.html">Blog</a>]
-          </span>
-          <p/>
-          <span class="tag">
-              Last Update: 01/2025
-            </span>
-        </div>
-<!--         <div class="text topic">
-          <p/>
-          <div class="title researchinterests">Research Interests</div>
-          <ul>
-            <li>
-              <a href="#empty" onclick="showPubs(2)">Natural Language Processing</a>
-            </li>
-            <li>
-              <a href="#empty" onclick="showPubs(2)">Neural-Symbolic Systems</a>
-            </li>
-            <li>
-              <a href="#empty" onclick="showPubs(2)">Human-Computer Interactions</a>
-            </li>
-          </ul>
-          <p/>
-        </div> -->
-
-        <div class="text">
-          <p>Hi! I am a third-year Ph.D. student at Stanford University, co-advised by <a href="https://nlp.stanford.edu/~manning/">Chris Manning</a> and <a href="https://web.stanford.edu/~cgpotts/">Chris Potts</a>. Before that, I studied aerospace engineering, and worked in cloud computing.
-            </p>
-
-          <p>
-            I am interested in understanding language models and, thus, controlling them.
-          </p>
-
-        </div>
-
-          <div class="content anchor" id="publications" style="margin-top:-0px;border-top:15px solid transparent">
-              <div class="text" style="z-index:1;position:relative">
-                <h4 style="margin-bottom:0em">
-                  Selected Publications (<span class="equalcontribution">*</span>=Equal Contribution)
-                </h4>
-              </div>
-
-              <br/><br/>
-
-              <div class="publication">
-                <div class="img">preprint</div>
-                <div class="text">
-                  <div class="title"><a name="ms_reft" href="https://arxiv.org/abs/2501.17148">AxBench: Steering LLMs? Even Simple Baselines Outperform Sparse Autoencoders</a></div> 
-
-                  <div class="authors">
-                      <span class="author">Zhengxuan Wu<span class="equalcontribution">*</span></a></span>,
-                      <span class="author"><a href="https://aryaman.io/">Aryaman Arora<span class="equalcontribution">*</span></a></span>,
-                      <span class="author"><a href="https://atticusg.github.io/">Atticus Geiger</a></span>,
-                      <span class="author"><a href="">Zheng Wang</a></span>,
-                      <span class="author"><a href="">Jing Huang</a></span>,
-                      <span class="author"><a href="https://web.stanford.edu/~jurafsky/">Dan Jurafsky</a></span>,
-                      <span class="author"><a href="https://nlp.stanford.edu/~manning/">Christopher D. Manning</a></span>,
-                      <span class="author"><a href="https://web.stanford.edu/~cgpotts/">Christopher Potts</a></span>
-                  </div>
-                  <div>
-                    <span class="venue">[<a href="https://huggingface.co/spaces/pyvene/AxBench-ReFT-r1-16K">🤗 Chat with Steered LM</a>]</span>
-                    <span class="venue">[<a href="https://nlp.stanford.edu/~wuzhengx/axbench/index.html">📚 Feature Visualization</a>]</span>
-                    <span class="venue">[<a href="https://github.com/stanfordnlp/axbench">Github</a>]</span>               
-                  </div>
-                </div>
-              </div>
-
-              <div class="publication">
-                <div class="img">NeurIPS '24</div>
-                <div class="text">
-                  <div class="title"><a name="ms_reft" href="https://arxiv.org/abs/2404.03592">ReFT: Representation Finetuning for Language Models</a></div> 
-
-                  <div class="authors">
-                      <span class="author">Zhengxuan Wu<span class="equalcontribution">*</span></a></span>,
-                      <span class="author"><a href="https://aryaman.io/">Aryaman Arora<span class="equalcontribution">*</span></a></span>,
-                      <span class="author"><a href="">Zheng Wang</a></span>,
-                      <span class="author"><a href="https://atticusg.github.io/">Atticus Geiger</a></span>,
-                      <span class="author"><a href="https://web.stanford.edu/~jurafsky/">Dan Jurafsky</a></span>,
-                      <span class="author"><a href="https://nlp.stanford.edu/~manning/">Christopher D. Manning</a></span>,
-                      <span class="author"><a href="https://web.stanford.edu/~cgpotts/">Christopher Potts</a></span>
-                  </div>
-                  <div>
-                    <span class="venue">[<a href="reft/index.html">Blog</a>]</span>
-                    <span class="venue">[<a href="reft/cn_index.html">中文介绍</a>]</span>
-                    <span class="venue">[<a href="https://github.com/stanfordnlp/pyreft">Github</a>]</span>               
-                  </div>
-                </div>
-              </div>
-
-              <div class="publication">
-                <div class="img">NAACL '24</div>
-                <div class="text">
-                  <div class="title"><a name="ms_pyvene" href="https://arxiv.org/abs/2403.07809">pyvene: A library for understanding and improving PyTorch models via interventions</a></div> 
-                  <div class="authors">
-                      <span class="author">Zhengxuan Wu</a></span>,
-                      <span class="author"><a href="https://atticusg.github.io/">Atticus Geiger</a></span>,
-                      <span class="author"><a href="https://aryaman.io/">Aryaman Arora</a></span>,
-                      <span class="author"><a href="">Jing Huang</a></span>,
-                      <span class="author"><a href="">Zheng Wang</a></span>,
-                      <span class="author"><a href="https://cocolab.stanford.edu/ndg">Noah Goodman</a></span>,
-                      <span class="author"><a href="https://nlp.stanford.edu/~manning/">Christopher D. Manning</a></span>,
-                      <span class="author"><a href="https://web.stanford.edu/~cgpotts/">Christopher Potts</a></span>
-                  </div>
-                  <div>
-                    <span class="venue">[<a href="https://github.com/stanfordnlp/pyvene">Github</a>]</span>               
-                  </div>
-                </div>
-              </div>
-
-              <div class="publication">
-                <div class="img">NeurIPS '23</div>
-                <div class="text">
-                  <div class="title"><a name="ms_boundless" href="https://arxiv.org/abs/2305.08809">Interpretability at Scale: Identifying Causal Mechanisms in Alpaca</a></div> 
-                  <div class="authors">
-                      <span class="author">Zhengxuan Wu<span class="equalcontribution">*</span></a></span>,
-                      <span class="author"><a href="https://atticusg.github.io/">Atticus Geiger<span class="equalcontribution">*</span></a></span>,
-                      <span class="author"><a href="https://web.stanford.edu/~cgpotts/">Christopher Potts</a></span>,
-                      <span class="author"><a href="https://cocolab.stanford.edu/ndg">Noah D. Goodman</a></span>
-                  </div>
-                  <div>
-                    <span class="venue">[<a href="http://boundless.zen-wu.social/">Blog</a>]</span>
-                    <span class="venue">[<a href="https://nlp.stanford.edu/~wuzhengx/boundless_das/cn_index.html">中文介绍</a>]</span>
-                    <span class="venue">[<a href="https://github.com/frankaging/align-transformers">Github</a>]</span>               
-                  </div>
-                </div>
-              </div>
-
-              <div class="publication">
-                <div class="img">ICML '22</div>
-                <div class="text">
-                  <div class="title"><a name="ms_iit" href="https://arxiv.org/abs/2112.00826">Inducing Causal Structure for Interpretable Neural Networks</a></div> 
-                  <div class="authors">
-                      <span class="author"><a href="https://atticusg.github.io/">Atticus Geiger<span class="equalcontribution">*</span></a></span>,
-                      <span class="author">Zhengxuan Wu<span class="equalcontribution">*</span></a></span>,
-                      <span class="author"><a href="https://www.linkedin.com/in/hansonhxlu/">Hanson Lu<span class="equalcontribution">*</span></a></span>,
-                      <span class="author"><a href="https://www.linkedin.com/in/jsrozner/">Josh Rozner</a></span>,
-                      <span class="author"><a href="https://www.elisakreiss.com/">Elisa Kreiss</a></span>,
-                      <span class="author"><a href="https://web.stanford.edu/~icard/">Thomas Icard</a></span>,
-                      <span class="author"><a href="https://cocolab.stanford.edu/ndg">Noah D. Goodman</a></span>,
-                      <span class="author"><a href="https://web.stanford.edu/~cgpotts/">Christopher Potts</a></span>
-
-                  </div>
-                  <div>
-                    <span class="venue">[<a href="https://github.com/frankaging/Interchange-Intervention-Training">Github</a>]</span>
-                  </div>
-                </div>
-              </div>
 
           </div>
       </div>
