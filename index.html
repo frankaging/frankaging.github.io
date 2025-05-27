@@ -73,6 +73,53 @@
     .header-section h1 {
       margin-bottom: 0.5rem;
     }
+    
+    .chinese-name {
+      height: 0.6em;
+      width: auto;
+      vertical-align: baseline;
+      margin: 0 0.3em;
+    }
+    
+
+    
+    .interpreting span {
+      animation: charWave 4s ease-in-out infinite;
+    }
+    
+    .controlling span {
+      animation: charWave 4s ease-in-out infinite 2s;
+    }
+    
+    .interpreting span:nth-child(1) { animation-delay: 0s; }
+    .interpreting span:nth-child(2) { animation-delay: 0.2s; }
+    .interpreting span:nth-child(3) { animation-delay: 0.4s; }
+    .interpreting span:nth-child(4) { animation-delay: 0.6s; }
+    .interpreting span:nth-child(5) { animation-delay: 0.8s; }
+    .interpreting span:nth-child(6) { animation-delay: 1.0s; }
+    .interpreting span:nth-child(7) { animation-delay: 1.2s; }
+    .interpreting span:nth-child(8) { animation-delay: 1.4s; }
+    .interpreting span:nth-child(9) { animation-delay: 1.6s; }
+    .interpreting span:nth-child(10) { animation-delay: 1.8s; }
+    .interpreting span:nth-child(11) { animation-delay: 2.0s; }
+    .interpreting span:nth-child(12) { animation-delay: 2.2s; }
+    
+    .controlling span:nth-child(1) { animation-delay: 2s; }
+    .controlling span:nth-child(2) { animation-delay: 2.2s; }
+    .controlling span:nth-child(3) { animation-delay: 2.4s; }
+    .controlling span:nth-child(4) { animation-delay: 2.6s; }
+    .controlling span:nth-child(5) { animation-delay: 2.8s; }
+    .controlling span:nth-child(6) { animation-delay: 3.0s; }
+    .controlling span:nth-child(7) { animation-delay: 3.2s; }
+    .controlling span:nth-child(8) { animation-delay: 3.4s; }
+    .controlling span:nth-child(9) { animation-delay: 3.6s; }
+    .controlling span:nth-child(10) { animation-delay: 3.8s; }
+    .controlling span:nth-child(11) { animation-delay: 4.0s; }
+    
+    @keyframes charWave {
+      0%, 95%, 100% { color: inherit; }
+      5% { color: rgba(204, 101, 0, 0.6); }
+    }
   </style>
 </head>
 
@@ -88,7 +135,7 @@
           </div>
           <div class="header-text">
             <h1>
-              zhengxuan wu <button id="playButton" class="play-button">
+              zhengxuan wu <img src="img/chinese_name.png" class="chinese-name"> <button id="playButton" class="play-button">
                 <i id="playIcon" class="material-icons">volume_up</i>
               </button>
               <audio id="nameAudio">
@@ -104,7 +151,7 @@
         <div class="intro-section">
           <p>I go by <span class="zen-highlight">zen</span>. I am a third-year CS Ph.D. student at Stanford University, co-advised by <a href="https://web.stanford.edu/~cgpotts/">Chris Potts</a> and <a href="https://nlp.stanford.edu/~manning/">Chris Manning</a>. Before that, I studied aerospace engineering, and worked in cloud computing.</p>
 
-          <p>I am interested in interpreting language models, and, thus, controlling them.</p>
+          <p>I am interested in <span class="interpreting"><span>i</span><span>n</span><span>t</span><span>e</span><span>r</span><span>p</span><span>r</span><span>e</span><span>t</span><span>i</span><span>n</span><span>g</span></span> language models, and, thus, <span class="controlling"><span>c</span><span>o</span><span>n</span><span>t</span><span>r</span><span>o</span><span>l</span><span>l</span><span>i</span><span>n</span><span>g</span></span> them.</p>
         </div>
 
         <h2>Selected works <span class="equal-note">(*=Equal Contribution)</span></h2>
@@ -246,6 +293,8 @@
 
   });
 </script>
+
+
 
 </body>
 
