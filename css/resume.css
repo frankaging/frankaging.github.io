@@ -211,7 +211,8 @@ a:hover {
 
 .heading p a {
   color: rgb(204, 101, 0);
-  margin-right: 5px;
+  margin-right: 2px;
+  margin-left: 2px;
 }
 
 /* Navigation links with individual highlights */
@@ -225,7 +226,8 @@ a:hover {
   background-color: rgba(204, 101, 0, 0.08);
   padding: 1px 3px;
   border-radius: 2px;
-  margin-right: 8px;
+  margin-right: 2px;
+  margin-left: 2px;
   display: inline-block;
 }
 
@@ -270,7 +272,8 @@ h2 {
   background-color: rgba(204, 101, 0, 0.08);
   padding: 1px 3px;
   border-radius: 2px;
-  margin-right: 4px;
+  margin-right: 2px;
+  margin-left: 2px;
   display: inline-block;
 }
 
