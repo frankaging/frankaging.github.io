@@ -206,30 +206,31 @@
           <div class="venue-year">2025年7月12日</div>
           
           <div class="key-takeaways-box">
-            <h1>核心观点</h1>
+            <h1>核心暴论</h1>
             <ul>
-                <li>除了性能之外，效率对于控制方法至关重要。</li>
-                <li>避免默认基于表征的控制方法是高效的。</li>
-                <li>始终从简单的（即提示词方法）基准开始测试。</li>
+                <li>除了性能之外，效率，效率，还是TMD效率。</li>
+                <li>避免无脑相信向量控制是高效的。</li>
+                <li>测试性能需要考虑提示词控制。</li>
             </ul>
           </div>
   
           <h1>引言</h1>
 
-          <p>语言模型（LMs）可以通过以下主要方法进行控制：<strong>提示</strong>通过精心设计的输入指令来指导模型，<strong>控制向量</strong>通过秩-1激活加法操作来操纵内部表征，<strong>参数高效微调方法（PEFTs）</strong>通过更新模型参数的一小部分来适应模型行为，<strong>表征微调方法（ReFTs）</strong>在模型的中间层内微调特定表征。</p>
+          <p>语言模型（LMs）可以通过以下主要方法进行控制：<strong>提示词控制 (prompting)</strong>通过精心设计的输入指令来控制模型输出，<strong>控制向量 (steering vector)</strong>通过秩为1的向量来操作来操纵内部表征，<strong>参数高效微调方法（PEFTs）</strong>通过更新模型参数的一小部分来适应模型行为，<strong>表征微调方法（ReFTs）</strong>在模型的中间层内微调特定表征。</p>
 
-          <p>最近，AxBench <a href="https://arxiv.org/abs/2501.17148">[1]</a> 被提出用于系统地评估这四种类型的控制方法在开放式指令跟随环境中的概念化控制场景（例如，控制LM在回答用户查询时始终提及"金门大桥"）。</p>
+          <p>最近，有人提出了AxBench <a href="https://arxiv.org/abs/2501.17148">[1]</a> ，对以上的四种控制方法进行系统性的比较（例如，控制LM在回答用户查询时始终提及"金门大桥"）。</p>
 
           <figure class="figure-container">
             <img src="../img/axbench-main.png" alt="AxBench" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
             <figcaption>图1：AxBench中不同方法的概念检测和控制性能</figcaption>
           </figure>
 
-          <p>AxBench的一个关键发现是，表征控制方法尽管提供了可解释的表征编辑，但仍然落后于简单的提示基准。自AxBench发布以来，已有许多值得注意的新控制方法试图推进控制方法的前沿，展现出希望但并未构成突破。在这篇博客文章中，<strong>我们认为未来在表征控制方法方面的工作也应该考虑计算效率，以便作为提示、轻量级微调或推理时缩放技术的替代方案建立令人信服的论证。</strong></p>
+          <p>AxBench的一个关键发现是，表征控制方法尽管提供了可解释的表征编辑，但仍然落后于简单的提示词控制。自AxBench发布以来，也有很多新的表征控制方法被提出，展现出希望但并未构成突破。
+          在这篇博客文章中，<strong>我们认为未来在表征控制方法方面的工作应该考虑计算效率。我们认为这样才能让表征控制真正得到应用。</strong></p>
 
           <h1>LM控制方法的效率</h1>
           
-          <p>我们首先介绍这些方法并概述两个方面：内存和计算成本。我们暂时忽略性能指标，以便能够比较这些方法，假设这些方法的最优性能非常相似。</p>
+          <p>我们首先介绍这些方法并概述两个方面：内存和计算成本。我们暂时忽略性能指标，以便能够比较这些方法，假设这些方法的最优性能非常相似（当然，这并不一定正确）。</p>
 
           <table class="symbol-table">
             <thead>
@@ -261,15 +262,15 @@
             </tbody>
           </table>
 
-          <h2>提示控制</h2>
+          <h2>提示词控制 (prompting)</h2>
 
           <div style="text-align: center; margin: 20px 0;">
             <img src="../img/prompt_steering.svg" alt="提示控制" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
-          <p>LMs经过大量后训练以遵循给定的指令。因此，提示是控制LMs的实际方法。例如，如果想要个性化LM使其始终以金门大桥的身份回应，可以添加一个系统提示，在用户提示之前添加"在回答时，始终提及金门大桥"。对于更精确的行为控制，可能需要更长的系统提示。</p>
+          <p>LMs经过大量后训练以遵循给定的指令。因此，提示词是控制LMs的实际方法。例如，如果想要个性化LM使其始终以金门大桥的身份回应，可以添加一个系统提示，在用户提示之前添加"在回答时，始终提及金门大桥"。对于更精确的行为控制，可能需要更长的系统提示（system prompt）。</p>
 
-          <p><strong>内存成本。</strong>运行时内存成本是提示创建的键值（KV）缓存的大小（假设使用标准KV缓存实现）：</p>
+          <p><strong>内存成本。</strong>运行时内存成本是提示词创建的键值（KV）缓存的大小（假设使用标准KV缓存实现）：</p>
 
           <p style="text-align:center; margin:15px 0; font-style:italic;">
             <em>M</em>
@@ -307,7 +308,7 @@
             <em>C</em>&nbsp;(2<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>) &#93;
           </p>
 
-          <p>其中<em>C</em>是<strong>总上下文长度</strong>（系统+用户+生成，<em>包括</em>控制提示）。</p>
+          <p>其中<em>C</em>是<strong>总上下文长度</strong>（系统提示词+用户提示词+模型的生成内容，<em>包括</em>控制提示词）。</p>
 
           <p style="text-align:center; margin:15px 0; font-style:italic;">
             <span style="font-style:normal;">开销</span>% 
@@ -353,7 +354,7 @@
 
           <p>由于前馈层主导FLOPs，即使是400个token的控制提示，一旦上下文达到几千个tokens，也增加了远<strong>少于1%的计算开销</strong>——正是当今长上下文推理中使用的范围。</p>
 
-          <h2>控制向量</h2>
+          <h2>控制向量 (steering vector)</h2>
 
           <div style="text-align: center; margin: 20px 0;">
             <img src="../img/steering_vector.svg" alt="控制向量" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
@@ -408,7 +409,7 @@
             </tbody>
           </table>
 
-          <h2>参数高效微调方法</h2>
+          <h2>参数高效微调方法 (PEFTs)</h2>
 
           <div style="text-align: center; margin: 20px 0;">
             <img src="../img/adaptor.svg" alt="PEFT" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
@@ -443,7 +444,7 @@
             </tbody>
           </table>
 
-          <h2>表征微调方法</h2>
+          <h2>表征微调方法 (ReFT)</h2>
 
           <div style="text-align: center; margin: 20px 0;">
             <img src="../img/reft.svg" alt="ReFT" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
@@ -480,13 +481,13 @@
 
           <h1>超越控制性能</h1>
           
-          <p>我们的分析表明，虽然表征级方法（秩-1向量、LoRA、ReFT）已经缩小了差距，但它们在AxBench上仍然落后于提示。更重要的是，尽管许多现有的表征控制论文声称——有些不加论证地——"表征控制非常便宜"，但这种思维方式通常是没有根据的。一旦总上下文超过4k tokens，50–400个token的控制提示增加的计算或KV缓存开销少于0.06%，在16k时少于0.01%，因此提示的相对成本随着窗口的扩大而消失。相比之下，基于向量或适配器的编辑虽然轻量（约0.02–0.39%内存），但仍需要额外的检查点和集成工作。</p>
+          <p>我们的分析表明，虽然表征级方法（低秩向量控制、LoRA、ReFT）已经缩小了差距，但它们在AxBench上仍然落后于提示。更重要的是，尽管许多现有的表征控制论文声称——有些不加论证地——"表征控制非常便宜"，但这种思维方式是比较危险的。一旦总上下文超过4k tokens，50–400个token的控制提示增加的计算或KV缓存开销少于0.06%，在16k时少于0.01%，因此提示的相对成本随着窗口的扩大而消失。相比之下，基于向量或适配器的编辑虽然轻量（约0.02–0.39%内存），但仍需要额外的集成工作。</p>
           
-          <p><strong>提示有局限性。</strong>大型上下文窗口缩小了效率差距，但提示仍然容易受到提示注入和越狱攻击，这些攻击可能会覆盖或稀释抑制提示。无参考偏好控制（RePS）<a href="https://arxiv.org/abs/2505.20809">[6]</a> 解决了这个问题：在抑制模式下，它在Gemma-2上匹配标准语言建模目标，在更大的Gemma-3变体上超越了它，同时抵抗了击败提示的基于提示的越狱。这些发现表明，当需要可靠的抑制时，表征级控制可以提供比提示更安全、可解释和更稳健的替代方案。</p>
+          <p><strong>提示有局限性。</strong>大型上下文窗口缩小了效率差距，但提示仍然容易受到提示注入和越狱攻击，这些攻击可能会覆盖或稀释抑制提示，例如RePS <a href="https://arxiv.org/abs/2505.20809">[6]</a> 一文部分说明了这个问题：在抑制模式 (feature suppression) 下，RePS在一些模型上超越了提示词的方法，同时抵抗了击败提示的基于提示的越狱。这些发现表明，当需要可靠的抑制时，表征级控制可以提供比提示更安全、可解释和更稳健的替代方案。</p>
           
           <h1>结论</h1>
 
-          <p>在这篇博客文章中，我们认为未来在表征控制方法方面的工作也应该考虑计算效率，以便作为提示的替代方案建立令人信服的论证。我们希望这个分析能帮助指导这个方向的未来研究。</p>
+          <p>在这篇博客文章中，我们认为未来在表征控制方法方面的工作也应该考虑计算效率。我们希望这个细小的分析能帮助到各位大佬。</p>
 
           <h2>引用方式</h2>
 
