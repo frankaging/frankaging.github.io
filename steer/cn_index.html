@@ -93,8 +93,10 @@
       border-radius: 12px;
       background-color: #f8f9fa;
       padding: 20px;
-      margin: 20px 0;
+      margin: 20px auto;
+      max-width: 80%;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: 0.85em;
     }
     
     .key-takeaways-box h1 {
@@ -262,7 +264,7 @@
           <h2>提示控制</h2>
 
           <div style="text-align: center; margin: 20px 0;">
-            <img src="../img/prompt_steering.svg" alt="提示控制" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+            <img src="../img/prompt_steering.svg" alt="提示控制" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
           <p>LMs经过大量后训练以遵循给定的指令。因此，提示是控制LMs的实际方法。例如，如果想要个性化LM使其始终以金门大桥的身份回应，可以添加一个系统提示，在用户提示之前添加"在回答时，始终提及金门大桥"。对于更精确的行为控制，可能需要更长的系统提示。</p>
@@ -354,7 +356,7 @@
           <h2>控制向量</h2>
 
           <div style="text-align: center; margin: 20px 0;">
-            <img src="../img/steering_vector.svg" alt="控制向量" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+            <img src="../img/steering_vector.svg" alt="控制向量" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
           <p>控制向量 <a href="https://arxiv.org/abs/2312.06681">[5]</a> 在LM前向传播中间放置秩-1激活加法干预，对LM表征进行最小的线性编辑。给定任何隐藏表征<em>h</em>，激活加法干预就地添加一个缩放的秩-1向量：</p>
@@ -409,7 +411,7 @@
           <h2>参数高效微调方法</h2>
 
           <div style="text-align: center; margin: 20px 0;">
-            <img src="../img/adaptor.svg" alt="PEFT" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+            <img src="../img/adaptor.svg" alt="PEFT" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
           <p>与单个秩-1向量不同，适配器在一个transformer层插入低秩更新<em>AB</em><sup>⊤</sup>（两个<em>H</em>×<em>r</em>矩阵），对激活进行稍微丰富但仍然轻量的编辑。因此，内存和计算开销都与控制向量相同，只是前面有一个乘数。</p>
@@ -444,7 +446,7 @@
           <h2>表征微调方法</h2>
 
           <div style="text-align: center; margin: 20px 0;">
-            <img src="../img/reft.svg" alt="ReFT" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+            <img src="../img/reft.svg" alt="ReFT" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
           <p>与在模型权重上操作的适配器不同，ReFT在表征上操作（即，它选择在哪里使用可学习的干预编辑表征）。具体而言，ReFT专注于编辑用户提示tokens。如原始ReFT论文所提出的，干预通常涉及低秩编辑，在参数化方面类似于LoRA，涉及<em>AB</em><sup>⊤</sup>（两个<em>H</em>×<em>r</em>矩阵）。</p>

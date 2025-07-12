@@ -93,8 +93,10 @@
       border-radius: 12px;
       background-color: #f8f9fa;
       padding: 20px;
-      margin: 20px 0;
+      margin: 20px auto;
+      max-width: 80%;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: 0.85em;
     }
     
     .key-takeaways-box h1 {
@@ -283,7 +285,7 @@
 
 
           <div style="text-align: center; margin: 20px 0;">
-            <img src="../img/prompt_steering.svg" alt="Prompt steering" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+            <img src="../img/prompt_steering.svg" alt="Prompt steering" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
           <p>LMs are heavily post-trained to follow given instructions. As a result, prompting is the de facto way of controlling LMs. For instance, if one wants to personalize a LM to always respond as if itself is the golden gate bridge, one could add a system prompt that is prepended before the user prompt as “when answering, always mention golden gate bridge”. For more precisely steering behaviours, one might require longer system prompts. </p>
@@ -377,7 +379,7 @@
                       <h2>Steering vectors.</h2>
 
           <div style="text-align: center; margin: 20px 0;">
-            <img src="../img/steering_vector.svg" alt="Steering vector" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+            <img src="../img/steering_vector.svg" alt="Steering vector" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
           <p>Steering vectors <a href="https://arxiv.org/abs/2312.06681">[5]</a> place a rank-1 activation addition intervention in the middle of the LM forward pass, making minimal linear edits of LM representations. Given any hidden representation <em>h</em>, an activation addition intervention adds in a scaled rank-1 vector in-place as:</p>
@@ -432,7 +434,7 @@
           <h2>PEFTs.</h2>
 
           <div style="text-align: center; margin: 20px 0;">
-            <img src="../img/adaptor.svg" alt="PEFT" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+            <img src="../img/adaptor.svg" alt="PEFT" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
           <p>Instead of a single rank-1 vector, an adaptor inserts a low-rank update <em>AB</em><sup>⊤</sup> (two <em>H</em>×<em>r</em> matrices) at one transformer layer, making a slightly richer—but still lightweight—edit to the activations. As a result, both the memory and compute overhead is the same as steering vector with a multiplier upfront.</p>
@@ -467,7 +469,7 @@
           <h2>ReFTs.</h2>
 
           <div style="text-align: center; margin: 20px 0;">
-            <img src="../img/reft.svg" alt="ReFT" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+            <img src="../img/reft.svg" alt="ReFT" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
           </div>
 
           <p>Unlike adaptors operating on model weights, ReFT operates on representations (i.e., it selects where to edit representations with learnable interventions). Specifically, ReFT focuses on editing user prompt tokens. As proposed in the original ReFT paper, the intervention usually involves low-rank edits, similar to LoRA in terms of parameterization, involving <em>AB</em><sup>⊤</sup> (two <em>H</em>×<em>r</em> matrices).</p>
