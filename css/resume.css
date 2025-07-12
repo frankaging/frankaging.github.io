@@ -12,18 +12,36 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #555;
-  background: linear-gradient(270deg, 
-    rgb(252, 248, 245),
-    rgb(255, 245, 230),
-    rgb(250, 240, 220),
-    rgb(255, 250, 240),
-    rgb(248, 235, 210),
-    rgb(254, 248, 235),
-    rgb(252, 248, 245));
-  background-size: 800% 800%;
-  animation: flowingGradient 15s ease-in-out infinite;
+  background: #faf9f7;
   margin: 0;
   padding: 0;
+}
+
+/* Decorative folded corner in upper right */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 80px solid transparent;
+  border-top: 80px solid rgb(204, 101, 0);
+  z-index: 1000;
+  box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle fold line effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-top: 75px solid rgba(204, 101, 0, 0.3);
+  z-index: 999;
 }
 
 /* Container and layout */
@@ -231,6 +249,10 @@ a:hover {
   display: inline-block;
 }
 
+.nav-links a:first-child {
+  margin-left: 0;
+}
+
 /* Tag styling */
 .tag {
   font-size: 14px;
@@ -275,6 +297,10 @@ h2 {
   margin-right: 2px;
   margin-left: 2px;
   display: inline-block;
+}
+
+.links a:first-child {
+  margin-left: 0;
 }
 
 /* Chinese font styling */
@@ -404,135 +430,4 @@ h2 {
 
 .content.anchor {
   margin-top: 0;
-}
-
-
-
-/* Smooth flowing gradient animation */
-@keyframes flowingGradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 25% 25%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 75% 75%;
-  }
-}
-
-/* Continuous flowing overlay with smooth transitions */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(ellipse 600px 400px at 30% 30%, rgba(204, 101, 0, 0.04) 0%, transparent 70%),
-    radial-gradient(ellipse 800px 600px at 70% 70%, rgba(240, 180, 120, 0.03) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 300px at 50% 50%, rgba(255, 235, 200, 0.02) 0%, transparent 70%);
-  animation: continuousFlow 20s ease-in-out infinite;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes continuousFlow {
-  0%, 100% {
-    background-position: 0% 0%, 100% 100%, 50% 50%;
-    filter: blur(60px) opacity(0.6);
-  }
-  16.67% {
-    background-position: 20% 80%, 80% 20%, 40% 60%;
-    filter: blur(50px) opacity(0.7);
-  }
-  33.33% {
-    background-position: 80% 20%, 20% 80%, 60% 40%;
-    filter: blur(70px) opacity(0.5);
-  }
-  50% {
-    background-position: 100% 100%, 0% 0%, 50% 50%;
-    filter: blur(40px) opacity(0.8);
-  }
-  66.67% {
-    background-position: 80% 80%, 20% 20%, 40% 60%;
-    filter: blur(60px) opacity(0.6);
-  }
-  83.33% {
-    background-position: 20% 20%, 80% 80%, 60% 40%;
-    filter: blur(50px) opacity(0.7);
-  }
-}
-
-/* Secondary smooth flowing layer */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    linear-gradient(45deg, transparent 0%, rgba(204, 101, 0, 0.01) 25%, transparent 50%, rgba(255, 235, 200, 0.02) 75%, transparent 100%),
-    radial-gradient(circle 400px at 40% 60%, rgba(222, 184, 135, 0.02) 0%, transparent 60%);
-  animation: secondaryFlow 25s linear infinite;
-  pointer-events: none;
-  z-index: -2;
-}
-
-@keyframes secondaryFlow {
-  0% {
-    background-position: 0% 0%, 0% 0%;
-    transform: rotate(0deg) scale(1);
-    filter: blur(80px);
-  }
-  25% {
-    background-position: 25% 25%, 100% 0%;
-    transform: rotate(0.5deg) scale(1.02);
-    filter: blur(60px);
-  }
-  50% {
-    background-position: 50% 50%, 50% 100%;
-    transform: rotate(0deg) scale(1);
-    filter: blur(90px);
-  }
-  75% {
-    background-position: 75% 75%, 0% 50%;
-    transform: rotate(-0.5deg) scale(0.98);
-    filter: blur(70px);
-  }
-  100% {
-    background-position: 100% 100%, 100% 100%;
-    transform: rotate(0deg) scale(1);
-    filter: blur(80px);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .stream-path {
-    stroke-width: 0.8;
-    opacity: 0.6;
-  }
-  
-  .neural-dot {
-    r: 1.5;
-    opacity: 0.3;
-  }
-}
-
-@media (max-width: 480px) {
-  .stream-path {
-    stroke-width: 0.6;
-    opacity: 0.4;
-  }
-  
-  .neural-dot {
-    r: 1;
-    opacity: 0.2;
-  }
 }

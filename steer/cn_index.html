@@ -87,6 +87,83 @@
     .header-section h1 {
       margin-bottom: 1.1rem;
     }
+    
+    .key-takeaways-box {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .key-takeaways-box h1 {
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .figure-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .figure-container figcaption {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #666;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .symbol-table {
+      width: auto;
+      max-width: 400px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      border: 2px solid #333;
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.85em;
+    }
+    
+    .symbol-table th,
+    .symbol-table td {
+      border: 1px solid #333;
+      padding: 10px 12px;
+      text-align: left;
+      width: 160px;
+    }
+    
+    .symbol-table th {
+      background-color: #a5a7a9;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+    
+    .symbol-table td:first-child,
+    .symbol-table th:first-child {
+      font-weight: 500;
+      font-family: 'Inconsolata', monospace;
+      width: 160px;
+      white-space: nowrap;
+    }
+    
+    .symbol-table td:nth-child(2),
+    .symbol-table th:nth-child(2) {
+      white-space: nowrap;
+      width: 160px;
+    }
+
+    .symbol-table td:nth-child(3),
+    .symbol-table th:nth-child(3) {
+      white-space: nowrap;
+      width: 160px;
+    }
+
+    .symbol-table td:nth-child(4),
+    .symbol-table th:nth-child(4) {
+      white-space: nowrap;
+      width: 160px;
+    }
   </style>
 
 </head>
@@ -116,9 +193,321 @@
               </div>
             </div>
           </div>
-          <div class="venue-year">2025年5月27日</div>
+          <div class="venue-year">2025年7月12日</div>
+          
+          <div class="key-takeaways-box">
+            <h1>核心观点</h1>
+                <li>除了性能之外，效率对于控制方法至关重要。</li>
+                <li>避免默认基于表征的控制方法是高效的。</li>
+                <li>始终从简单的（即提示词方法）基准开始测试。</li>
+          </div>
   
-          <h2>Coming soon!</h2>
+          <h1>引言</h1>
+
+          <p>语言模型（LMs）可以通过以下主要方法进行控制：<strong>提示</strong>通过精心设计的输入指令来指导模型，<strong>控制向量</strong>通过秩-1激活加法操作来操纵内部表征，<strong>参数高效微调方法（PEFTs）</strong>通过更新模型参数的一小部分来适应模型行为，<strong>表征微调方法（ReFTs）</strong>在模型的中间层内微调特定表征。</p>
+
+          <p>最近，AxBench <a href="https://arxiv.org/abs/2501.17148">[1]</a> 被提出用于系统地评估这四种类型的控制方法在开放式指令跟随环境中的概念化控制场景（例如，控制LM在回答用户查询时始终提及"金门大桥"）。</p>
+
+          <figure class="figure-container">
+            <img src="../img/axbench-main.png" alt="AxBench" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>图1：AxBench中不同方法的概念检测和控制性能</figcaption>
+          </figure>
+
+          <p>AxBench的一个关键发现是，表征控制方法尽管提供了可解释的表征编辑，但仍然落后于简单的提示基准。自AxBench发布以来，已有许多值得注意的新控制方法试图推进控制方法的前沿，展现出希望但并未构成突破。在这篇博客文章中，<strong>我们认为未来在表征控制方法方面的工作也应该考虑计算效率，以便作为提示、轻量级微调或推理时缩放技术的替代方案建立令人信服的论证。</strong></p>
+
+          <h1>LM控制方法的效率</h1>
+          
+          <p>我们首先介绍这些方法并概述两个方面：内存和计算成本。我们暂时忽略性能指标，以便能够比较这些方法，假设这些方法的最优性能非常相似。</p>
+
+          <table class="symbol-table">
+            <thead>
+              <tr>
+                <th>符号</th>
+                <th>含义</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><em>x</em></td>
+                <td>提示长度（tokens）</td>
+              </tr>
+              <tr>
+                <td><em>L</em></td>
+                <td>transformer层数</td>
+              </tr>
+              <tr>
+                <td>
+                  <em>d<sub>k</sub></em>,
+                  <em>d<sub>v</sub></em>
+                </td>
+                <td>键值维度</td>
+              </tr>
+              <tr>
+                <td><em>H</em></td>
+                <td>隐藏层大小/模型宽度</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>提示控制</h2>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/prompt_steering.svg" alt="提示控制" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+          </div>
+
+          <p>LMs经过大量后训练以遵循给定的指令。因此，提示是控制LMs的实际方法。例如，如果想要个性化LM使其始终以金门大桥的身份回应，可以添加一个系统提示，在用户提示之前添加"在回答时，始终提及金门大桥"。对于更精确的行为控制，可能需要更长的系统提示。</p>
+
+          <p><strong>内存成本。</strong>运行时内存成本是提示创建的键值（KV）缓存的大小（假设使用标准KV缓存实现）：</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <em>M</em>
+            &nbsp;=&nbsp;
+            <em>x</em> &sdot; (<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>) &sdot; <em>L</em>
+          </p>
+
+          <p>这个成本随着控制提示tokens的数量线性增长。然而，总上下文长度——系统提示+用户提示+模型生成——现在通常跨越数千个tokens（使用无限注意力 <a href="https://arxiv.org/abs/2404.07143">[2]</a> 或外部记忆模块 <a href="https://arxiv.org/abs/2203.08913">[3]</a> 等技术，甚至数百万个tokens）。为了可视化影响，<strong>我们绘制了各种控制提示大小作为总上下文长度函数引入的内存开销百分比：</strong></p>
+
+          <figure class="figure-container">
+            <img src="../img/kv-mem-cost.png" alt="KV内存成本" style="max-width: 80%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>图2：不同控制上下文长度的内存开销</figcaption>
+          </figure>
+
+          <p>曲线快速下降：一旦总上下文超过几千个tokens（现代LMs推理时缩放的常态），50到400个token的控制提示增加的KV缓存开销 < 5%——在16k tokens之后 < 1%——使得内存成本在实际设置中基本可忽略。</p>
+
+          <p><strong>计算成本。</strong>除了运行时内存，控制提示还在模型解码每个token时增加额外的FLOPs，因为新token的查询必须处理提示的额外K/V向量。</p>
+
+          <p>对于一个解码步骤，我们可以写出处理额外控制提示tokens的额外FLOPs：</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            &#916;<span style="font-style:normal;">FLOPs</span><sub>prompt</sub>
+            &nbsp;=&nbsp;
+            <em>x</em><sub>p</sub> &sdot; <em>L</em> &sdot; (2<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>)
+          </p>
+
+          <p>如 <a href="https://arxiv.org/abs/2304.08467">[4]</a> 所述，MHA中花费的FLOPs只是完整前向传播的一小部分。我们可以写出完整前向传播的FLOPs：</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <span style="font-style:normal;">FLOPs</span><sub>base</sub>
+            &nbsp;=&nbsp;
+            <em>L</em> &sdot;
+            &#91; 4<em>H</em><sup>2</sup>
+            &nbsp;+&nbsp;
+            <em>C</em>&nbsp;(2<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>) &#93;
+          </p>
+
+          <p>其中<em>C</em>是<strong>总上下文长度</strong>（系统+用户+生成，<em>包括</em>控制提示）。</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <span style="font-style:normal;">开销</span>% 
+            &nbsp;&asymp;&nbsp;
+            <em>x</em><sub>p</sub>&nbsp;(2<em>d</em><sub>k</sub>+<em>d</em><sub>v</sub>)
+            &nbsp;/&nbsp;
+            <em>C</em>(2<em>d</em><sub>k</sub>+<em>d</em><sub>v</sub>)&nbsp;+&nbsp;4<em>H</em><sup>2</sup>
+            &nbsp;&sdot;&nbsp;100
+          </p>
+
+          <p>我们可以通过考虑典型的7B参数模型（例如，H=4096，d<sub>k</sub>=d<sub>v</sub>=64）来进一步对比计算成本开销。对于16k上下文长度，50个token的控制提示增加0.0001%的开销，400个token的控制提示增加0.001%的开销。这些在实践中都是可忽略的。</p>
+
+          <table class="symbol-table">
+            <thead>
+              <tr>
+                <th>长度 C</th>
+                <th><em>x</em><sub>p</sub> = 50</th>
+                <th><em>x</em><sub>p</sub> = 100</th>
+                <th><em>x</em><sub>p</sub> = 400</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>512 tokens</td>
+                <td>0.20 %</td>
+                <td>0.39 %</td>
+                <td>1.56 %</td>
+              </tr>
+              <tr>
+                <td>4,096 tokens</td>
+                <td>0.03 %</td>
+                <td>0.06 %</td>
+                <td>0.24 %</td>
+              </tr>
+              <tr>
+                <td>16,384 tokens</td>
+                <td>0.008 %</td>
+                <td>0.016 %</td>
+                <td>0.06 %</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>由于前馈层主导FLOPs，即使是400个token的控制提示，一旦上下文达到几千个tokens，也增加了远<strong>少于1%的计算开销</strong>——正是当今长上下文推理中使用的范围。</p>
+
+          <h2>控制向量</h2>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/steering_vector.svg" alt="控制向量" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+          </div>
+
+          <p>控制向量 <a href="https://arxiv.org/abs/2312.06681">[5]</a> 在LM前向传播中间放置秩-1激活加法干预，对LM表征进行最小的线性编辑。给定任何隐藏表征<em>h</em>，激活加法干预就地添加一个缩放的秩-1向量：</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <em>Φ</em>(<em>h</em>) = <em>h</em> + <em>α</em> · <em>w</em><sub>1</sub>
+          </p>
+
+          <p><strong>内存成本。</strong>内存开销是单个向量。与提示控制类似，相对于上下文长度的内存开销可以写成：</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <span style="font-style:normal;">开销</span>% 
+            &nbsp;=&nbsp;
+            <em>H</em> &nbsp;/&nbsp; <em>C</em> · <em>L</em> · (<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>) × 100
+          </p>
+
+          <p>其中分母包含整个上下文的KV缓存内存。对于典型的7B模型（<em>H</em>=4096，<em>d</em><sub>k</sub>=<em>d</em><sub>v</sub>=64，<em>L</em>=32，<em>C</em>=4096），该比例大约为0.02%——因此秩-1向量的内存占用基本可忽略。与提示控制相比，在控制提示有100个tokens的条件下，开销比例大约为2.5%。在绝对数值上有一些节省，但考虑到上下文所需的内存时，总体节省相对较小。</p>
+
+          <p><strong>计算成本。</strong>与提示控制不同，计算开销来自激活加法步骤的额外FLOPs。因此，开销可以写成：</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <span style="font-style:normal;">开销</span>% 
+            &nbsp;≈&nbsp;
+            <em>H</em> &nbsp;/&nbsp; <em>L</em> · [4<em>H</em><sup>2</sup> + <em>C</em> · (2<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>)] × 100
+          </p>
+
+          <p>与提示控制类似，我们可以通过考虑典型的7B参数模型（例如，<em>H</em>=4096，<em>d</em><sub>k</sub>=<em>d</em><sub>v</sub>=64）来进一步对比计算成本开销：</p>
+
+          <table class="symbol-table">
+            <thead>
+              <tr>
+                <th>总上下文 <em>C</em></th>
+                <th>开销 (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>512 tokens</td>
+                <td>0.00019 %</td>
+              </tr>
+              <tr>
+                <td>4,096 tokens</td>
+                <td>0.00019 %</td>
+              </tr>
+              <tr>
+                <td>16,384 tokens</td>
+                <td>0.00018 %</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>参数高效微调方法</h2>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/adaptor.svg" alt="PEFT" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+          </div>
+
+          <p>与单个秩-1向量不同，适配器在一个transformer层插入低秩更新<em>AB</em><sup>⊤</sup>（两个<em>H</em>×<em>r</em>矩阵），对激活进行稍微丰富但仍然轻量的编辑。因此，内存和计算开销都与控制向量相同，只是前面有一个乘数。</p>
+
+          <p><strong>内存成本。</strong>LoRA适配器存储两个<em>H</em>×<em>r</em>矩阵<em>A</em>和<em>B</em>，它们的乘积形成秩-<em>r</em>激活更新。由于两个矩阵都存在于GPU内存中，开销看起来就像控制向量情况——只是乘以2<em>r</em>。在7B模型（<em>H</em>=4096，<em>d</em><sub>k</sub>=<em>d</em><sub>v</sub>=64，<em>L</em>=32）上使用<em>r</em>=8，在4k-token上下文中大约为<strong>0.39%</strong>。</p>
+
+          <p><strong>计算成本。</strong>与控制向量类似，计算开销同样最小：适配器在单个层对每个token执行一次低秩投影，增加2<em>rH</em>FLOPs，产生额外的FLOPs表：</p>
+
+          <table class="symbol-table">
+            <thead>
+              <tr>
+                <th>总上下文 <em>C</em></th>
+                <th>开销 (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>512 tokens</td>
+                <td>0.003 %</td>
+              </tr>
+              <tr>
+                <td>4,096 tokens</td>
+                <td>0.003 %</td>
+              </tr>
+              <tr>
+                <td>16,384 tokens</td>
+                <td>0.0029 %</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>表征微调方法</h2>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/reft.svg" alt="ReFT" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+          </div>
+
+          <p>与在模型权重上操作的适配器不同，ReFT在表征上操作（即，它选择在哪里使用可学习的干预编辑表征）。具体而言，ReFT专注于编辑用户提示tokens。如原始ReFT论文所提出的，干预通常涉及低秩编辑，在参数化方面类似于LoRA，涉及<em>AB</em><sup>⊤</sup>（两个<em>H</em>×<em>r</em>矩阵）。</p>
+
+          <p><strong>内存成本。</strong>ReFT在推理时占用与LoRA相同的额外内存，因为它们都有相同的参数化。在7B模型（<em>H</em>=4096，<em>d</em><sub>k</sub>=<em>d</em><sub>v</sub>=64，<em>L</em>=32）上使用<em>r</em>=8，在4k-token上下文中大约为<strong>0.39%</strong>。</p>
+
+          <p><strong>计算成本。</strong>由于ReFT在提示token表征上操作，生成新token的额外FLOPs本质上为0。</p>
+
+          <table class="symbol-table">
+            <thead>
+              <tr>
+                <th>总上下文 <em>C</em></th>
+                <th>开销 (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>512 tokens</td>
+                <td>0.0 %</td>
+              </tr>
+              <tr>
+                <td>4,096 tokens</td>
+                <td>0.0 %</td>
+              </tr>
+              <tr>
+                <td>16,384 tokens</td>
+                <td>0.0 %</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h1>超越控制性能</h1>
+          
+          <p>我们的分析表明，虽然表征级方法（秩-1向量、LoRA、ReFT）已经缩小了差距，但它们在AxBench上仍然落后于提示。更重要的是，尽管许多现有的表征控制论文声称——有些不加论证地——"表征控制非常便宜"，但这种思维方式通常是没有根据的。一旦总上下文超过4k tokens，50–400个token的控制提示增加的计算或KV缓存开销少于0.06%，在16k时少于0.01%，因此提示的相对成本随着窗口的扩大而消失。相比之下，基于向量或适配器的编辑虽然轻量（约0.02–0.39%内存），但仍需要额外的检查点和集成工作。</p>
+          
+          <p><strong>提示有局限性。</strong>大型上下文窗口缩小了效率差距，但提示仍然容易受到提示注入和越狱攻击，这些攻击可能会覆盖或稀释抑制提示。无参考偏好控制（RePS）<a href="https://arxiv.org/abs/2505.20809">[6]</a> 解决了这个问题：在抑制模式下，它在Gemma-2上匹配标准语言建模目标，在更大的Gemma-3变体上超越了它，同时抵抗了击败提示的基于提示的越狱。这些发现表明，当需要可靠的抑制时，表征级控制可以提供比提示更安全、可解释和更稳健的替代方案。</p>
+          
+          <h1>结论</h1>
+
+          <p>在这篇博客文章中，我们认为未来在表征控制方法方面的工作也应该考虑计算效率，以便作为提示的替代方案建立令人信服的论证。我们希望这个分析能帮助指导这个方向的未来研究。</p>
+
+          <h2>引用方式</h2>
+
+          <div class="publication">
+            <div class="text">
+              <div class="title">Bibliography</div>
+              <div class="authors">
+                Zhengxuan Wu. "<em>On representation steering.</em>" Blog post (2025).
+              </div>
+            </div>
+          </div>
+
+          <div class="publication">
+            <div class="text">
+              <div class="title">BibTeX</div>
+              <div class="authors">
+                <pre>@misc{wu2025steering,
+ title={On representation steering},
+ author={Wu, Zhengxuan},
+ year={2025},
+ note={Blog post},
+ url={https://nlp.stanford.edu/~wuzhengx/steer/index.html}
+}</pre>
+              </div>
+            </div>
+          </div>
+
+          <h2>致谢</h2>
+          <p>感谢 Aryaman Arora, Chris Potts 和 Chris Manning 对这篇博客文章的有益讨论和反馈。</p>
+
+          <div class="footer">
+            <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
+          </div>
 
       </div>
     </div>

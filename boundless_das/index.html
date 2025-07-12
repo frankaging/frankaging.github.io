@@ -143,7 +143,7 @@
         </ol>
         <p>We try to address all these limitations and showcase our framework on the recently released Alpaca 7B model <a href="https://crfm.stanford.edu/2023/03/13/alpaca.html">[1]</a>.</p>
 
-        <h2>distributed alignment as an optimization problem</h2>
+        <h2>Distributed alignment as an optimization problem</h2>
         <p>Instead of iteratively search for alignments over neurons, we adapt our recently proposed Distributed Alignment Search (DAS) <a href="https://arxiv.org/abs/2303.02536">[2]</a> by turning alignment process into an optimization problem. In DAS, we find the alignment between high-level and low-level models using gradient descent rather than conducting a brute-force search, and we allow individual neurons to play multiple distinct roles by analyzing representations in non-standard bases-distributed representations.</p>
 
         <div style="margin: 2em 0;">
@@ -187,7 +187,7 @@
           <p style="margin-top: 1em; font-style: italic;">Our central research question is: <strong>Is the Alpaca model following any of these causal model when solving the task?</strong> We try to answer this question by finding alignments for intermediate causal variables above colored in red.</p>
         </div>
 
-        <h2>our findings: which alignments are more faithful?</h2>
+        <h2>Our findings: which alignments are more faithful?</h2>
         <p>We train Boundless DAS on token representations across multiple layers and positions for our task. And we evaluate our learned alignments on hold out testing set to get testing time IIA distributions. Here are the alignment results for all four high-level causal models we are considering,</p>
 
         <div style="margin: 2em 0;">

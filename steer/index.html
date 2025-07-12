@@ -87,6 +87,83 @@
     .header-section h1 {
       margin-bottom: 1.1rem;
     }
+    
+    .key-takeaways-box {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .key-takeaways-box h1 {
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .figure-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .figure-container figcaption {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #666;
+      font-style: italic;
+      line-height: 1.4;
+    }
+    
+    .symbol-table {
+      width: auto;
+      max-width: 400px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      border: 2px solid #333;
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.85em;
+    }
+    
+    .symbol-table th,
+    .symbol-table td {
+      border: 1px solid #333;
+      padding: 10px 12px;
+      text-align: left;
+      width: 160px;
+    }
+    
+    .symbol-table th {
+      background-color: #a5a7a9;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+    
+    .symbol-table td:first-child,
+    .symbol-table th:first-child {
+      font-weight: 500;
+      font-family: 'Inconsolata', monospace;
+      width: 160px;
+      white-space: nowrap;
+    }
+    
+    .symbol-table td:nth-child(2),
+    .symbol-table th:nth-child(2) {
+      white-space: nowrap;
+      width: 160px;
+    }
+
+    .symbol-table td:nth-child(3),
+    .symbol-table th:nth-child(3) {
+      white-space: nowrap;
+      width: 160px;
+    }
+
+    .symbol-table td:nth-child(4),
+    .symbol-table th:nth-child(4) {
+      white-space: nowrap;
+      width: 160px;
+    }
   </style>
 
 </head>
@@ -116,11 +193,350 @@
               </div>
             </div>
           </div>
-          <div class="venue-year">May 27, 2025</div>
-  
-          <h2>Coming soon!</h2>
+          <div class="venue-year">July 12, 2025</div>
 
-      </div>
+                      <div class="key-takeaways-box">
+             <h1>tl;dr.</h1>
+                 <li>Besides performance, efficiency is crucial for steering.</li>
+                 <li>Avoid saying rank-1 steering is just efficient in a hand-wavy way.</li>
+                 <li>Always start with a simple (i.e., prompting) baseline.</li>
+            </div>
+  
+          <h1>Introduction.</h1>
+
+          <p>Language models (LMs) can be steered toward desired behaviors through the following primary 
+            approaches: <strong>prompting</strong> guides models via carefully crafted input instructions, 
+            <strong>steering vectors</strong> manipulate internal representations through rank-1 activation 
+            addition, <strong>parameter-efficient fine-tuning methods (PEFTs)</strong> adapt model behaviors 
+            by updating a small subset of parameters, and <strong>representation finetuning methods (ReFTs)</strong> 
+            finetune specific representations within the model's intermediate layers.
+            </p>
+
+                     <p>Recently, AxBench <a href="https://arxiv.org/abs/2501.17148">[1]</a> was proposed to benchmark steering methods from these four types 
+             systematically in a concept-based steering scenario for open-ended instruction 
+             following (e.g., steering an LM to always mention "golden gate bridge" 
+             when answering user queries). </p>
+
+             <figure class="figure-container">
+               <img src="../img/axbench-main.png" alt="AxBench" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+               <figcaption>Figure 1: concept detection and steering performance of different methods in AxBench.</figcaption>
+             </figure>
+  
+
+                           <p>One key takeaway from AxBench is that representation steering methods, 
+               although providing interpretable representation edits, lag behind 
+               simple prompting baselines. Since the release of AxBench, there are a number 
+               of notable new steering methods that try to push the frontier of steering methods, 
+               showing promise but not representing breakthroughs. In this blog post, <strong>we argue that future works 
+               in representation steering methods should also consider computational efficiency in order to make
+                a convincing case as alternatives to prompting, lightweight finetuning, 
+                or inference-time scaling techniques.</strong></p>
+
+                <h1>Efficiency of LM steering methods.</h1>
+                
+                                 <p>We first introduce these methods and outline 
+                   two aspects: memory and compute costs. We leave out 
+                   the performance metric for now, so we can compare these methods
+                    assuming that optimal performance of these methods is very similar.</p>
+                    <table class="symbol-table">
+                      <thead>
+                        <tr>
+                          <th>Symbol</th>
+                          <th>Meaning</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><em>x</em></td>
+                          <td>prompt length (tokens)</td>
+                        </tr>
+                        <tr>
+                          <td><em>L</em></td>
+                          <td>number of transformer layers</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <em>d<sub>k</sub></em>,
+                            <em>d<sub>v</sub></em>
+                          </td>
+                          <td>key &amp; value dimensions</td>
+                        </tr>
+                        <tr>
+                          <td><em>H</em></td>
+                          <td>hidden size / model width</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    
+                
+          <h2>Prompting.</h2>
+
+
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/prompt_steering.svg" alt="Prompt steering" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+          </div>
+
+          <p>LMs are heavily post-trained to follow given instructions. As a result, prompting is the de facto way of controlling LMs. For instance, if one wants to personalize a LM to always respond as if itself is the golden gate bridge, one could add a system prompt that is prepended before the user prompt as “when answering, always mention golden gate bridge”. For more precisely steering behaviours, one might require longer system prompts. </p>
+
+                     <p><strong>Memory costs.</strong> The run-time memory cost is the size of the key–value (KV) cache created by the prompt (assuming a vanilla KV-cache implementation):</p>
+           <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <em>M</em>
+            &nbsp;=&nbsp;
+            <em>x</em> &sdot; (<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>) &sdot; <em>L</em>
+          </p>
+
+                       <p>This cost grows linearly with the number of steering prompt tokens.
+            Yet the total context length—system prompt + user prompt + model generation—now routinely spans thousands (and, with techniques like infinite attention <a href="https://arxiv.org/abs/2404.07143">[2]</a> or external memory modules <a href="https://arxiv.org/abs/2203.08913">[3]</a>, even millions) of tokens.
+            To visualize the impact, <strong>we plot the percentage memory overhead introduced by various steering prompt sizes as a function of total context length:</strong></p>
+
+            <figure class="figure-container">
+              <img src="../img/kv-mem-cost.png" alt="KV memory cost" style="max-width: 80%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+              <figcaption>Figure 2: Memory overhead of different steering context lengths.</figcaption>
+            </figure>
+  
+            <p>The curve drops off rapidly: once the total context exceeds a few thousands tokens (the norm for modern LMs with inference-time scaling), a 50- to 400-token steering prompt adds < 5 % KV-cache overhead—and < 1 % beyond 16 k tokens – making the memory cost essentially negligible in realistic settings.</p>
+
+            <p><strong>Compute costs.</strong> Besides run-time memory, a steering prompt also adds extra FLOPs each time the model decodes a token, because the query for that new token must attend over the prompt’s additional K/V vectors.</p>
+            
+            <p>For one decoding step, we can write out the additional FLOPs for processing the additional steering prompt tokens as:</p>
+
+            <p style="text-align:center; margin:15px 0; font-style:italic;">
+              &#916;<span style="font-style:normal;">FLOPs</span><sub>prompt</sub>
+              &nbsp;=&nbsp;
+              <em>x</em><sub>p</sub> &sdot; <em>L</em> &sdot; (2<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>)
+            </p>
+
+            <p></p>As noted in <a href="https://arxiv.org/abs/2304.08467">[4]</a>, the FLOPs spent in MHA is only a tiny fraction of the full forward pass. We can write out the full forward pass FLOPs as:</p>
+            
+            <p style="text-align:center; margin:15px 0; font-style:italic;">
+              <span style="font-style:normal;">FLOPs</span><sub>base</sub>
+              &nbsp;=&nbsp;
+              <em>L</em> &sdot;
+              &#91; 4<em>H</em><sup>2</sup>
+              &nbsp;+&nbsp;
+              <em>C</em>&nbsp;(2<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>) &#93;
+            </p>
+
+            <p>where <em>C</em> is the <strong>total context length</strong> (system + user + generation, <em>including</em> the steering prompt).</p>
+
+            <p style="text-align:center; margin:15px 0; font-style:italic;">
+              <span style="font-style:normal;">overhead</span>% 
+              &nbsp;&asymp;&nbsp;
+              <em>x</em><sub>p</sub>&nbsp;(2<em>d</em><sub>k</sub>+<em>d</em><sub>v</sub>)
+              &nbsp;/&nbsp;
+              <em>C</em>(2<em>d</em><sub>k</sub>+<em>d</em><sub>v</sub>)&nbsp;+&nbsp;4<em>H</em><sup>2</sup>
+              &nbsp;&sdot;&nbsp;100
+            </p>
+            
+                         <p>We can further contextualize the compute costs overhead by considering a typical 7-B parameter model (e.g., H=4096, d<sub>k</sub>=d<sub>v</sub>=64). For a 16k context length, a 50-token steering prompt adds 0.0001 % overhead, and a 400-token steering prompt adds 0.001 % overhead. These are negligible in practice.</p>
+
+             <table class="symbol-table">
+               <thead>
+                 <tr>
+                   <th>Length C</th>
+                   <th><em>x</em><sub>p</sub> = 50</th>
+                   <th><em>x</em><sub>p</sub> = 100</th>
+                   <th><em>x</em><sub>p</sub> = 400</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td>512 tokens</td>
+                   <td>0.20 %</td>
+                   <td>0.39 %</td>
+                   <td>1.56 %</td>
+                 </tr>
+                 <tr>
+                   <td>4,096 tokens</td>
+                   <td>0.03 %</td>
+                   <td>0.06 %</td>
+                   <td>0.24 %</td>
+                 </tr>
+                 <tr>
+                   <td>16,384 tokens</td>
+                   <td>0.008 %</td>
+                   <td>0.016 %</td>
+                   <td>0.06 %</td>
+                 </tr>
+               </tbody>
+             </table>
+
+             Because feed-forward layers dominate FLOPs, even a 400-token steering prompt adds well <strong>under 1% compute overhead</strong> once the context reaches just a few thousand tokens—exactly the regime used in today’s long-context inference.
+            
+          
+                      <h2>Steering vectors.</h2>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/steering_vector.svg" alt="Steering vector" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+          </div>
+
+          <p>Steering vectors <a href="https://arxiv.org/abs/2312.06681">[5]</a> place a rank-1 activation addition intervention in the middle of the LM forward pass, making minimal linear edits of LM representations. Given any hidden representation <em>h</em>, an activation addition intervention adds in a scaled rank-1 vector in-place as:</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <em>Φ</em>(<em>h</em>) = <em>h</em> + <em>α</em> · <em>w</em><sub>1</sub>
+          </p>
+
+          <p><strong>Memory costs.</strong> The memory overhead is a single vector. Similar to prompt steering, the memory overhead with respect to context length can be written as:</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <span style="font-style:normal;">overhead</span>% 
+            &nbsp;=&nbsp;
+            <em>H</em> &nbsp;/&nbsp; <em>C</em> · <em>L</em> · (<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>) × 100
+          </p>
+
+          <p>where the denominator contains the KV cache memory for the whole context. For a typical 7B model (<em>H</em>=4096, <em>d</em><sub>k</sub>=<em>d</em><sub>v</sub>=64, <em>L</em>=32, <em>C</em>=4096) that ratio is roughly 0.02% — so the rank-1 vector's memory footprint is essentially negligible. To compare with prompt steering, the overhead ratio is roughly 2.5% conditioned on the steering prompt having 100 tokens. There are some savings in terms of absolute numbers, but again, the overall saving is relatively small when considering the memory required for the context.</p>
+
+          <p><strong>Compute costs.</strong> Unlike prompt steering, the compute overhead comes from the additional FLOPs of the activation addition step. Thus, the overhead can be written as:</p>
+
+          <p style="text-align:center; margin:15px 0; font-style:italic;">
+            <span style="font-style:normal;">overhead</span>% 
+            &nbsp;≈&nbsp;
+            <em>H</em> &nbsp;/&nbsp; <em>L</em> · [4<em>H</em><sup>2</sup> + <em>C</em> · (2<em>d</em><sub>k</sub> + <em>d</em><sub>v</sub>)] × 100
+          </p>
+
+          <p>Similar to prompt steering, we can further contextualize the compute costs overhead by considering a typical 7-B parameter model (e.g., <em>H</em>=4096, <em>d</em><sub>k</sub>=<em>d</em><sub>v</sub>=64):</p>
+
+          <table class="symbol-table">
+            <thead>
+              <tr>
+                <th>Total context <em>C</em></th>
+                <th>Overhead (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>512 tokens</td>
+                <td>0.00019 %</td>
+              </tr>
+              <tr>
+                <td>4,096 tokens</td>
+                <td>0.00019 %</td>
+              </tr>
+              <tr>
+                <td>16,384 tokens</td>
+                <td>0.00018 %</td>
+              </tr>
+            </tbody>
+                       </table>
+
+          <h2>PEFTs.</h2>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/adaptor.svg" alt="PEFT" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+          </div>
+
+          <p>Instead of a single rank-1 vector, an adaptor inserts a low-rank update <em>AB</em><sup>⊤</sup> (two <em>H</em>×<em>r</em> matrices) at one transformer layer, making a slightly richer—but still lightweight—edit to the activations. As a result, both the memory and compute overhead is the same as steering vector with a multiplier upfront.</p>
+
+          <p><strong>Memory costs.</strong> A LoRA adaptor stores two <em>H</em> × <em>r</em> matrices, <em>A</em> and <em>B</em>, whose product forms a rank-<em>r</em> activation update. Because both matrices live on GPU memory, the overhead looks just like the steering-vector case—except multiplied by 2<em>r</em>. With <em>r</em>=8 on a 7B model (<em>H</em>=4096, <em>d</em><sub>k</sub>=<em>d</em><sub>v</sub>=64, <em>L</em>=32), that is roughly <strong>0.39%</strong> at a 4k-token context.</p>
+
+          <p><strong>Compute costs.</strong> Similar to steering vector, the compute overhead is similarly minimal: the adaptor performs one low-rank projection per token at a single layer, adding 2<em>rH</em> FLOPs, resulting in an additional FLOPs table as:</p>
+
+          <table class="symbol-table">
+            <thead>
+              <tr>
+                <th>Total context <em>C</em></th>
+                <th>Overhead (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>512 tokens</td>
+                <td>0.003 %</td>
+              </tr>
+              <tr>
+                <td>4,096 tokens</td>
+                <td>0.003 %</td>
+              </tr>
+              <tr>
+                <td>16,384 tokens</td>
+                <td>0.0029 %</td>
+              </tr>
+            </tbody>
+                       </table>
+
+          <h2>ReFTs.</h2>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <img src="../img/reft.svg" alt="ReFT" style="max-width: 100%; height: auto; border: none; border-radius: 0; box-shadow: none;">
+          </div>
+
+          <p>Unlike adaptors operating on model weights, ReFT operates on representations (i.e., it selects where to edit representations with learnable interventions). Specifically, ReFT focuses on editing user prompt tokens. As proposed in the original ReFT paper, the intervention usually involves low-rank edits, similar to LoRA in terms of parameterization, involving <em>AB</em><sup>⊤</sup> (two <em>H</em>×<em>r</em> matrices).</p>
+
+          <p><strong>Memory costs.</strong> ReFT takes up the same extra memory as LoRA during inference time as they both have the same parameterization. With <em>r</em>=8 on a 7B model (<em>H</em>=4096, <em>d</em><sub>k</sub>=<em>d</em><sub>v</sub>=64, <em>L</em>=32), that is roughly <strong>0.39%</strong> at a 4k-token context.</p>
+
+          <p><strong>Compute costs.</strong> Since ReFT operates on the prompt token representations, the additional FLOPs for generating a new token is essentially 0.</p>
+
+          <table class="symbol-table">
+            <thead>
+              <tr>
+                <th>Total context <em>C</em></th>
+                <th>Overhead (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>512 tokens</td>
+                <td>0.0 %</td>
+              </tr>
+              <tr>
+                <td>4,096 tokens</td>
+                <td>0.0 %</td>
+              </tr>
+              <tr>
+                <td>16,384 tokens</td>
+                <td>0.0 %</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h1>Beyond steering performance.</h1>
+          
+          <p>Our analysis shows that while representation-level approaches 
+          (rank-1 vectors, LoRA, ReFT) have narrowed the gap, 
+          they still lag prompting on AxBench. More importantly, although many existing representation-steering papers claim—somewhat hand-wavingly—that "representation steering is very cheap," this mindset is usually unfounded. A 50–400-token steering prompt adds less than 0.06 % compute or KV-cache overhead once the total context exceeds 4k tokens, and less than 0.01 % at 16 k, so the relative cost of prompting vanishes as windows scale. By contrast, vector- or adaptor-based edits, although lightweight (~0.02–0.39 % memory), still require extra checkpoints and integration effort.</p>
+          
+          <p><strong>Prompting has limitations.</strong> Large context windows shrink the efficiency gap, but prompting remains vulnerable to prompt-injection and jail-breaking attacks that can override or dilute suppression prompts. Reference-free Preference Steering (RePS) <a href="https://arxiv.org/abs/2505.20809">[6]</a> addresses this: in suppression mode it matches the standard language-modeling objective on Gemma-2 and surpasses it on the larger Gemma-3 variants, all while resisting the prompt-based jailbreaks that defeat prompting. These findings suggest that representation-level steering can provide a safer, interpretable, and more robust alternative to prompting when dependable suppression is needed. </p>
+          
+                     <h1>Conclusion.</h1>
+ 
+           <p>In this blog post, we argue that future works in representation steering methods should also consider computational efficiency in order to make a convincing case as alternatives to prompting. We hope this analysis can help guide future research in this direction.</p>
+ 
+           <h2>How to Cite</h2>
+
+           <div class="publication">
+             <div class="text">
+               <div class="title">Bibliography</div>
+               <div class="authors">
+                 Zhengxuan Wu. "<em>On representation steering.</em>" Blog post (2025).
+               </div>
+             </div>
+           </div>
+
+           <div class="publication">
+             <div class="text">
+               <div class="title">BibTeX</div>
+               <div class="authors">
+                 <pre>@misc{wu2025steering,
+  title={On representation steering},
+  author={Wu, Zhengxuan},
+  year={2025},
+  note={Blog post},
+  url={https://nlp.stanford.edu/~wuzhengx/steer/index.html}
+}</pre>
+               </div>
+             </div>
+           </div>
+
+           <h2>Acknowledgements</h2>
+           <p>We thank Aryaman Arora, Chris Potts, and Chris Manning for helpful discussions and feedback on this blog post.</p>
+
+           <div class="footer">
+             <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
+           </div>
+ 
+            
+        </div>
     </div>
   </div>
   <br/>
