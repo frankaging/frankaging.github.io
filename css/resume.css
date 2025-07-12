@@ -17,32 +17,7 @@ body {
   padding: 0;
 }
 
-/* Decorative folded corner in upper right */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-left: 80px solid transparent;
-  border-top: 80px solid rgb(204, 101, 0);
-  z-index: 1000;
-  box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.1);
-}
 
-/* Add subtle fold line effect */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-left: 75px solid transparent;
-  border-top: 75px solid rgba(204, 101, 0, 0.3);
-  z-index: 999;
-}
 
 /* Container and layout */
 .outercontainer {

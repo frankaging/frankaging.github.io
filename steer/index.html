@@ -102,6 +102,16 @@
       color: #333;
     }
     
+    .key-takeaways-box ul {
+      margin: 15px 0 0 0;
+      padding-left: 20px;
+    }
+    
+    .key-takeaways-box li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    
     .figure-container {
       text-align: center;
       margin: 20px 0;
@@ -187,8 +197,6 @@
             <div class="text">
               <div class="title">quick links</div>
               <div class="links">
-                <a href="https://arxiv.org/pdf/2505.20809">arxiv preprint</a> · 
-                <a href="https://github.com/stanfordnlp/axbench">source code (github)</a> · 
                 <a href="cn_index.html">中文翻译</a>
               </div>
             </div>
@@ -197,9 +205,11 @@
 
                       <div class="key-takeaways-box">
              <h1>tl;dr.</h1>
+             <ul>
                  <li>Besides performance, efficiency is crucial for steering.</li>
                  <li>Avoid saying rank-1 steering is just efficient in a hand-wavy way.</li>
                  <li>Always start with a simple (i.e., prompting) baseline.</li>
+             </ul>
             </div>
   
           <h1>Introduction.</h1>
@@ -529,7 +539,7 @@
            </div>
 
            <h2>Acknowledgements</h2>
-           <p>We thank Aryaman Arora, Chris Potts, and Chris Manning for helpful discussions and feedback on this blog post.</p>
+           <p>We thank Aryaman Arora, Qinan Yu, Chris Potts, and Chris Manning for helpful discussions and feedback on this blog post.</p>
 
            <div class="footer">
              <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
