@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zhengxuan Wu - Blog</title>
+    <link>https://zen-wu.social/blog.html</link>
+    <description>Core dump about interpretability, language models, and other stuff by Zhengxuan Wu</description>
+    <language>en-us</language>
+    <atom:link href="https://zen-wu.social/rss.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>On representation steering</title>
+      <link>https://zen-wu.social/steer/index.html</link>
+      <description>Representation steering is a powerful tool for understanding and controlling the behavior of language models. Lessons learned from our recent work on training better representation steering methods.</description>
+      <pubDate>Fri, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <guid>https://zen-wu.social/steer/index.html</guid>
+    </item>
+    
+    <item>
+      <title>What is representation finetuning?</title>
+      <link>https://zen-wu.social/reft/index.html</link>
+      <description>Representation finetuning (ReFT) represents a novel approach to parameter-efficient, powerful, and interpretable fine-tuning of language models.</description>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
+      <guid>https://zen-wu.social/reft/index.html</guid>
+    </item>
+    
+    <item>
+      <title>Scaling interpretability with LLMs</title>
+      <link>https://zen-wu.social/boundless_das/index.html</link>
+      <description>Building on the theory of causal abstraction, we release Boundless DAS for finding representations that play causal roles in LLMs with billions of parameters.</description>
+      <pubDate>Tue, 09 May 2023 00:00:00 GMT</pubDate>
+      <guid>https://zen-wu.social/boundless_das/index.html</guid>
+    </item>
+    
+  </channel>
+</rss> 
