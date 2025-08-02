@@ -8,6 +8,14 @@
     <atom:link href="https://zen-wu.social/rss.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+      <title>What is 'zen'? One of my favorite Chinese poets, Su Shi (苏轼, 1037–1101)</title>
+      <link>https://zen-wu.social/poems/index.html</link>
+      <description>About Su Shi (苏轼, 1037–1101)</description>
+      <pubDate>Fri, 02 Aug 2025 00:00:00 GMT</pubDate>
+      <guid>https://zen-wu.social/poems/index.html</guid>
+    </item>
+
+    <item>
       <title>On representation steering</title>
       <link>https://zen-wu.social/steer/index.html</link>
       <description>Representation steering is a powerful tool for understanding and controlling the behavior of language models. Lessons learned from our recent work on training better representation steering methods.</description>
