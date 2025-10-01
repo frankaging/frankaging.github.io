@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Hi, this is Zhengxuan. Please remove the following lines if you want to fork this webpage. Otherwise my google analytics
+    will track traffic from your website as well! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVGLSDJKXN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVGLSDJKXN');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Zhengxuan Wu">
+
+  <meta name="description" content="无人问答 (1): 关于快乐与怯懦的思考">
+  <meta name="keywords" content="Interpretability,NLP,Steer,Natural,Language,Processing,Machine,Learning">
+
+  <title>无人问答 (1): NOSR</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../vendor/devicons/css/devicons.min.css" rel="stylesheet">
+  <link href="../../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="57x57" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png"
+  />
+  <link rel="apple-touch-icon" sizes="120x120" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png"
+  />
+  <link rel="apple-touch-icon" sizes="144x144" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png"
+  />
+  <link rel="apple-touch-icon" sizes="152x152" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png"
+  />
+  <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png"
+  />
+
+  <link rel="icon" type="image/png" href="../../favicon.ico"/>
+
+  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="application-name" content="Stanford University" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
+  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
+
+<meta property="og:title" content="无人问答 (1): NOSR" />
+<meta property="og:url" content="https://zen-wu.social/nosr/01/cn_index.html" />
+<meta property="og:image" content="https://zen-wu.social/img/zen_mugs.png" />
+<meta property="og:description" content="无人问答 (1): 关于快乐与怯懦的思考" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" /> 
+<meta name="twitter:title" content="无人问答 (1): NOSR" />
+<meta name="twitter:description" content="无人问答 (1): 关于快乐与怯懦的思考" />
+<meta name="twitter:image" content="https://zen-wu.social/img/zen_mugs.png" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="../../css/resume.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <style>
+    .content img {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-section {
+      margin-bottom: 10px;
+    }
+
+    .header-section h1 {
+      margin-bottom: 1.1rem;
+    }
+    
+    .key-takeaways-box {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 80%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: 0.85em;
+    }
+    
+    .key-takeaways-box h1 {
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .key-takeaways-box ul {
+      margin: 15px 0 0 0;
+      padding-left: 20px;
+    }
+    
+    .key-takeaways-box li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    
+    .figure-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .figure-container figcaption {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #666;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+  </style>
+
+</head>
+
+<body id="page-top">
+  <div class="outercontainer">
+    <div class="container body">
+      <div class="content heading anchor" id="home">
+        <div class="header-section">
+          <div class="profile-pic">
+            <img src="../../img/nosr_01.png" alt="zhengxuan wu">
+          </div>
+          <div class="header-text">
+            <h1>NOSR (1): 无人问答</h1> 
+            
+            <p class="nav-links"><a href="../../index.html">首页</a> · <a href="../../blog.html">博客</a></p>
+          </div>
+        </div>
+        
+        <div class="publication">
+            <div class="text">
+              <div class="title">快速链接</div>
+              <div class="links">
+                <a href="index.html">english version</a>
+              </div>
+            </div>
+          </div>
+          <div class="venue-year">2025年10月01日</div>
+  
+          <h2>懦弱</h2>
+
+          <p>读了《<a href="https://weread.qq.com/web/bookDetail/51532c40813ab7c0ag019c84" target="_blank">我在北京送快递</a>》和《<a href="https://weread.qq.com/web/reader/8f532800813ab96c5g0109f5" target="_blank">生活在低处</a>》。当然作者描述的生活细节离开我是很远的。但他简单粗暴的文笔和纪实文学，让我有种刮骨疗伤的感受。我于是去看了他的访谈，作者说自己是一个本质懦弱的人。当然，一个向大家讲述自己生活和内心的人，与懦弱似乎矛盾。我想他应该是很细腻，享受自我，又对外界毫无期待的人。我想他应该也是自由的。</p>
+
+          <figure class="figure-container">
+            <img src="../../img/kuaidi.png" alt="Kuaidi" style="max-width: 30%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>《我在北京送快递》</figcaption>
+          </figure>
+
+
+          <p>就像，写下 “离开” 和 “走开” 两个动词，后者显得毫无期待。“我离开了”显得有人期待你原本在那，也有人期待你的到来。这种懦弱是将自己与外界分离。胡安焉在对外界不抱任何期待的同时，将日常记录下来。对着黑暗的呐喊，就只有呐喊，没有回声。</p>
+          
+          <p>这种懦弱的反面不像是勇敢，更像是某种“主人翁”精神，似乎应该把世界当成一个游乐园，所有人的存在都可以被随意赋予意义。</p>
+
+          <figure class="figure-container">
+            <img src="../../img/ny.jpg" alt="ny" style="max-width: 60%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>纽约 The High Line (摄于2016年).</figcaption>
+          </figure>
+
+          <h2>口袋</h2>
+
+          <p>我在等红绿灯，车停在第一排，能看到路口的一对男女。他们很平常地拥吻。女生穿着牛仔裤，手机插在左后边的裤兜里。绿灯了，汽车道会比人行道晚几秒钟。男生牵起女生的左手，举在胸口位置。走到马路中间，女生用右手背过去，使劲想要确认手机还在。也就几秒钟，然后他们就走开了。除了无聊在等绿灯的我，是没有人会在意的。当然，情感似乎也应该是不被在意地，是不经意地，是生理性地。</p>
+
+          <p>小时候的夏天里，收到一盒好吃的巧克力，每一颗拇指大小。但我总能用牙齿一点点咬下，每一小块都会慢慢用舌头抿碎，慢慢融化。这样，一块巧克力的快乐就会被无限延长。一般吃掉一两颗，我会再拿一颗放在口袋里，就出去和朋友玩了。家里是没人跟我抢巧克力，但放在口袋里便让我触手可及。天很热，我其实通常会忘了它在口袋里。回到家就发现，巧克力早在口袋里融化，黏糊糊的。我就随手把裤子丢在洗衣篮里，也并不会感到惋惜，因为口袋里的巧克力，被我留在了那些下午里。</p>
+
+          <figure class="figure-container">
+            <img src="../../img/danxiao.png" alt="danxiaorushu" style="max-width: 30%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>《我胆小如鼠》</figcaption>
+          </figure>
+
+          <h2>羊羔的父亲</h2>
+
+          <p>半夜刷手机的时候，会有七七八八的推送。人工智能按照作息预测，把一些消除负面情绪的消息写在了最前面。我猜，模型毫不留情地把我预测成了文艺青年，满屏余华尔尔的推送。关于讨论懦弱，《<a href="https://weread.qq.com/web/reader/276323e0813ab90a5g0144d7" target="_blank">我胆小如鼠</a>》里有这样一段描写羊羔的父亲，大致如下。羊羔的父亲是一个胆小的卡车司机。他有一个习惯，半夜开车的时候，会摇下车窗，向外大喊"你找死啊"。有一次，羊羔和父亲坐在卡车里，遇到一辆拖拉机，车上的人皮肤黝黑。羊羔的父亲壮胆，向窗外喊"你找死啊"。然后猛踩油门。他的父亲知道，拖拉机是追不上卡车的。</p>
+
+          <p>这段描写似乎阐述了关于勇敢的一层含义。当你的行为，面对的是你已知的结果时，你向他人展现出的并不是勇敢。当然，这也不像是懦弱。这就像平常夏天喝掉冰镇的可乐，气泡对于口腔的刺激，转瞬即逝。</p>
+
+          <figure class="figure-container">
+            <img src="../../img/mian.png" alt="mian" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>葱油拌面</figcaption>
+          </figure>
+
+
+          <h2>抓猫</h2>
+
+          <p>从小住校，学校配置很好，培养出两个恶习：早饭期待很高，也从会想着夜宵。食堂有三层，还有一个饭店可以点菜，大概是给校领导用的。有个暑假，跟同学拿着零花钱，就会天天去点跑蛋。早餐是早起的动力之一，葱油拌面加蛋。甚至我觉得所有人都会记得葱油拌面师傅的做法。面下在篓里，然后碗里有葱油，最后加入煎蛋。因为住校，同学是永远一起走的。有一次，大概是初一的时候。我们在热水壶楼和澡堂楼后面，篮球场前面，遇到了一只野猫。几个人决定拿塑料袋抓猫。围成一圈，将猫逼入墙角，然后装进塑料袋里。抓完后，我们才开始讨论应该放在谁的寝室。大概养了两三天。那几天，满走廊都是猫的味道，我们以为能骗过宿管，自欺欺人。那几天，我们会趴在地上，看躲在下铺床底下的猫。没过几天，猫就跑了，不知道是宿管放跑了，还是自己走了。猫有九条命，我想从窗户下跳下去，大概也死不了。</p>
+
+          <div class="footer">
+            <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <br/>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../../js/resume.min.js"></script>
+
+</body>
+
+</html>
