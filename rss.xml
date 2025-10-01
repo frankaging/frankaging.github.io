@@ -7,6 +7,13 @@
     <language>en-us</language>
     <atom:link href="https://zen-wu.social/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>NOSR (1): No one should read</title>
+      <link>https://zen-wu.social/nosr/01/index.html</link>
+      <description>There are things that grow clearer as I age, while others do not scale linearly. This first NOSR post shares a few thoughts—expecting no reader, hence the name.</description>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
+      <guid>https://zen-wu.social/nosr/01/index.html</guid>
+    </item>
+    <item>
       <title>Physics and world perception from double-slit experiment</title>
       <link>https://zen-wu.social/physics/index.html</link>
       <description>I try to make sense of the world by reasoning things down to known theorms. Double-slit experiment is clearly one of the outliers of such reasoning. I was bothered by it for a while. With my limited knowledge about quantum physics, I will share some of my thoughts on how I perceive the world through the lens of physics.</description>
