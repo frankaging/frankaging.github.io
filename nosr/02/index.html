@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Hi, this is Zhengxuan. Please remove the following lines if you want to fork this webpage. Otherwise my google analytics
+    will track traffic from your website as well! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVGLSDJKXN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVGLSDJKXN');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Zhengxuan Wu">
+
+  <meta name="description" content="No One Should Read (2): The stolen monitor">
+  <meta name="keywords" content="Interpretability,NLP,Steer,Natural,Language,Processing,Machine,Learning">
+
+  <title>No One Should Read (2): The stolen monitor</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../vendor/devicons/css/devicons.min.css" rel="stylesheet">
+  <link href="../../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="57x57" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png"
+  />
+  <link rel="apple-touch-icon" sizes="120x120" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png"
+  />
+  <link rel="apple-touch-icon" sizes="144x144" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png"
+  />
+  <link rel="apple-touch-icon" sizes="152x152" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png"
+  />
+  <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png"
+  />
+
+  <link rel="icon" type="image/png" href="../../favicon.ico"/>
+
+  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="application-name" content="Stanford University" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
+  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
+
+  <meta property="og:title" content="No One Visits (2): The stolen monitor" />
+  <meta property="og:url" content="https://zen-wu.social/nosr/02/index.html" />
+  <meta property="og:image" content="https://zen-wu.social/img/zen_mugs.png" />
+  <meta property="og:description" content="No One Should Read (2): The stolen monitor" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" /> 
+  <meta name="twitter:title" content="No One Visits (2): The stolen monitor" />
+  <meta name="twitter:description" content="No One Should Read (2): The stolen monitor" />
+  <meta name="twitter:image" content="https://zen-wu.social/img/zen_mugs.png" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="../../css/resume.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <style>
+    .content img {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-section {
+      margin-bottom: 10px;
+    }
+
+    .header-section h1 {
+      margin-bottom: 1.1rem;
+    }
+    
+    .key-takeaways-box {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 80%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: 0.85em;
+    }
+    
+    .key-takeaways-box h1 {
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .key-takeaways-box ul {
+      margin: 15px 0 0 0;
+      padding-left: 20px;
+    }
+    
+    .key-takeaways-box li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    
+    .figure-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .figure-container figcaption {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #666;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+  </style>
+
+</head>
+
+<body id="page-top">
+  <div class="outercontainer">
+    <div class="container body">
+      <div class="content heading anchor" id="home">
+        <div class="header-section">
+          <div class="profile-pic">
+            <img src="../../img/nosr_02.png" alt="nosr_02">
+          </div>
+          <div class="header-text">
+            <h1>NOSR (2): The stolen monitor</h1> 
+            
+            <p class="nav-links"><a href="../../index.html">home</a> · <a href="../../blog.html">blog</a></p>
+          </div>
+        </div>
+        
+        <div class="publication">
+            <div class="text">
+              <div class="title">quick links</div>
+              <div class="links">
+                <a href="cn_index.html">中文原版</a>
+              </div>
+            </div>
+          </div>
+          <div class="venue-year">October 09, 2025 (written in Chinese, translated to English by ChatGPT)</div>
+
+          <h2>Notebooks</h2>
+
+          <p>A Chinese teacher once made a sweeping claim that keeping a diary raises writing scores. My parents ran out of ways to deal with me, so one year I received a strange gift: a stack of notebooks. I kept at it on and off for two or three years. Sadly the notebooks were lost with a few boxes during a move in Cleveland. Most entries were routine. A few were sincere, probably written while I was in pajamas, wrapped in a quilt, the PSP 2000 on the pillow, my face close to the page under the lamp. So now I sometimes think about writing again. As I get older, whenever I want to write there is a mix of impulse and disdain. When I finish I feel like a balloon losing air. Perhaps it is the slump after a goal is reached.</p>
+
+          <figure class="figure-container">
+            <img src="../../img/cle.png" alt="Cleveland" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>Downtown Cleveland</figcaption>
+          </figure>
+
+          <p>I feel and even expect that I will slowly become the person I was as a child. I grew up under discipline yet carried a streak of defiance. I am still in school and present a disciplined posture that I only half believe. I weigh gains and losses and strike a pose. My math teacher once said his Mandarin was first class second grade, yet his Wenzhou accent was thick and full of punchlines. Every math class was language class for me. After class I would imitate his accent. I never loved math or programming. Ironically they became my tools for a living. My early idols were punks at Suzuran High, zippers and sagging pants. Now my search history is names of scientists. That is the standard move toward benefit and away from harm. I think as long as one wants to change the present, one will twist oneself up.</p>
+
+          <p>Before exams I often heard the slogan that strategically you should look down on it and tactically you should take it seriously. It means prepare before and perform with flourish in the exam. I learned only the word sneer and try to win the opposite way. Even now I carry some extra confidence. When I hear the phrases from the textbook, the teacher said, it happened before, I resist by instinct. I cut across the field. I want life to feel like film. An AE86 can outrun a GTR.</p>
+
+          <figure class="figure-container">
+            <img src="../../img/xuanzhi.png" alt="XuanZhi" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>Xuan paper</figcaption>
+          </figure>
+
+          <h2>Ritual</h2>
+
+          <p>My handwriting is a mess now. When I try to write by hand the muscles in my hand knot up in refusal. Before every exam I will turn the bag inside out and still fail to find a pen. The funny part is that I studied calligraphy for a long stretch as a child. The so called foundation never stuck. What stayed with me is the ritual of writing.</p>
+
+          <p>When I go out to write I first buy xuan paper. It comes in grades. I often like the sheets with a circle watermark in the middle. The paper feels heavier. Before writing I set a small square table by the window. Brush, ink, paper, and inkstone in order. Felt first, then the paper. New paper is hard to lie flat, so the inkstone sits on a corner. I soak the brush in a bucket to soften it. If I get impatient I jab the brush tip against the bottom of the bucket. In the end the hairs open like strands of hair. I pour ink. If I have patience I will grind a few strokes for form. After all that I can write for an afternoon. Focus does not last the whole time. Often I dip the brush full of ink and then run the tip along the rim of the clear bucket, starting at the root and pushing outward with a little pressure. Drops fall into the clean water. The ink spreads in the water into patterns. If my thoughts go with it, the unit of time becomes an afternoon.</p>
+
+          <p>That is the perfect picture of a poor student who owns too many supplies. Even now I feel the room must reach a certain atmosphere before I can work. The habit of wandering off during work has stayed too.</p>
+
+          <figure class="figure-container">
+            <img src="../../img/boston.png" alt="Boston" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>Snow in Boston</figcaption>
+          </figure>
+
+          <h2>The Stolen Monitor</h2>
+
+          <p>I spent a winter in Boston. Snow days work on me the same way as rain. The sky presses everything down and I feel wrapped. Like after a horror movie as a child, before sleep I would make sure the quilt was tucked under my hands and feet and my body shaped like a worm. One holiday evening we found a game console at home but no display. On a whim a friend and I decided to borrow a monitor from the office on the hill. We geared up. Hats on. Glasses no longer fogged since the warm breath stayed in the scarf. Body wrapped warm, cotton boots on. In deep snow I could only see the road at my feet. Inside the clothes I felt like I lived in another world, sealed off from the outside. We walked the whole way and did not feel tired. We took a monitor and a power cable and headed home excited. Gloves proved useful. Back down the hill the monitor soon sat on the desk. The game was likely Resident Evil on a train. I cannot remember. We never made it past the first setup. The next day we returned the monitor. When I stole the screen I must have set my heart on an all nighter. That night we went to bed early. I did not expect the game to end faster than the time to walk up and down the hill.</p>
+
+          <p>The next trip back to Boston was also a snow day. It was a road trip. I remember parking and going to a Chinese restaurant with few people. Two people ordered four dishes. An old school dining room with red lights. Festive. There was heating of course, yet snow does something that makes people want to huddle closer. The content of the talk did not matter. The speech had the feeling of being gathered together.</p>
+
+          <figure class="figure-container">
+            <img src="../../img/xiangfei.png" alt="XiangFei" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>Torreya tree</figcaption>
+          </figure>
+
+          <h2>Wet Hills</h2>
+
+          <p>I have never liked early rising and I still long for the cleanliness of morning. One Tomb Sweeping Day in childhood we went to the countryside to pay respects. We got up very early. I did not go willingly. The path in the hills was covered in mist. I did not know the way and simply followed along. White all around. I could not see the group in front. A field of tea bushes in rows and a hint of an old torreya tree in the middle. We went around the tree. Morning has a special smell, a sweet earthy scent. After we came down, the mist lifted by itself. I did not feel joy.</p>
+
+          <p>In late spring in California a few short rains green the hills. In the morning the same scent is there. I prefer to move in silence, so I will take a mountain road after midnight when no one is around. With the window down, the smell comes in.</p>
+
+          <div class="footer">
+            <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <br/>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../../js/resume.min.js"></script>
+
+</body>
+
+</html>

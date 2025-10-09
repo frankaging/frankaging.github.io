@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <!-- Hi, this is Zhengxuan. Please remove the following lines if you want to fork this webpage. Otherwise my google analytics
+    will track traffic from your website as well! -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVGLSDJKXN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+
+    gtag('config', 'G-HVGLSDJKXN');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Zhengxuan Wu">
+
+  <meta name="description" content="无人问答 (2): The stolen monitor">
+  <meta name="keywords" content="Interpretability,NLP,Steer,Natural,Language,Processing,Machine,Learning">
+
+  <title>无人问答 (2): The stolen monitor</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../vendor/devicons/css/devicons.min.css" rel="stylesheet">
+  <link href="../../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="57x57" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-114x114.png"
+  />
+  <link rel="apple-touch-icon" sizes="120x120" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-120x120.png"
+  />
+  <link rel="apple-touch-icon" sizes="144x144" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-144x144.png"
+  />
+  <link rel="apple-touch-icon" sizes="152x152" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-152x152.png"
+  />
+  <link rel="apple-touch-icon" sizes="180x180" href="//www-media.stanford.edu/assets/favicon/apple-touch-icon-180x180.png"
+  />
+
+  <link rel="icon" type="image/png" href="../../favicon.ico"/>
+
+  <link rel="mask-icon" href="//www-media.stanford.edu/assets/favicon/safari-pinned-tab.svg" color="#ffffff">
+  <meta name="application-name" content="Stanford University" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="//www-media.stanford.edu/assets/favicon/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="//www-media.stanford.edu/assets/favicon/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
+  <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
+
+  <meta property="og:title" content="无人问答 (2): The stolen monitor" />
+  <meta property="og:url" content="https://zen-wu.social/nosr/02/cn_index.html" />
+  <meta property="og:image" content="https://zen-wu.social/img/zen_mugs.png" />
+  <meta property="og:description" content="无人问答 (2): The stolen monitor" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" /> 
+  <meta name="twitter:title" content="无人问答 (2): The stolen monitor" />
+  <meta name="twitter:description" content="无人问答 (2): The stolen monitor" />
+  <meta name="twitter:image" content="https://zen-wu.social/img/zen_mugs.png" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="../../css/resume.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
+  <style>
+    .content img {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-section {
+      margin-bottom: 10px;
+    }
+
+    .header-section h1 {
+      margin-bottom: 1.1rem;
+    }
+    
+    .key-takeaways-box {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 80%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-size: 0.85em;
+    }
+    
+    .key-takeaways-box h1 {
+      margin-top: 0;
+      color: #333;
+    }
+    
+    .key-takeaways-box ul {
+      margin: 15px 0 0 0;
+      padding-left: 20px;
+    }
+    
+    .key-takeaways-box li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    
+    .figure-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .figure-container figcaption {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #666;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+  </style>
+
+</head>
+
+<body id="page-top">
+  <div class="outercontainer">
+    <div class="container body">
+      <div class="content heading anchor" id="home">
+        <div class="header-section">
+          <div class="profile-pic">
+            <img src="../../img/nosr_02.png" alt="nosr_02">
+          </div>
+          <div class="header-text">
+            <h1>NOSR (2): The stolen monitor</h1> 
+            
+            <p class="nav-links"><a href="../../index.html">首页</a> · <a href="../../blog.html">博客</a></p>
+          </div>
+        </div>
+        
+        <div class="publication">
+            <div class="text">
+              <div class="title">快速链接</div>
+              <div class="links">
+                <a href="index.html">english version</a>
+              </div>
+            </div>
+          </div>
+          <div class="venue-year">2025年10月09日</div>
+
+
+          <h2>日记本</h2>
+
+          <p>某个语文老师有一个暴论，写日记能提高写作分数。父母拿我没辙，于是有一年的莫名收到的礼物是一些日记本。断断续续记了两三年。可惜，后来日记本在克利夫兰搬家的时候跟着几个箱子一起丢了。大部分应该是流水账，真情流露的也有，大概是我穿着睡衣，裹着被子，把PSP2000放在枕头边，顶着床头灯，趴在写的。于是，现在偶尔就也会想着写点东西。年纪稍长一些，每次想写，有点冲动和不屑。每次写完，像泄了气的气球，大概归因于目标达成后的抑郁 (Slump)。</p>
+
+          <figure class="figure-container">
+            <img src="../../img/cle.png" alt="Cleveland" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>克利夫兰市中心</figcaption>
+          </figure>
+
+
+          <p>总感觉，也期待，自己会慢慢活成小时候的样子。在从小的规训下，大概也算反骨一身。无奈，我现在还在学校，却也拧巴着装成了规训过的状态，理性地权衡些利弊，故作点姿态。以前数学课的老师，自我介绍的时候说自己普通话是甲级二等。但他温州口音很重，又带梗。每次，数学课就是我的语文课，下了课就会模仿数学老师的口音。从没热爱过数学或者编程；可笑，现在成了谋生的利器。以前的偶像大概是铃兰高中的学长，裤链和永远提不上去的裤子；现在搜索记录里都是一些科学家之类的云云。大概算是标准意义上的趋利避害。我想，只要想着改变当下的状态，人都是要拧巴着的。</p>
+
+          <p>常听在考试前“战略上要藐视，战术上要重视”的荼毒表述。大概的意思是，考前未雨绸缪，考试挥斥方遒。我大概是想反向吃鸡，就学到了“藐视”二字。到现在也会有一些额外的自信。每当听到“课本上的”，“老师说的”，“以前发生的”，我总本能地不想遵循，近道远抄。生活想要活成电影，AE86也能跑过GTR。</p>
+
+          <figure class="figure-container">
+            <img src="../../img/xuanzhi.png" alt="XuanZhi" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>宣纸</figcaption>
+          </figure>
+
+          <h2>仪式感</h2>
+
+          <p>现在，我的字奇丑无比。拿笔手写的时候，我的手上的肌肉感觉打结似地抗拒。另外，每次考试前，一翻包，找不到一只笔。可笑的是，小时候学过一长段时间书法。所谓的“童子功”跟我毫无关系。写字的仪式感倒是留了下来。</p>
+
+          <p>出门，要先买宣纸。宣纸大概也分三六九等。我经常觉得中间带一个圈的好看，纸感觉重一些。写之前，一张小方桌，要对着窗口。笔墨纸砚，排列整齐。先铺上毛毡，再盖上宣纸。刚买的宣纸不太方便摊平，砚台压在一个角上。毛笔放进水桶里，浸湿泡软。有时等不及，就把毛笔头猛戳在水桶底，乱捅一气。总之，毛笔头最终会像头发丝一样自然散开。倒出墨水，如果那天耐心十足，会象征性地磨两下。一顿操作之后，就会写一下午。一直专注写字是不存在的。我常常写到一半，把毛笔头浸满墨水，然后沿着透明的水桶上沿，从笔头的底部慢慢向外撇，向下施加一些压力。笔头的墨珠，就滴到干净的水桶里的。墨水在水里慢慢散开不同的花纹。我的心思如果随着散开去，时间的单位就是一个下午。</p>
+
+          <p>以上描述，大概就是贴切形容了差生文具多。让我现在还总觉得房间里的氛围需要到达一个标准，我才开始工作。当然工作之余的开小差也都留了下来。</p>
+
+          <figure class="figure-container">
+            <img src="../../img/boston.png" alt="Boston" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>波士顿的雪天</figcaption>
+          </figure>
+
+          <h2>偷走的屏幕</h2>
+
+          <p>在波士顿度过了一个冬天。雪天和雨天一样，对我有特殊的魔力。天空落下来，把一切都要压在一起，就有种被包裹的安全感。像小时候看完鬼片，睡觉前要反复确认棉被紧紧压在手和脚的下面，一条虫的形状。大概是某个过节的晚上。跟朋友发现家里有台游戏机，但没有显示屏。突发奇想，决定去山上的办公室里，暂时借用屏幕。于是，两人整装待发。戴上帽子，眼镜倒是不再起雾，呼出的热气都存在了围脖里。身体裹得厚实，脚上踩着棉鞋，大片的雪，只能看见脚下的路。衣服里的我像是另一个世界，与外界隔绝。大概是一路走着去的，不觉得累。拿上屏幕，充电线，就兴奋地回家，手套也派上了用场。一路下山，屏幕一会就出现在了房间的桌上。游戏大概是生化危机，场景是一辆火车。记不太清了，到最后也一直卡在第一个游戏设定。第二天，就把屏幕还了回去。我想偷走屏幕的时候，下定的应该是通宵的决心。那晚早睡的时候，也不曾想过游戏收场的时间比上山下山的路途还快。</p>
+
+          <p>再回波士顿也是一个雪天。是road trip吧。我能记得停完车，去了一家中餐馆，店里没什么人，两个人点了四道菜。老式的中餐馆，店里的灯是红色为主的，倒是有节日的气氛。店里都有暖气，但下雪天的缘故吧，人与人之间总想要本能地凑近一些。谈话的内容也不重要，但言语里都有簇拥的感觉。</p>
+
+          <figure class="figure-container">
+            <img src="../../img/xiangfei.png" alt="XiangFei" style="max-width: 50%; height: auto; border: 1px solid #e0e0e0; border-radius: 0; box-shadow: none;">
+            <figcaption>香榧树</figcaption>
+          </figure>
+
+          <h2>湿的，山丘</h2>
+
+          <p>从没喜欢过早起，也留恋清晨的干净。小时候一次清明节，去乡下扫墓。一大早起来，绝不是自愿。山间小道，满陇云雾。我不认路，就一路随行。白茫茫一片，看不清走在最前面的一伙人。一片茶山，茶树排列整齐，中间隐约一颗老的香榧树，便一路绕树而行。清晨有一股特殊的味道，大概是清甜的土腥味。下山后，云雾自然散去，却也不甚欢喜。</p>
+
+          <p>加州的春末会有几场小雨，土丘泛点绿。清晨，也能闻着一样的味道。不过愿意衣锦夜行，后半夜找个没人的山路，车窗外倒也能闻见。</p>
+
+          <div class="footer">
+            <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
+          </div>
+
+      </div>
+    </div>
+  </div>
+  <br/>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../../js/resume.min.js"></script>
+
+</body>
+
+</html>
