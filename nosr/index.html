@@ -28,6 +28,7 @@
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -74,8 +75,84 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   
   <style>
+    body {
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .publication .title {
+      font-weight: 400 !important;
+      color: #000;
+    }
+
+    .header-section {
+      margin-bottom: 10px;
+    }
+
     .header-section h1 {
-      margin-bottom: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .nav-links {
+      font-size: 1em;
+      margin-bottom: 20px !important;
+    }
+
+    .nav-links a {
+      color: #aaa !important;
+      font-weight: 400 !important;
+      background: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      text-decoration: none;
+      border-bottom: none !important;
+    }
+
+    .nav-links a:hover {
+      color: #555 !important;
+      text-decoration: underline;
+      border-bottom: none !important;
+    }
+
+    .nav-links a.nav-primary {
+      color: #222 !important;
+      font-weight: 500 !important;
+    }
+
+    .nav-links a.nav-primary:hover {
+      color: #000 !important;
+    }
+
+    .nav-links .sep {
+      color: #ddd;
+      margin: 0 5px;
+    }
+
+    a {
+      color: #333 !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    }
+
+    a:hover {
+      color: #000 !important;
+      border-bottom-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .publication .title a {
+      color: #222 !important;
+      border-bottom: none !important;
+    }
+
+    .publication .title a:hover {
+      color: #000 !important;
+      border-bottom: none !important;
+    }
+
+    .heading p a:not(.nav-links a) {
+      color: #333 !important;
+      background-color: rgba(0, 0, 0, 0.05) !important;
     }
   </style>
 
@@ -86,12 +163,9 @@
     <div class="container body">
       <div class="content heading anchor" id="home">
         <div class="header-section">
-          <div class="profile-pic">
-            <img src="../img/zen_lake_tahoe_mugs_bw.png" alt="Zhengxuan Wu">
-          </div>
           <div class="header-text">
-            <h1>/blog/nosr</h1> 
-            <p class="nav-links"><a href="../index.html">home</a> · <a href="../blog.html">blog</a></p>
+            <h1>no one should read</h1>
+            <p class="nav-links"><a href="../index.html" class="nav-primary">home</a><span class="sep">/</span><a href="../blog.html">blog</a></p>
           </div>
         </div>
         
@@ -102,7 +176,15 @@
         
         <div class="publication">
           <div class="text">
-            <div class="title"><span style="text-decoration: none; margin-top: 0; margin-right: 0.5rem; padding: 0.25rem 0.5rem; background-color: #ff6600; color: white; border-radius: 5px; font-size: 0.8em; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: all 0.2s ease; vertical-align: middle;">NEW</span><a href="05/cn_index.html">散步 (Taking a walk)</a></div>
+            <div class="title"><span style="text-decoration: none; margin-top: 0; margin-right: 0.5rem; padding: 0.15rem 0.45rem; background-color: rgba(0,0,0,0.08); color: #333; border-radius: 3px; font-size: 0.75em; font-weight: 500; letter-spacing: 0.04em; vertical-align: middle;">NEW</span><a href="06/index.html">A-Z</a></div>
+            <div class="venue-year">March 23, 2026</div>
+            <div class="authors"></div>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="text">
+            <div class="title"><a href="05/cn_index.html">散步 (Taking a walk)</a></div>
             <div class="venue-year">March 11, 2026</div>
             <div class="authors">
                 

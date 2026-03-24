@@ -7,6 +7,13 @@
     <language>en-us</language>
     <atom:link href="https://zen-wu.social/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>A-Z</title>
+      <link>https://zen-wu.social/nosr/06/index.html</link>
+      <description>A photo series, A through Z.</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid>https://zen-wu.social/nosr/06/index.html</guid>
+    </item>
+    <item>
       <title>NOSR — No One Should Read</title>
       <link>https://zen-wu.social/nosr/index.html</link>
       <description>A quieter corner: series posts collected on a separate NOSR page.</description>

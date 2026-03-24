@@ -265,13 +265,14 @@ h2 {
 }
 
 .links a {
-  color: rgb(204, 101, 0);
-  background-color: rgba(204, 101, 0, 0.08);
+  color: #333;
+  background-color: rgba(0, 0, 0, 0.06);
   padding: 1px 3px;
   border-radius: 2px;
   margin-right: 2px;
   margin-left: 2px;
   display: inline-block;
+  border-bottom: none !important;
 }
 
 .links a:first-child {

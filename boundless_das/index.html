@@ -29,6 +29,7 @@
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -75,18 +76,85 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   
   <style>
-    .content img {
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    body {
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
     }
-    
+
     .header-section {
       margin-bottom: 10px;
     }
 
     .header-section h1 {
-      margin-bottom: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .nav-links {
+      font-size: 1em;
+      margin-bottom: 20px !important;
+    }
+
+    .nav-links a {
+      color: #aaa !important;
+      font-weight: 400 !important;
+      background: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      text-decoration: none;
+      border-bottom: none !important;
+    }
+
+    .nav-links a:hover {
+      color: #555 !important;
+      text-decoration: underline;
+      border-bottom: none !important;
+    }
+
+    .nav-links a.nav-primary {
+      color: #222 !important;
+      font-weight: 500 !important;
+    }
+
+    .nav-links a.nav-primary:hover {
+      color: #000 !important;
+    }
+
+    .nav-links .sep {
+      color: #ddd;
+      margin: 0 5px;
+    }
+
+    a {
+      color: #333 !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    }
+
+    a:hover {
+      color: #000 !important;
+      border-bottom-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .publication .title a {
+      color: #222 !important;
+      border-bottom: none !important;
+    }
+
+    .publication .title a:hover {
+      color: #000 !important;
+      border-bottom: none !important;
+    }
+
+    .heading p a:not(.nav-links a) {
+      color: #333 !important;
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .content img {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
   </style>
 
@@ -98,13 +166,9 @@
     <div class="container body">
       <div class="content heading anchor" id="home">
         <div class="header-section">
-          <div class="profile-pic">
-            <img src="../img/das-mug.png" alt="Zhengxuan Wu">
-          </div>
           <div class="header-text">
-            <h1>Scaling interpretability with LLMs</h1> 
-            
-            <p class="nav-links"><a href="../index.html">home</a> · <a href="../blog.html">blog</a></p>
+            <h1>Scaling interpretability with LLMs</h1>
+            <p class="nav-links"><a href="../index.html" class="nav-primary">home</a><span class="sep">/</span><a href="../blog.html">blog</a></p>
           </div>
         </div>
 
@@ -126,7 +190,7 @@
         
         <h2>How to identify causal mechanisms in LLMs?</h2>
 
-        <p><strong>interpretability tools poorly scale with LLMs</strong> as they often focus on a small model that is finetuned for a specific task. In this paper, we propose a new method based on the theory of <em>causal abstraction</em> to find representations that play a given causal role in LLMs. With our tool, we discover that the <strong>Alpaca model implements a causal model with interpretable intermediate variables</strong> when solving a simple numerical reasoning task. Furthermore, we find that these <strong>causal mechanisms are robust</strong> to changes in inputs and instructions. Our causal mechanism discovery framework is generic and ready for LLMs with billions of parameters.</p>
+        <p><strong>Interpretability tools poorly scale with LLMs</strong> as they often focus on a small model that is finetuned for a specific task. In this paper, we propose a new method based on the theory of <em>causal abstraction</em> to find representations that play a given causal role in LLMs. With our tool, we discover that the <strong>Alpaca model implements a causal model with interpretable intermediate variables</strong> when solving a simple numerical reasoning task. Furthermore, we find that these <strong>causal mechanisms are robust</strong> to changes in inputs and instructions. Our causal mechanism discovery framework is generic and ready for LLMs with billions of parameters.</p>
 
         <div style="margin: 2em 0;">
           <img src="../img/DIIT.svg" style="max-width: 100%; height: auto;" alt="Diagram of boundless DAS">
@@ -219,7 +283,7 @@
         <h2>Limitations</h2>
         <p>Our work marks a first step forward toward understanding the internal causal mechanism of LLMs. It has limitations and it potentially opens up a line of work in this direction.</p>
         <ol>
-          <li><strong>go bigger.</strong> we hope our framework can be applied to study the most powerful LLMs (e.g., GPT-3 with 175B or GPT-4) when they are released since current work still focuses on a simple reasoning task that smaller LLMs can solve.
+          <li><strong>go bigger.</strong> We hope our framework can be applied to study the most powerful LLMs (e.g., GPT-3 with 175B or GPT-4) when they are released since current work still focuses on a simple reasoning task that smaller LLMs can solve.
           <li><strong>deterministic causal model.</strong> Our work relies on the high-level causal models known as <em>a priori</em> which is unrealistic in many real-world applications where the high-level causal models are hidden as well. Future works can investigate ways to learn high-level causal graphs through discrete search based on heuristics or even end-to-end optimized with
           <li><strong>ultimate scalability.</strong> The scalability of our method is still bounded by the hidden dimension size of the search space. It is now impossible to search over a group of token representations in LLMs as the rotation matrix grows exponentially as the hidden dimension grows.
           <li><strong>no conclusive answer.</strong> Our evaluation paradigm could rank between proposing alignments based on IIA (i.e., greybox) but could not make conclusive inferences about failed alignments.
@@ -252,7 +316,7 @@
           </div>
         </div>
 
-        <h2>acknowledgements</h2>
+        <h2>Acknowledgements</h2>
         <p>We thank everyone in the Stanford NLP group who offers many great thoughts through many offline discussions.</p>
 
         <div class="footer">

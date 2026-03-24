@@ -36,6 +36,7 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -74,8 +75,69 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   
   <style>
+    body {
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
     .header-section h1 {
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .nav-links {
+      font-size: 1em;
+      margin-bottom: 20px !important;
+    }
+
+    .nav-links a {
+      color: #aaa !important;
+      font-weight: 400 !important;
+      background: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: #555 !important;
+      text-decoration: underline;
+    }
+
+    .nav-links a.nav-primary {
+      color: #222 !important;
+      font-weight: 500 !important;
+    }
+
+    .nav-links a.nav-primary:hover {
+      color: #000 !important;
+      text-decoration: underline;
+    }
+
+    .nav-links .sep {
+      color: #ddd;
+      margin: 0 5px;
+    }
+
+    .zen-highlight {
+      color: #222 !important;
+      background-color: rgba(0, 0, 0, 0.05) !important;
+      font-weight: 600;
+    }
+
+    .heading p a:not(.nav-links a) {
+      color: #333 !important;
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .publication .authors strong {
+      color: #222 !important;
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .publication .title a:hover {
+      color: #000 !important;
     }
     
     .chinese-name {
@@ -90,11 +152,11 @@
     .interpreting span {
       animation: charWave 4s ease-in-out infinite;
     }
-    
+
     .controlling span {
       animation: charWave 4s ease-in-out infinite 2s;
     }
-    
+
     .interpreting span:nth-child(1) { animation-delay: 0s; }
     .interpreting span:nth-child(2) { animation-delay: 0.2s; }
     .interpreting span:nth-child(3) { animation-delay: 0.4s; }
@@ -107,7 +169,7 @@
     .interpreting span:nth-child(10) { animation-delay: 1.8s; }
     .interpreting span:nth-child(11) { animation-delay: 2.0s; }
     .interpreting span:nth-child(12) { animation-delay: 2.2s; }
-    
+
     .controlling span:nth-child(1) { animation-delay: 2s; }
     .controlling span:nth-child(2) { animation-delay: 2.2s; }
     .controlling span:nth-child(3) { animation-delay: 2.4s; }
@@ -119,10 +181,10 @@
     .controlling span:nth-child(9) { animation-delay: 3.6s; }
     .controlling span:nth-child(10) { animation-delay: 3.8s; }
     .controlling span:nth-child(11) { animation-delay: 4.0s; }
-    
+
     @keyframes charWave {
       0%, 95%, 100% { color: inherit; }
-      5% { color: rgba(204, 101, 0, 0.6); }
+      5% { color: rgba(0, 0, 0, 0.35); }
     }
     
     .drop-cap {
@@ -161,7 +223,7 @@
               </audio>
             </h1> 
             
-            <p class="nav-links"><a href="blog.html" style="background-color: #ff6600; color: white">blog</a> · <a href="https://github.com/frankaging">git</a> · <a href="pdf/cv.pdf">cv</a> · <a href="https://twitter.com/zhengxuanzenwu">x</a> · <a href="mailto:wuzhengx@cs.stanford.edu">@</a> · <a href="https://scholar.google.com/citations?user=CBvE6lwAAAAJ&hl=en">scholar</a></p>
+            <p class="nav-links"><a href="blog.html" class="nav-primary">blog</a><span class="sep">/</span><a href="https://github.com/frankaging">git</a><span class="sep">/</span><a href="pdf/cv.pdf">cv</a><span class="sep">/</span><a href="https://twitter.com/zhengxuanzenwu">x</a><span class="sep">/</span><a href="mailto:wuzhengx@cs.stanford.edu">@</a><span class="sep">/</span><a href="https://scholar.google.com/citations?user=CBvE6lwAAAAJ&hl=en">scholar</a></p>
           </div>
         </div>
         
@@ -170,8 +232,7 @@
             i earned my CS Ph.D. from Stanford University, advised by chris^2: 
             <span id="coadvisors"></span>.
             and i spent a few years on learning a 
-            few things about <a href="https://www.tandfonline.com/doi/abs/10.1080/00102202.2020.1738411" style="text-decoration: underline; background: none;">
-              space combustion</a> and <a href="https://www.vmware.com/docs/vmware-cloud-native-storage-infographic" style="text-decoration: underline; background: none;">cloud computing</a>.</p>
+            few things about <a href="https://www.tandfonline.com/doi/abs/10.1080/00102202.2020.1738411" style="text-decoration: none; background: none; border-bottom: 1px solid rgba(0, 0, 0, 0.25);">space combustion</a> and <a href="https://www.vmware.com/docs/vmware-cloud-native-storage-infographic" style="text-decoration: none; background: none; border-bottom: 1px solid rgba(0, 0, 0, 0.25);">cloud computing</a>.</p>
 
             <p>i'm interested in <span class="interpreting"><span>i</span><span>n</span><span>t</span><span>e</span><span>r</span><span>p</span><span>r</span><span>e</span><span>t</span><span>i</span><span>n</span><span>g</span></span> language models and, also, <span class="controlling"><span>c</span><span>o</span><span>n</span><span>t</span><span>r</span><span>o</span><span>l</span><span>l</span><span>i</span><span>n</span><span>g</span></span> them.</p>
           
@@ -181,7 +242,7 @@
 
         <div class="publication">
           <div class="text">
-            <div class="title"><a name="ms_reps" href="pdf/zen_phd_dissertation.pdf">Mechanistic interpretability and control for language models</a></div>
+            <div class="title"><a name="ms_reps" href="pdf/zen_phd_dissertation.pdf" onclick="gtag('event', 'download', {'event_category': 'PDF', 'event_label': 'PhD Dissertation'});">Mechanistic interpretability and control for language models</a></div>
             <div class="venue-year">Ph.D. dissertation, 2026</div>
             <div class="authors">
                 <strong>Zhengxuan Wu</strong>
