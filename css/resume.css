@@ -11,7 +11,7 @@ body {
   font-family: "Inconsolata", "Monaco", "Consolas", "Courier New", monospace;
   font-size: 16px;
   line-height: 1.6;
-  color: #555;
+  color: #333;
   background: #faf9f7;
   margin: 0;
   padding: 0;
@@ -313,7 +313,7 @@ h2 {
 
 .publication .authors {
   font-size: 14px;
-  color: #666;
+  color: #444;
   margin-bottom: 5px;
   line-height: 1.4;
 }

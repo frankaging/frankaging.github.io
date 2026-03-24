@@ -184,7 +184,7 @@
 
     @keyframes charWave {
       0%, 95%, 100% { color: inherit; }
-      5% { color: rgba(0, 0, 0, 0.35); }
+      5% { color: var(--wave-color, rgba(0,0,0,0.35)); }
     }
     
     .drop-cap {
@@ -199,11 +199,18 @@
     .drop-cap-paragraph {
       text-align: justify;
     }
+
+    /* charWave dark mode color */
+    [data-theme="dark"] { --wave-color: rgba(255,255,255,0.45); }
   </style>
+
+  <link rel="stylesheet" href="css/dark.css">
+
+  <script>/* Anti-FOUC */(function(){try{var t=localStorage.getItem('theme');if(!t){var h=new Date().getHours();t=(h>=20||h<6)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 
 <body id="page-top">
-
+  <button id="theme-toggle" aria-label="Toggle theme"></button>
 
   <div class="outercontainer">
     <div class="container body">
@@ -221,8 +228,8 @@
                 <source src="assets/name_p.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
               </audio>
-            </h1> 
-            
+            </h1>
+
             <p class="nav-links"><a href="blog.html" class="nav-primary">blog</a><span class="sep">/</span><a href="https://github.com/frankaging">git</a><span class="sep">/</span><a href="pdf/cv.pdf">cv</a><span class="sep">/</span><a href="https://twitter.com/zhengxuanzenwu">x</a><span class="sep">/</span><a href="mailto:wuzhengx@cs.stanford.edu">@</a><span class="sep">/</span><a href="https://scholar.google.com/citations?user=CBvE6lwAAAAJ&hl=en">scholar</a></p>
           </div>
         </div>
@@ -437,7 +444,7 @@
   });
 </script>
 
-
+<script src="js/theme.js"></script>
 
 </body>
 

@@ -75,6 +75,7 @@
 
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="../css/resume.css">
+  <link rel="stylesheet" href="../css/dark.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   
   <style>
@@ -177,9 +178,11 @@
   </style>
 
 
+  <script>/* Anti-FOUC */(function(){try{var t=localStorage.getItem('theme');if(!t){var h=new Date().getHours();t=(h>=20||h<6)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 
 <body id="page-top">
+  <button id="theme-toggle" aria-label="Toggle theme"></button>
   <div class="outercontainer">
     <div class="container body">
       <div class="content heading anchor" id="home">
@@ -355,6 +358,7 @@
   <script src="../js/resume.min.js"></script>
   <script src="../js/header.js?prefix="></script>
 
+  <script src="../js/theme.js"></script>
 </body>
 
 </html>

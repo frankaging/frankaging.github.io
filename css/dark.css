@@ -1,0 +1,165 @@
+/* ============================================================
+   Dark mode theme — zen-wu.social
+   Applied via [data-theme="dark"] on <html>
+   ============================================================ */
+
+/* --- Theme toggle button — sits with the name banner, scrolls away --- */
+#theme-toggle {
+  position: absolute;
+  top: 68px;
+  right: max(20px, calc((100vw - 700px) / 2));
+  width: 20px;
+  height: 20px;
+  background: #111;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+[data-theme="dark"] #theme-toggle {
+  background: #e8e8e8;
+}
+
+/* --- Base --- */
+[data-theme="dark"] body {
+  background: #111 !important;
+  color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] figcaption {
+  color: #f0f0f0 !important;
+}
+
+/* --- Headings --- */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .heading h1,
+[data-theme="dark"] .heading h3 {
+  color: #e8e8e8 !important;
+}
+
+/* --- Links --- */
+[data-theme="dark"] a {
+  color: #999 !important;
+  border-bottom-color: rgba(255,255,255,0.15) !important;
+}
+
+[data-theme="dark"] a:hover {
+  color: #eee !important;
+  border-bottom-color: rgba(255,255,255,0.4) !important;
+}
+
+/* --- Nav links --- */
+[data-theme="dark"] .nav-links a {
+  color: #555 !important;
+  border-bottom: none !important;
+}
+
+[data-theme="dark"] .nav-links a:hover {
+  color: #999 !important;
+}
+
+[data-theme="dark"] .nav-links a.nav-primary {
+  color: #bbb !important;
+}
+
+[data-theme="dark"] .nav-links a.nav-primary:hover {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .nav-links .sep {
+  color: #333 !important;
+}
+
+/* --- Publications --- */
+[data-theme="dark"] .publication .title {
+  color: #777 !important;
+}
+
+[data-theme="dark"] .publication .title a {
+  color: #ccc !important;
+  border-bottom: none !important;
+}
+
+[data-theme="dark"] .publication .title a:hover {
+  color: #fff !important;
+}
+
+[data-theme="dark"] .publication .authors {
+  color: #ccc !important;
+}
+
+[data-theme="dark"] .publication .authors a {
+  color: #999 !important;
+}
+
+[data-theme="dark"] .publication .authors strong {
+  color: #ddd !important;
+  background-color: rgba(255,255,255,0.08) !important;
+}
+
+[data-theme="dark"] .venue-year,
+[data-theme="dark"] .equal-note {
+  color: #555 !important;
+}
+
+/* --- Inline highlighted text / subtle backgrounds --- */
+[data-theme="dark"] .heading p a:not(.nav-links a),
+[data-theme="dark"] #intro-text a {
+  color: #bbb !important;
+  background-color: rgba(255,255,255,0.08) !important;
+  border-bottom-color: rgba(255,255,255,0.15) !important;
+}
+
+[data-theme="dark"] .zen-highlight {
+  color: #e0e0e0 !important;
+  background-color: rgba(255,255,255,0.08) !important;
+}
+
+/* --- Links section (quick links) --- */
+[data-theme="dark"] .links a {
+  color: #999 !important;
+}
+
+/* --- Footer --- */
+[data-theme="dark"] .footer a {
+  color: #555 !important;
+}
+
+[data-theme="dark"] .footer a:hover {
+  color: #999 !important;
+}
+
+/* --- Key takeaways box --- */
+[data-theme="dark"] .key-takeaways-box {
+  background-color: #1a1a1a !important;
+  border-color: #2a2a2a !important;
+  color: #bbb !important;
+}
+
+/* --- Photo gallery --- */
+[data-theme="dark"] .photo-gallery img {
+  opacity: 0.88;
+}
+
+/* --- Inline content images (figures) --- */
+[data-theme="dark"] .content img:not(.chinese-name):not(.drop-cap) {
+  opacity: 0.85;
+}
+
+/* --- Chinese name SVG/image: invert black ink to white --- */
+[data-theme="dark"] .chinese-name {
+  filter: invert(1);
+}
+
+/* --- RSS badge --- */
+[data-theme="dark"] .rss-link {
+  color: #666 !important;
+  border-color: #444 !important;
+}
