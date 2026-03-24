@@ -135,6 +135,12 @@
       border-bottom-color: rgba(0, 0, 0, 0.5);
     }
 
+    .publication .title {
+      font-weight: 300;
+      color: #bbb;
+      font-size: 0.8em;
+    }
+
     .publication .title a {
       color: #222 !important;
       border-bottom: none !important;
@@ -270,7 +276,7 @@
           <div class="venue-year">July 12, 2025</div>
 
                       <div class="key-takeaways-box">
-             <h1>tl;dr.</h1>
+             <h1>tl;dr</h1>
              <ul>
                  <li>Besides performance, efficiency is crucial for steering.</li>
                  <li>Avoid saying rank-1 steering is just efficient in a hand-wavy way.</li>
@@ -278,7 +284,7 @@
              </ul>
             </div>
   
-          <h1>Introduction.</h1>
+          <h1>Introduction</h1>
 
           <p>Language models (LMs) can be steered toward desired behaviors through the following primary 
             approaches: <strong>prompting</strong> guides models via carefully crafted input instructions, 
@@ -308,7 +314,7 @@
                 a convincing case as alternatives to prompting, lightweight finetuning, 
                 or inference-time scaling techniques.</strong></p>
 
-                <h1>Efficiency of LM steering methods.</h1>
+                <h1>Efficiency of LM steering methods</h1>
                 
                                  <p>We first introduce these methods and outline 
                    two aspects: memory and compute costs. We leave out 
@@ -345,7 +351,7 @@
                     </table>
                     
                 
-          <h2>Prompting.</h2>
+          <h2>Prompting</h2>
 
 
           <div style="text-align: center; margin: 20px 0;">
@@ -440,7 +446,7 @@
              Because feed-forward layers dominate FLOPs, even a 400-token steering prompt adds well <strong>under 1% compute overhead</strong> once the context reaches just a few thousand tokens—exactly the regime used in today’s long-context inference.
             
           
-                      <h2>Steering vectors.</h2>
+                      <h2>Steering vectors</h2>
 
           <div style="text-align: center; margin: 20px 0;">
             <img src="../img/steering_vector.svg" alt="Steering vector" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
@@ -495,7 +501,7 @@
             </tbody>
                        </table>
 
-          <h2>PEFTs.</h2>
+          <h2>PEFTs</h2>
 
           <div style="text-align: center; margin: 20px 0;">
             <img src="../img/adaptor.svg" alt="PEFT" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
@@ -530,7 +536,7 @@
             </tbody>
                        </table>
 
-          <h2>ReFTs.</h2>
+          <h2>ReFTs</h2>
 
           <div style="text-align: center; margin: 20px 0;">
             <img src="../img/reft.svg" alt="ReFT" style="max-width: 80%; height: auto; border: none; border-radius: 0; box-shadow: none;">
@@ -566,7 +572,7 @@
           </table>
 
 
-          <h1>Beyond steering performance.</h1>
+          <h1>Beyond steering performance</h1>
           
           <p>Our analysis shows that while representation-level approaches 
           (rank-1 vectors, LoRA, ReFT) have narrowed the gap, 
@@ -574,11 +580,11 @@
           
           <p><strong>Prompting has limitations.</strong> Large context windows shrink the efficiency gap, but prompting remains vulnerable to prompt-injection and jail-breaking attacks that can override or dilute suppression prompts. Reference-free Preference Steering (RePS) <a href="https://arxiv.org/abs/2505.20809">[6]</a> addresses this: in suppression mode it matches the standard language-modeling objective on Gemma-2 and surpasses it on the larger Gemma-3 variants, all while resisting the prompt-based jailbreaks that defeat prompting. These findings suggest that representation-level steering can provide a safer, interpretable, and more robust alternative to prompting when dependable suppression is needed. </p>
           
-                     <h1>Conclusion.</h1>
+                     <h1>Conclusion</h1>
  
            <p>In this blog post, we argue that future works in representation steering methods should also consider computational efficiency in order to make a convincing case as alternatives to prompting. We hope this analysis can help guide future research in this direction.</p>
  
-           <h2>How to Cite</h2>
+           <h2>how to cite</h2>
 
            <div class="publication">
              <div class="text">

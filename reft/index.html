@@ -136,6 +136,12 @@
       border-bottom-color: rgba(0, 0, 0, 0.5);
     }
 
+    .publication .title {
+      font-weight: 300;
+      color: #bbb;
+      font-size: 0.8em;
+    }
+
     .publication .title a {
       color: #222 !important;
       border-bottom: none !important;
@@ -197,7 +203,7 @@
           <p style="margin-top: 1em; font-style: italic;">In this figure, we illustrate ReFT. The left panel depicts an intervention I: the intervention function Φ is applied to hidden representations at positions P in layer L. The right panel depicts the hyperparameters we tune when experimenting with LoReFT. Specifically, we intervene on representations for 2 prefix and suffix tokens, respectively.</p>
         </div>
 
-        <h2>We did not expect ReFT to perform well.</h2>
+        <h2>We did not expect ReFT to perform well</h2>
 
         <p>LoReFT intervenes on representations minimally (rank-1 involves about 9K parameters). It can either overfit easily or not learn at all. However, it turns out that LoReFT can be SoTA in some cases.</p>
 
@@ -215,7 +221,7 @@
 
         <p><strong>Linear subspace is powerful, conditioned on model's upstream computations.</strong> LoReFT shows linear subspaces contain rich semantics that you can manipulate to steer model behaviors. More importantly, the interventions not only result in changes in the representations but also <strong>changes in all the upstream computations</strong> (i.e., all the upper right corner computations of the intervening representation). You can think of LoReFT as if it is strengthening or weakening existing causal pathways.</p>
 
-        <h2>Why does LoReFT work? A case study through a memorisation test.</h2>
+        <h2>Why does LoReFT work? A case study through a memorisation test</h2>
 
         <p>In short, we are not sure yet. We only qualitatively study its limits with the hope of understanding ReFT better through a memorisation test. We first simplify our intervention function <em>Φ</em> to have fewer parameters than vanilla LoReFT by removing the <strong>Wh</strong> term and only learning the bias term:</p>
 
@@ -231,7 +237,7 @@
 
         <p>The figure above shows the prefix recovery rate (Rec. %) as exact matches. If it is 100%, it means the text is fully recovered. We vary the number of tokens and intervening layers for each test. Surprisingly, <strong>rank-1 LoReFT on LLaMA-1 7B can memorise up to 2048 tokens</strong> for almost all layers. This means LMs are very good at unpacking information stored in the representations - LMs are, themselves, super powerful future lenses.</p>
 
-        <h2>LoReFT operates in vector space and is composable.</h2>
+        <h2>LoReFT operates in vector space and is composable</h2>
 
         <p>PEFTs like LoRA provides some post-hoc cool interpretability usages, such as weight merging <a href="https://arxiv.org/abs/2307.13269">[2]</a> that has also been tried in learned model weights as well <a href="https://arxiv.org/abs/2212.09849">[3]</a>. Can LoReFT do something similar? Yes, ReFT can be composable in a very interpretable way, since <strong>LoReFT learns orthogonal subspaces</strong>.</p>
 
@@ -251,7 +257,7 @@
           <img src="../img/reft-code.png" style="max-width: 100%; height: auto;" alt="ReFT Code">
         </div>
 
-        <h2>Onto the future: ReFTs, interpretability, abstraction, and control.</h2>
+        <h2>Onto the future: ReFTs, interpretability, abstraction, and control</h2>
 
         <p><strong>More ReFTs.</strong> ReFTs allow us to intervene across different timesteps and locations. So far, we only intervene on prompt tokens. We don't share weights when we intervene across layers. We also have not tried to do schematic interventions where we intervene on a specific causal path (e.g., attention head 8 at layer 7 and position 0 and attention head 9 at layer 8 and position 1). More complex ReFTs or automatic ReFTs would be nice. Having ReFTs that better control the mathematical reasoning ability would be cool.</p>
 
@@ -261,7 +267,7 @@
 
         <p><strong>Other thoughts.</strong> ReFT achieving SoTA or getting very close to SoTA was unexpected. It means our LMs have so much more power to be explored in their representation space. We also hope ReFT can not only be viewed as another PEFT method to benchmark against for your future work, but also a window we open up for us to study how our LMs work, and what are their limits.</p>
 
-        <h2>How to Cite</h2>
+        <h2>how to cite</h2>
 
         <div class="publication">
           <div class="text">
