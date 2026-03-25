@@ -6,7 +6,7 @@
 /* --- Theme toggle button — sits with the name banner, scrolls away --- */
 #theme-toggle {
   position: absolute;
-  top: 68px;
+  top: 72px;
   right: max(20px, calc((100vw - 700px) / 2));
   width: 20px;
   height: 20px;
@@ -125,6 +125,7 @@
 /* --- Links section (quick links) --- */
 [data-theme="dark"] .links a {
   color: #999 !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* --- Footer --- */
