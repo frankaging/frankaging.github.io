@@ -188,6 +188,15 @@
     [data-theme="dark"] .prompt-label {
       color: #555;
     }
+
+    h2 {
+      font-weight: 400 !important;
+      color: #333;
+    }
+
+    [data-theme="dark"] h2 {
+      color: #aaa;
+    }
   </style>
 
   <script>/* Anti-FOUC */(function(){try{var t=localStorage.getItem('theme');if(!t){var h=new Date().getHours();t=(h>=20||h<6)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
