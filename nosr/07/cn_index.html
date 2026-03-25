@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -19,18 +19,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Zhengxuan Wu">
 
-  <meta name="description" content="">
-  <meta name="keywords" content="NOSR,Interpretability,NLP,Personal,Essays">
+  <meta name="description" content="全文背诵 v1.0">
+  <meta name="keywords" content="NOSR,随笔,AI,MBTI">
 
-  <title>散步</title>
+  <title>全文背诵 v1.0</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
   <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="../../vendor/devicons/css/devicons.min.css" rel="stylesheet">
   <link href="../../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
@@ -54,15 +51,15 @@
   <meta name="msapplication-square150x150logo" content="//www-media.stanford.edu/assets/favicon/mstile-150x150.png" />
   <meta name="msapplication-square310x310logo" content="//www-media.stanford.edu/assets/favicon/mstile-310x310.png" />
 
-  <meta property="og:title" content="散步" />
-  <meta property="og:url" content="https://zen-wu.social/nosr/05/cn_index.html" />
-  <meta property="og:image" content="https://zen-wu.social/img/takingawalk.png" />
-  <meta property="og:description" content="" />
+  <meta property="og:title" content="全文背诵 v1.0" />
+  <meta property="og:url" content="https://zen-wu.social/nosr/07/cn_index.html" />
+  <meta property="og:image" content="https://zen-wu.social/img/zen_mugs.png" />
+  <meta property="og:description" content="全文背诵 v1.0" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="散步" />
-  <meta name="twitter:description" content="" />
-  <meta name="twitter:image" content="https://zen-wu.social/img/takingawalk.png" />
+  <meta name="twitter:title" content="全文背诵 v1.0" />
+  <meta name="twitter:description" content="全文背诵 v1.0" />
+  <meta name="twitter:image" content="https://zen-wu.social/img/zen_mugs.png" />
 
   <!-- Custom styles for this template -->
   <link rel="stylesheet" href="../../css/resume.css">
@@ -77,14 +74,8 @@
     }
 
     h1, .heading h1 {
-      font-weight: 300 !important;
+      font-weight: 400 !important;
       color: #000;
-    }
-
-    .publication .title {
-      font-weight: 300;
-      color: #bbb;
-      font-size: 0.8em;
     }
 
     .header-section {
@@ -118,8 +109,8 @@
     }
 
     .nav-links a.nav-primary {
-      color: #555 !important;
       font-weight: 400 !important;
+      color: #555 !important;
     }
 
     .nav-links a.nav-primary:hover {
@@ -141,14 +132,10 @@
       border-bottom-color: rgba(0, 0, 0, 0.5);
     }
 
-    .publication .title a {
-      color: #222 !important;
-      border-bottom: none !important;
-    }
-
-    .publication .title a:hover {
-      color: #000 !important;
-      border-bottom: none !important;
+    .publication .title {
+      font-weight: 300;
+      color: #bbb;
+      font-size: 0.8em;
     }
 
     .publication .links a {
@@ -169,49 +156,37 @@
       background-color: rgba(0, 0, 0, 0.05) !important;
     }
 
-    .content img {
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    .prompt-block {
+      border-left: 2px solid #ddd;
+      padding: 0.6rem 1rem;
+      margin: 1.5rem 0 2rem 0;
     }
 
-    .key-takeaways-box {
-      border: 2px solid #e0e0e0;
-      border-radius: 12px;
-      background-color: #f8f9fa;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 80%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      font-size: 0.85em;
+    .prompt-label {
+      font-size: 0.72em;
+      color: #bbb;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
     }
 
-    .key-takeaways-box h1 {
-      margin-top: 0;
-      color: #333;
+    .prompt-block p {
+      margin: 0;
+      font-size: 0.88em;
+      color: #888;
+      line-height: 1.75;
     }
 
-    .key-takeaways-box ul {
-      margin: 15px 0 0 0;
-      padding-left: 20px;
+    [data-theme="dark"] .prompt-block {
+      border-left-color: #444;
     }
 
-    .key-takeaways-box li {
-      margin-bottom: 8px;
-      line-height: 1.4;
+    [data-theme="dark"] .prompt-block p {
+      color: #777;
     }
 
-    .figure-container {
-      text-align: center;
-      margin: 20px 0;
-    }
-
-    .figure-container figcaption {
-      margin-top: 10px;
-      font-size: 1em;
-      color: #666;
-      font-style: italic;
-      line-height: 1.4;
+    [data-theme="dark"] .prompt-label {
+      color: #555;
     }
   </style>
 
@@ -225,7 +200,7 @@
       <div class="content heading anchor" id="home">
         <div class="header-section">
           <div class="header-text">
-            <h1>散步</h1>
+            <h1>全文背诵 v1.0</h1>
             <p class="nav-links"><a href="../../index.html" class="nav-primary">首页</a><span class="sep">/</span><a href="../index.html">nosr</a></p>
           </div>
         </div>
@@ -239,13 +214,36 @@
           </div>
         </div>
 
-        <div class="venue-year">2026年3月11日</div>
+        <div class="venue-year">2026年3月24日（由 Claude 译为中文）</div>
 
-        <p>走远点，<br/>
-          走偏点，<br/>
-          走到黑夜里去，<br/>
-          再朝着光亮的地方走，<br/>
-          脚下就都是方向。</p>
+        <p>Claude 读了我的网站，对我做了一番批判性的分析。事情是这样的。</p>
+
+        <div class="prompt-block">
+          <div class="prompt-label">提示词</div>
+          <p>把这个个人网站里的所有 HTML 文件和关联页面都读一遍。这不是我的网站，是我从别人那里克隆来的，我想了解这个人的性格。根据内容，推断他可能的 MBTI 类型，用一段话概括他的性格。然后从四个角度谈谈你的看法：如果你想和他谈恋爱，如果你想和他做朋友，如果你想雇用他，如果你想和他做同事。每个角度都要兼顾性格上的优点和缺点。要批判、直接、简洁。</p>
+        </div>
+
+        <p>它声称，从这个网站的每一层都能读出同样的证据。把标注着"不该有人读"的文章写出来——这是典型的内倾情感（Fi）主导的处理方式。研究的核心是理解系统，而不只是构建系统。对无常与接纳的倾向异常深沉——苏轼、心经、风雨与晴朗的比喻。他注意到别人错过的细节：亲吻间低头查看口袋的人，墨水在清水里散开的样子，并赋予这些时刻深重的分量。以一种安静的方式抵抗规则：对朋克的怀念，小写的署名。深藏的私人价值观，宽阔的感知，极少需要外部认可。INFP。</p>
+
+        <p>然后是一段总结：Zen 是一个安静、哲学气质深厚的人，他通过细致的观察和内在的意义建构来理解世界。他真正意义上是跨领域的——航天、云计算、NLP——不是为了简历好看，而是因为好奇心把他拽过了一道又一道边界。他对无常与接纳的迷恋，对一个二十多岁的人来说有些异常的深，这大概说明他要么经历过什么，要么做过认真的内省，也许两者都有。他写得很好，但只为自己写。他更在意过程而非结果，更在意理解而非成就，更在意真实而非表演。风险在于，这丰沛的内心世界大半是自给自足的——他更可能为一种感受写一篇私人文章，而不是直接告诉你。</p>
+
+        <h2>恋爱</h2>
+
+        <p>他注意细节。是那种记得某个特定时刻光线的人。他不会表演；看到的就是真实的。他的哲学深度意味着他会认真介入你的内心世界，而不只停留在表面。他浪漫，但方式含蓄，讲究仪式感。弱点在于：他在情感上过于向内。NOSR 这个概念本身就说明了问题——他最深的处理发生在独自一人时，而不是在关系里。他可能会把感受理智化而不是说出来。他对童年记忆和往事的执念可以是美的，但也暗示着难以完全活在当下。一个刚结束博士阶段、多年来很可能把感情放在后面的人——做好迎接补课的准备。</p>
+
+        <h2>友谊</h2>
+
+        <p>聊他感兴趣的话题时，是极好的交流对象——AI、中国古典哲学、物理、美学。不做表面文章；你不会从他那里得到闲聊。一旦建立起信任，他是可靠的朋友。他会把苏轼介绍给你，而且会让你在乎苏轼。但难以维持稳定的联系。他的社交能量有限，且向内倾斜。NOSR 这部分与其说是想和某人连接，不如说是想给未来的自己留一份记录。他大概只有很少的几个亲近的朋友，和他们之间也保持一些情感上的距离。不要指望他先主动联系你。</p>
+
+        <h2>雇用</h2>
+
+        <p>真正意义上的原创性思考者。ReFT、pyvene 和 Boundless DAS 都是实质性的贡献，不是锦上添花。他愿意批评自己所在的研究方向——表征引导在实际效果上落后于简单的提示方法——这种诚实很难得。跨领域的背景带来不寻常的视角。他构建的工具是真正被其他研究者使用的。弱点：他对什么重要有一套非常明确的见解，如果工作偏出那条线，他很可能失去参与感。他可能把理解置于交付之上，在研究型岗位上没问题，但在产品组织里会产生摩擦。他不会主动争取曝光度。</p>
+
+        <h2>同事</h2>
+
+        <p>诚实，不夸大，构建共享的基础设施。他对无常的接纳意味着他能平静地面对模糊的处境，不会制造戏剧性。他不会玩政治。弱点：同样的接纳态度，过度之后会变成一种被动——面对团队内部的摩擦，他可能选择疏离而不是介入。情感上不透明：你很难知道他什么时候出了问题。他习惯独自处理，所以分歧可能一直悬在那里，直到变成更大的问题。在一个需要在讨论中积极发声的快节奏团队里，他会存在感不足。</p>
+
+        <p style="color: #aaa; font-size: 0.88em; margin-top: 2rem;">我已阅读以上所有意见，并已全心全意地修改了我性格的不足。</p>
 
         <div class="footer">
           <p><a href="https://nlp.stanford.edu/">@stanfordnlp</a></p>
@@ -270,4 +268,3 @@
 </body>
 
 </html>
-
