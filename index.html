@@ -26,7 +26,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Zhengxuan Wu">
 
-  <meta name="description" content="Zhengxuan Wu is a CS Ph.D. student at Stanford University, co-advised by Chris Potts and Chris Manning. Zhengxuan is interested in mechanistic interpretability of language models.">
+  <meta name="description" content="Zhengxuan Wu is a Research Scientist at Google. He got his CS Ph.D. from Stanford University, co-advised by Chris Potts and Chris Manning. Zhengxuan is interested in mechanistic interpretability and control for language models.">
   <meta name="keywords" content="Zhengxuan Wu,Mechanistic Interpretability,Language Models,Representation Steering,Representation Finetuning">
 
 
@@ -217,7 +217,7 @@
       <div class="content heading anchor" id="home">
         <div class="header-section">
           <div class="profile-pic">
-            <img src="img/zen_lake_tahoe_mugs_bw.png" alt="Zhengxuan Wu">
+            <img src="img/profile_pic_2026.jpg" alt="Zhengxuan Wu">
           </div>
           <div class="header-text">
             <h1>
@@ -230,18 +230,20 @@
               </audio>
             </h1>
 
-            <p class="nav-links"><a href="blog.html" class="nav-primary">blog</a><span class="sep">/</span><a href="https://github.com/frankaging">git</a><span class="sep">/</span><a href="pdf/cv.pdf">cv</a><span class="sep">/</span><a href="https://twitter.com/zhengxuanzenwu">x</a><span class="sep">/</span><a href="mailto:wuzhengx@cs.stanford.edu">@</a><span class="sep">/</span><a href="https://scholar.google.com/citations?user=CBvE6lwAAAAJ&hl=en">scholar</a></p>
+            <p class="nav-links"><a href="blog.html" class="nav-primary">blog</a><span class="sep">/</span><a href="https://github.com/frankaging">git</a><span class="sep">/</span><a href="pdf/cv.pdf">cv</a><span class="sep">/</span><a href="https://twitter.com/zhengxuanzenwu">x</a><span class="sep">/</span><a href="mailto:wuzhengx@cs.stanford.edu">email</a><span class="sep">/</span><a href="https://scholar.google.com/citations?user=CBvE6lwAAAAJ&hl=en">scholar</a><span class="sep">/</span><a href="https://www.linkedin.com/in/wuzhengx/">linkedin</a></p>
           </div>
         </div>
         
         <div class="intro-section">
           <p id="intro-text">i go by <span class="zen-highlight">zen</span>. 
-            i earned my CS Ph.D. from Stanford University, advised by chris^2: 
+            i am now at <a href="https://deepmind.google/">Google DeepMind</a> working on interpretability.</p>
+            
+          <p>i got my CS Ph.D. at Stanford University, advised by Chris^2: 
             <span id="coadvisors"></span>.
             and i spent a few years on learning a 
-            few things about <a href="https://www.tandfonline.com/doi/abs/10.1080/00102202.2020.1738411" style="text-decoration: none; background: none; border-bottom: 1px solid rgba(0, 0, 0, 0.25);">space combustion</a> and <a href="https://www.vmware.com/docs/vmware-cloud-native-storage-infographic" style="text-decoration: none; background: none; border-bottom: 1px solid rgba(0, 0, 0, 0.25);">cloud computing</a>.</p>
+            few things about <a href="https://www.tandfonline.com/doi/abs/10.1080/00102202.2020.1738411" style="text-decoration: none; background-color: transparent !important; border-bottom: 1px solid rgba(0, 0, 0, 0.25);">space combustion</a> and <a href="https://www.vmware.com/docs/vmware-cloud-native-storage-infographic" style="text-decoration: none; background-color: transparent !important; border-bottom: 1px solid rgba(0, 0, 0, 0.25);">cloud computing</a>.</p>
 
-            <p>i'm interested in <span class="interpreting"><span>i</span><span>n</span><span>t</span><span>e</span><span>r</span><span>p</span><span>r</span><span>e</span><span>t</span><span>i</span><span>n</span><span>g</span></span> language models and, also, <span class="controlling"><span>c</span><span>o</span><span>n</span><span>t</span><span>r</span><span>o</span><span>l</span><span>l</span><span>i</span><span>n</span><span>g</span></span> them.</p>
+            <!-- <p>i'm interested in <span class="interpreting"><span>i</span><span>n</span><span>t</span><span>e</span><span>r</span><span>p</span><span>r</span><span>e</span><span>t</span><span>i</span><span>n</span><span>g</span></span> language models and, also, <span class="controlling"><span>c</span><span>o</span><span>n</span><span>t</span><span>r</span><span>o</span><span>l</span><span>l</span><span>i</span><span>n</span><span>g</span></span> them.</p> -->
           
         </div>
 
@@ -427,8 +429,8 @@
   // Randomly swap coadvisor names
   document.addEventListener("DOMContentLoaded", function() {
     const coadvisors = [
-      { name: "chris potts", url: "https://web.stanford.edu/~cgpotts/" },
-      { name: "chris manning", url: "https://nlp.stanford.edu/~manning/" }
+      { name: "Chris Potts", url: "https://web.stanford.edu/~cgpotts/" },
+      { name: "Chris Manning", url: "https://nlp.stanford.edu/~manning/" }
     ];
     
     // Randomly shuffle the array
@@ -436,8 +438,9 @@
       coadvisors.reverse();
     }
     
-    // Create the HTML with random order
-    const coadvisorsHtml = `<a href="${coadvisors[0].url}">${coadvisors[0].name}</a> and <a href="${coadvisors[1].url}">${coadvisors[1].name}</a>`;
+    const coAdvisorLinkStyle =
+      "text-decoration: none; background-color: transparent !important; border-bottom: 1px solid rgba(0, 0, 0, 0.25);";
+    const coadvisorsHtml = `<a href="${coadvisors[0].url}" style="${coAdvisorLinkStyle}">${coadvisors[0].name}</a> and <a href="${coadvisors[1].url}" style="${coAdvisorLinkStyle}">${coadvisors[1].name}</a>`;
     
     // Insert into the span
     document.getElementById("coadvisors").innerHTML = coadvisorsHtml;
