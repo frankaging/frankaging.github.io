@@ -53,6 +53,7 @@
 [data-theme="dark"] a:hover {
   color: #eee !important;
   border-bottom-color: rgba(255,255,255,0.4) !important;
+  text-decoration: none !important;
 }
 
 /* --- Nav links --- */
@@ -63,6 +64,7 @@
 
 [data-theme="dark"] .nav-links a:hover {
   color: #999 !important;
+  text-decoration: underline !important;
 }
 
 [data-theme="dark"] .nav-links a.nav-primary {
@@ -71,6 +73,7 @@
 
 [data-theme="dark"] .nav-links a.nav-primary:hover {
   color: #fff !important;
+  text-decoration: underline !important;
 }
 
 [data-theme="dark"] .nav-links .sep {

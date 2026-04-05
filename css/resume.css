@@ -185,7 +185,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Bio section advisor links */
@@ -225,6 +225,10 @@ a:hover {
 
 .nav-links a:first-child {
   margin-left: 0;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
 /* Tag styling */
