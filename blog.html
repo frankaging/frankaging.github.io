@@ -68,9 +68,14 @@
   
   <style>
     body {
-      font-family: "Lato", sans-serif;
+      font-family: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
+    }
+
+    h1, .heading h1 {
+      font-weight: 300 !important;
+      color: #000;
     }
 
     .header-section h1 {
@@ -84,7 +89,7 @@
 
     .nav-links a {
       color: #aaa !important;
-      font-weight: 400 !important;
+      font-weight: 300 !important;
       background: none !important;
       padding: 0 !important;
       border-radius: 0 !important;
@@ -100,8 +105,8 @@
     }
 
     .nav-links a.nav-primary {
-      color: #222 !important;
-      font-weight: 500 !important;
+      color: #555 !important;
+      font-weight: 300 !important;
     }
 
     .nav-links a.nav-primary:hover {
@@ -143,6 +148,15 @@
       border-bottom: none !important;
     }
 
+    /* Lighten the post description so the title stands out */
+    .publication .authors {
+      color: #888 !important;
+    }
+
+    .publication .authors a {
+      color: #777 !important;
+    }
+
     .rss-link {
       text-decoration: none;
       margin-left: 0.4em;
@@ -151,7 +165,7 @@
       color: #888 !important;
       border-radius: 4px;
       font-size: 0.45em;
-      font-weight: 500;
+      font-weight: 400;
       vertical-align: middle;
       letter-spacing: 0.03em;
     }

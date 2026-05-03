@@ -17,6 +17,12 @@ body {
   padding: 0;
 }
 
+/* Use color (darker), not weight, for inline emphasis */
+b, strong {
+  font-weight: inherit;
+  color: #000;
+}
+
 
 
 /* Container and layout */
@@ -33,7 +39,7 @@ body {
 /* Zen highlight */
 .zen-highlight {
   color: rgb(204, 101, 0);
-  font-weight: 600;
+  font-weight: inherit;
   background-color: rgba(204, 101, 0, 0.06);
   padding: 1px 4px;
   border-radius: 3px;
@@ -100,6 +106,13 @@ body {
   flex: 1;
 }
 
+/* Match the h1 -> nav-links gap site-wide. On the home page the play
+   button / chinese-name image makes the h1 a bit taller, so add a matching
+   top margin to the nav row on pages without a profile pic. */
+.header-section:not(:has(> .profile-pic)) .header-text .nav-links {
+  margin-top: 14px;
+}
+
 /* Intro section */
 .intro-section {
   margin-bottom: 30px;
@@ -122,14 +135,14 @@ body {
 
 .heading h1 {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 300;
   margin-bottom: 10px;
   color: #000;
 }
 
 .heading h3 {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 300;
   margin-bottom: 10px;
   color: #000;
 }
@@ -163,7 +176,7 @@ body {
 
 /* Text styles */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-weight: 300;
   color: #000;
   margin-bottom: 15px;
 }
@@ -214,7 +227,7 @@ a:hover {
 
 .nav-links a {
   color: rgb(204, 101, 0);
-  font-weight: 500;
+  font-weight: 300;
   background-color: rgba(204, 101, 0, 0.08);
   padding: 1px 3px;
   border-radius: 2px;
@@ -241,7 +254,7 @@ a:hover {
 /* Publications section */
 h2 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 300;
   margin-top: 40px;
   margin-bottom: 20px;
   color: #000;
@@ -249,7 +262,7 @@ h2 {
 
 .equal-note {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: inherit;
   color: #666;
 }
 
@@ -258,7 +271,7 @@ h2 {
   font-size: 14px;
   color: #888;
   margin-bottom: 5px;
-  font-weight: 400;
+  font-weight: inherit;
 }
 
 /* Links styling */
@@ -302,7 +315,7 @@ h2 {
 
 .publication .title {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 300;
   margin-bottom: 5px;
   line-height: 1.4;
 }
@@ -324,7 +337,7 @@ h2 {
 
 .publication .authors strong {
   color: rgb(204, 101, 0);
-  font-weight: 600;
+  font-weight: inherit;
   background-color: rgba(204, 101, 0, 0.06);
   padding: 1px 4px;
   border-radius: 3px;
@@ -332,7 +345,7 @@ h2 {
 
 .equalcontribution {
   color: #666;
-  font-weight: 600;
+  font-weight: inherit;
 }
 
 .venue {
